@@ -1,4 +1,6 @@
 package lk.ijse.gdse.dao.custom.impl;
 
-public class TherapyProgramDAOImpl {
+import lk.ijse.gdse.dao.custom.TherapyProgramDAO;
+
+public class TherapyProgramDAOImpl implements TherapyProgramDAO {
 }

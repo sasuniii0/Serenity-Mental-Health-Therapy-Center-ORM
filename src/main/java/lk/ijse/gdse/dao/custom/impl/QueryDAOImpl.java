@@ -1,4 +1,6 @@
 package lk.ijse.gdse.dao.custom.impl;
 
-public class QueryDAOImpl {
+import lk.ijse.gdse.dao.custom.QueryDAO;
+
+public class QueryDAOImpl implements QueryDAO {
 }

@@ -1,4 +1,7 @@
 package lk.ijse.gdse.dao.custom;
 
-public interface TherapistDAO {
+import lk.ijse.gdse.dao.CrudDAO;
+import lk.ijse.gdse.entity.Therapist;
+
+public interface TherapistDAO extends CrudDAO<Therapist> {
 }

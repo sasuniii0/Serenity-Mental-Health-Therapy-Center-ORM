@@ -40,7 +40,7 @@
                         </HBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="37.0" prefWidth="358.0">
                            <children>
-                              <Button fx:id="BtnBackToSignIn" mnemonicParsing="false" onAction="#BtnBackToSignInOnAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-radius: 25;" text="Back to Sign In" />
+                              <Button fx:id="BtnBackToSignIn" mnemonicParsing="false"  prefHeight="26.0" prefWidth="110.0" style="-fx-background-radius: 25;" text="Back to Sign In" />
                            </children>
                            <VBox.margin>
                               <Insets />
@@ -48,7 +48,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="358.0">
                            <children>
-                              <Button fx:id="BtnVerify" mnemonicParsing="false" onAction="#BtnVerifyOnAction" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Verify" />
+                              <Button fx:id="BtnVerify" mnemonicParsing="false"  prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Verify" />
                            </children>
                         </HBox>
                      </children>

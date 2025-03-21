@@ -33,7 +33,7 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="reset your account" textAlignment="CENTER" wrappingWidth="353.3367004394531" />
                            </children>
                         </HBox>
-                        <Text fx:id="BtnChange" onMouseClicked="#BtnChangeOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="change" textAlignment="RIGHT" wrappingWidth="347.73675537109375" />
+                        <Text fx:id="BtnChange"  strokeType="OUTSIDE" strokeWidth="0.0" text="change" textAlignment="RIGHT" wrappingWidth="347.73675537109375" />
                         <HBox prefHeight="29.0" prefWidth="358.0">
                            <children>
                               <TextField fx:id="TxtCode" prefHeight="26.0" prefWidth="354.0" promptText="enter code" style="-fx-background-radius: 25;" />
@@ -44,12 +44,12 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Text fx:id="BtnChange1" onMouseClicked="#BtnChangeOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="sample@gmail.com" wrappingWidth="347.73675537109375" />
+                              <Text fx:id="BtnChange1"  strokeType="OUTSIDE" strokeWidth="0.0" text="sample@gmail.com" wrappingWidth="347.73675537109375" />
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="358.0">
                            <children>
-                              <Button fx:id="BtnVerify" mnemonicParsing="false" onAction="#BtnVerifyOnAction" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Verify" />
+                              <Button fx:id="BtnVerify" mnemonicParsing="false"  prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Verify" />
                            </children>
                         </HBox>
                      </children>

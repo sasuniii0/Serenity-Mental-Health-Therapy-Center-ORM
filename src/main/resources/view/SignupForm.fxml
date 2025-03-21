@@ -49,7 +49,7 @@
                         <PasswordField fx:id="TxtPasswordReEnter" prefHeight="24.0" prefWidth="358.0" promptText="re enter password" style="-fx-background-radius: 25;" />
                         <HBox alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="358.0">
                            <children>
-                              <ComboBox fx:id="CmbAdminRece" onAction="#CmbAdminReceOnAction" prefHeight="26.0" prefWidth="215.0" promptText="Admin or Receptionist" style="-fx-background-radius: 25;" />
+                              <ComboBox fx:id="CmbAdminRece" prefHeight="26.0" prefWidth="215.0" promptText="Admin or Receptionist" style="-fx-background-radius: 25;" />
                            </children>
                         </HBox>
                         <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="358.0" spacing="5.0">
@@ -63,14 +63,14 @@
                         </HBox>
                         <HBox alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="358.0">
                            <children>
-                              <Button fx:id="BtnSignUp" mnemonicParsing="false" onAction="#BtnSignUpOnAction" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Sign up" />
+                              <Button fx:id="BtnSignUp" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Sign up" />
                            </children>
                         </HBox>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="or" textAlignment="CENTER" wrappingWidth="353.3367004394531" />
                         <HBox alignment="CENTER" prefHeight="25.0" prefWidth="358.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account" wrappingWidth="150.93670272827148" />
-                              <Button fx:id="BtnLogIn" mnemonicParsing="false" onAction="#BtnLogInOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-radius: 25;" text="login" />
+                              <Button fx:id="BtnLogIn" mnemonicParsing="false"  prefHeight="26.0" prefWidth="118.0" style="-fx-background-radius: 25;" text="login" />
                            </children>
                         </HBox>
                      </children>

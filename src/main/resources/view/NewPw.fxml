@@ -45,7 +45,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="358.0">
                            <children>
-                              <Button fx:id="BtnChange" mnemonicParsing="false" onAction="#BtnChangeOnAction" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Change" />
+                              <Button fx:id="BtnChange" mnemonicParsing="false"  prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Change" />
                            </children>
                         </HBox>
                      </children>

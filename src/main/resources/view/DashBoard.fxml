@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.gdse.controller.DashBoardController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.DashBoardController">
+   <children>
+      <Pane fx:id="sidePane" prefHeight="650.0" prefWidth="218.0">
+         <children>
+            <VBox prefHeight="650.0" prefWidth="218.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="94.0" prefWidth="218.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="158.93674087524414">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="218.0">
+                     <children>
+                        <Button fx:id="BtnHome" mnemonicParsing="false" onAction="#BtnHomeOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Home" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                     <children>
+                        <Button fx:id="BtnTherapist" mnemonicParsing="false" onAction="#BtnTherapistOnAction" prefHeight="26.0" prefWidth="172.0" style="-fx-background-radius: 25;" text="Therapist Management" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                     <children>
+                        <Button fx:id="BtnTherapyPrograms" mnemonicParsing="false" onAction="#BtnTherapyProgramsOnAction" prefHeight="12.0" prefWidth="175.0" style="-fx-background-radius: 25;" text="Therapy Programs" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                     <children>
+                        <Button fx:id="BtnSessionApp" mnemonicParsing="false" onAction="#BtnSessionAppOnAction" prefHeight="26.0" prefWidth="176.0" style="-fx-background-radius: 25;" text="Therapy Session Appoinment" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                     <children>
+                        <Button fx:id="BtnPatient" mnemonicParsing="false" onAction="#BtnPatientOnAction" prefHeight="26.0" prefWidth="175.0" style="-fx-background-radius: 25;" text="Patients Management" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                     <children>
+                        <Button fx:id="BtnPayment" mnemonicParsing="false" onAction="#BtnPaymentOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Payment History" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                     <children>
+                        <Button fx:id="BtnUser" mnemonicParsing="false" onAction="#BtnUserOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Users" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="121.0" prefWidth="218.0">
+                     <children>
+                        <Button fx:id="BtnLogOut" mnemonicParsing="false" onAction="#BtnLogOutOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Logout" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="sideAncPane" layoutX="218.0" prefHeight="650.0" prefWidth="705.0" />
+   </children>
 </AnchorPane>

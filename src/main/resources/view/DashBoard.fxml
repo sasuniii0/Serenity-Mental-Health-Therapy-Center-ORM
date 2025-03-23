@@ -23,42 +23,47 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="218.0">
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="218.0">
                      <children>
                         <Button fx:id="BtnHome" mnemonicParsing="false" onAction="#BtnHomeOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Home" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="218.0">
                      <children>
-                        <Button fx:id="BtnTherapist" mnemonicParsing="false" onAction="#BtnTherapistOnAction" prefHeight="26.0" prefWidth="172.0" style="-fx-background-radius: 25;" text="Therapist Management" />
+                        <Button fx:id="BtnSessionAppoinment" mnemonicParsing="false" onAction="#BtnSessionAppoinmentOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Session Appoinments" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                  <HBox alignment="CENTER" prefHeight="47.0" prefWidth="218.0">
                      <children>
-                        <Button fx:id="BtnTherapyPrograms" mnemonicParsing="false" onAction="#BtnTherapyProgramsOnAction" prefHeight="12.0" prefWidth="175.0" style="-fx-background-radius: 25;" text="Therapy Programs" />
+                        <Button fx:id="BtnRegistration" mnemonicParsing="false" onAction="#BtnRegistrationOnAction" prefHeight="26.0" prefWidth="176.0" style="-fx-background-radius: 25;" text="Registration" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
-                     <children>
-                        <Button fx:id="BtnSessionApp" mnemonicParsing="false" onAction="#BtnSessionAppOnAction" prefHeight="26.0" prefWidth="176.0" style="-fx-background-radius: 25;" text="Therapy Session Appoinment" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                  <HBox alignment="CENTER" prefHeight="47.0" prefWidth="218.0">
                      <children>
                         <Button fx:id="BtnPatient" mnemonicParsing="false" onAction="#BtnPatientOnAction" prefHeight="26.0" prefWidth="175.0" style="-fx-background-radius: 25;" text="Patients Management" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="218.0">
                      <children>
                         <Button fx:id="BtnPayment" mnemonicParsing="false" onAction="#BtnPaymentOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Payment History" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="218.0">
+                     <children>
+                        <Button fx:id="BtnTherapist" mnemonicParsing="false" onAction="#BtnTherapistOnAction" prefHeight="26.0" prefWidth="172.0" style="-fx-background-radius: 25;" text="Therapist Management" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="218.0">
+                     <children>
+                        <Button fx:id="BtnTherapyPrograms" mnemonicParsing="false" onAction="#BtnTherapyProgramsOnAction" prefHeight="12.0" prefWidth="175.0" style="-fx-background-radius: 25;" text="Therapy Programs" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="218.0">
                      <children>
                         <Button fx:id="BtnUser" mnemonicParsing="false" onAction="#BtnUserOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Users" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="121.0" prefWidth="218.0">
+                  <HBox alignment="CENTER" prefHeight="174.0" prefWidth="218.0">
                      <children>
                         <Button fx:id="BtnLogOut" mnemonicParsing="false" onAction="#BtnLogOutOnAction" prefHeight="26.0" prefWidth="174.0" style="-fx-background-radius: 25;" text="Logout" />
                      </children>

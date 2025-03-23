@@ -21,7 +21,10 @@ public class DashBoardController {
     private Button BtnPayment;
 
     @FXML
-    private Button BtnSessionApp;
+    private Button BtnRegistration;
+
+    @FXML
+    private Button BtnSessionAppoinment;
 
     @FXML
     private Button BtnTherapist;
@@ -62,7 +65,12 @@ public class DashBoardController {
     }
 
     @FXML
-    void BtnSessionAppOnAction(ActionEvent event) {
+    void BtnRegistrationOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void BtnSessionAppoinmentOnAction(ActionEvent event) {
 
     }
 

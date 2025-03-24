@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PatientController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="622.0" prefWidth="685.0" spacing="10.0">
@@ -118,7 +117,7 @@
                   </HBox>
                </children>
             </HBox>
-            <TableView fx:id="TblPatient" prefHeight="259.0" prefWidth="686.0">
+            <TableView fx:id="TblPatient" onMouseClicked="#TblPatientOnAction" prefHeight="259.0" prefWidth="686.0">
               <columns>
                 <TableColumn fx:id="ColId" prefWidth="54.399993896484375" text="Id" />
                 <TableColumn fx:id="ColName" prefWidth="67.20001220703125" text="Name" />

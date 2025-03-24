@@ -28,4 +28,7 @@ public class ForgotPwController {
     void BtnVerifyOnAction(ActionEvent event) {
 
     }
+
+    public void onVerifyAction(ActionEvent actionEvent) {
+    }
 }

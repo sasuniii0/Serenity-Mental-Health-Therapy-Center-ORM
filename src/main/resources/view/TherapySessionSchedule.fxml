@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.TherapySessionScheduleController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="627.0" prefWidth="685.0" spacing="10.0">
@@ -53,12 +52,12 @@
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="183.0" prefWidth="302.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Email" wrappingWidth="96.53674507141113" />
-                        <TextField fx:id="TxtPatientEmail" prefHeight="26.0" prefWidth="300.0" promptText="example@gmail.com" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patients" wrappingWidth="96.53674507141113" />
+                        <ComboBox fx:id="CmbPatient" onAction="#CmbPatient" prefHeight="26.0" prefWidth="304.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="96.53674507141113" />
                         <TextField fx:id="IdtPatientId" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="96.53674507141113" />
-                        <TextField fx:id="TxtPatientEmail" />
+                        <TextField fx:id="TxtPatientName" />
                      </children>
                   </VBox>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
@@ -67,20 +66,30 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Programs" wrappingWidth="242.13671493530273" />
                         <ComboBox fx:id="CmbTherapyPrograms" onAction="#CmbTherapyProgramsOnAction" prefHeight="26.0" prefWidth="243.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="242.13677597045898" />
-                        <DatePicker fx:id="TxtDate" prefHeight="26.0" prefWidth="242.0" />
+                        <DatePicker fx:id="TxtAppoinmentDate" prefHeight="26.0" prefWidth="242.0" />
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="334.0">
                            <children>
                               <Button fx:id="BtnAvailability" mnemonicParsing="false" onAction="#BtnAvailabilityOnAction" prefHeight="26.0" prefWidth="110.0" text="Check Availability" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapist" wrappingWidth="93.33673095703125" />
+                              <ComboBox fx:id="CmbTherapist" onAction="#CmbTherapistOnAction" prefHeight="26.0" prefWidth="238.0" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="35.0" prefWidth="686.0" spacing="15.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="686.0" spacing="15.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapist" wrappingWidth="93.33673095703125" />
-                  <ComboBox fx:id="CmbTherapist" prefHeight="26.0" prefWidth="120.0" />
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Amount" wrappingWidth="96.53674507141113" />
+                        <TextField fx:id="TxtAmount" prefHeight="26.0" prefWidth="102.0" />
+                     </children>
+                  </HBox>
                   <Button fx:id="BtnMakeAppoinment" mnemonicParsing="false" onAction="#BtnMakeAppoinmentOnAction" prefHeight="26.0" prefWidth="127.0" text="Make Appoinment" />
                   <Button fx:id="BtnRescheduleAppoinment" mnemonicParsing="false" onAction="#BtnRescheduleAppoinmentOnAction" prefHeight="26.0" prefWidth="150.0" text="Reschedule Appoinment" />
                   <Button fx:id="BtnCancelAppoinment" mnemonicParsing="false" onAction="#BtnCancelAppoinmentOnAction" prefHeight="26.0" prefWidth="142.0" text="Cancel Appoinment" />
@@ -89,12 +98,12 @@
             <TableView fx:id="TblSessionAppoinmnets" onMouseClicked="#TblSessionAppoinmnetsOnAction" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="ColId" prefWidth="75.0" text="Id" />
-                <TableColumn fx:id="ColEmail" prefWidth="101.60003662109375" text="Patient Email" />
-                  <TableColumn fx:id="ColName" prefWidth="88.79998779296875" text="Patient Name" />
+                <TableColumn fx:id="ColPatientId" prefWidth="101.60003662109375" text="Patient Id" />
                   <TableColumn fx:id="ColTherapyProgram" prefWidth="119.199951171875" text="Therapy Program" />
                   <TableColumn fx:id="ColDate" prefWidth="88.800048828125" text="Date" />
                   <TableColumn fx:id="ColTherapist" prefWidth="77.60003662109375" text="Therapist" />
                   <TableColumn fx:id="ColStatus" prefWidth="135.99993896484375" text="Status" />
+                  <TableColumn fx:id="ColAmount" prefWidth="75.0" text="Amount" />
               </columns>
             </TableView>
          </children>

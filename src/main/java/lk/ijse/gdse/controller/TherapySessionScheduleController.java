@@ -27,22 +27,25 @@ public class TherapySessionScheduleController {
     private Button BtnRescheduleAppoinment;
 
     @FXML
+    private ComboBox<?> CmbPatient;
+
+    @FXML
     private ComboBox<?> CmbTherapist;
 
     @FXML
     private ComboBox<?> CmbTherapyPrograms;
 
     @FXML
-    private TableColumn<?, ?> ColDate;
+    private TableColumn<?, ?> ColAmount;
 
     @FXML
-    private TableColumn<?, ?> ColEmail;
+    private TableColumn<?, ?> ColDate;
 
     @FXML
     private TableColumn<?, ?> ColId;
 
     @FXML
-    private TableColumn<?, ?> ColName;
+    private TableColumn<?, ?> ColPatientId;
 
     @FXML
     private TableColumn<?, ?> ColStatus;
@@ -60,13 +63,19 @@ public class TherapySessionScheduleController {
     private TableView<?> TblSessionAppoinmnets;
 
     @FXML
-    private DatePicker TxtDate;
+    private TextField TxtAmount;
+
+    @FXML
+    private DatePicker TxtAppoinmentDate;
+
+    @FXML
+    private Text TxtDate;
 
     @FXML
     private Text TxtId;
 
     @FXML
-    private TextField TxtPatientEmail;
+    private TextField TxtPatientName;
 
     @FXML
     private AnchorPane root;
@@ -88,6 +97,16 @@ public class TherapySessionScheduleController {
 
     @FXML
     void BtnRescheduleAppoinmentOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CmbPatient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CmbTherapistOnAction(ActionEvent event) {
 
     }
 

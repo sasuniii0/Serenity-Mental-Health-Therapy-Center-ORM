@@ -64,4 +64,6 @@ public class ReceptionistSidePaneController {
 
     }
 
+    public void BtnAppointmentManagementOnAction(ActionEvent actionEvent) {
+    }
 }

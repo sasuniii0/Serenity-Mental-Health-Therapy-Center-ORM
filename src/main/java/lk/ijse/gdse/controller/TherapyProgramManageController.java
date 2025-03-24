@@ -78,5 +78,6 @@ public class TherapyProgramManageController {
     }
 
     public void TblProgramsOnAction(MouseEvent mouseEvent) {
+
     }
 }

@@ -108,5 +108,6 @@ public class TherapistManageController {
     }
 
     public void TblTherapistOnAction(MouseEvent mouseEvent) {
+
     }
 }

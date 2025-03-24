@@ -1,4 +1,6 @@
 package lk.ijse.gdse.bo.custom.impl;
 
-public class TherapistManageBOImpl {
+import lk.ijse.gdse.bo.custom.TherapistManageBO;
+
+public class TherapistManageBOImpl implements TherapistManageBO {
 }

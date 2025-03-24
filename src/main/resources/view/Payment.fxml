@@ -44,14 +44,14 @@
             <Separator prefWidth="200.0" />
             <HBox prefHeight="53.0" prefWidth="687.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student Details" wrappingWidth="319.73675537109375" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="319.73675537109375" />
                </children>
             </HBox>
             <HBox prefHeight="51.0" prefWidth="687.0">
                <children>
                   <HBox prefHeight="27.0" prefWidth="326.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student-Id" wrappingWidth="85.33670043945312" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient-Id" wrappingWidth="85.33670043945312" />
                         <ComboBox fx:id="CmbStudentId" onAction="#CmbStudentIdOnAction" prefHeight="26.0" prefWidth="230.0" />
                      </children>
                   </HBox>
@@ -65,10 +65,22 @@
             </HBox>
             <HBox prefHeight="37.0" prefWidth="687.0">
                <children>
-                  <HBox prefHeight="27.0" prefWidth="326.0">
+                  <HBox prefHeight="38.0" prefWidth="342.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="85.33670043945312" />
                         <Text fx:id="TxtName" strokeType="OUTSIDE" strokeWidth="0.0" text="example" wrappingWidth="114.13672065734863" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="38.0" prefWidth="186.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duration" wrappingWidth="102.13671875" />
+                        <Text fx:id="TxtDuration" strokeType="OUTSIDE" strokeWidth="0.0" text="0 weeks" wrappingWidth="79.7366943359375" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="38.0" prefWidth="161.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fee" wrappingWidth="78.93670654296875" />
+                        <Text fx:id="TxtFee" strokeType="OUTSIDE" strokeWidth="0.0" text="LKR 0/=" wrappingWidth="53.3367919921875" />
                      </children>
                   </HBox>
                </children>

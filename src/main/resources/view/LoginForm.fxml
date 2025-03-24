@@ -11,66 +11,45 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.LoginFormController">
    <children>
-      <AnchorPane layoutX="115.0" layoutY="87.0" prefHeight="476.0" prefWidth="669.0" style="-fx-background-color: #085AD3; -fx-background-radius: 25;">
+      <AnchorPane layoutX="115.0" layoutY="87.0" prefHeight="476.0" prefWidth="669.0" style="-fx-background-color: #4A90E2; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
          <children>
-            <Pane prefHeight="476.0" prefWidth="398.0" style="-fx-background-color: white;">
+            <Pane prefHeight="476.0" prefWidth="398.0" style="-fx-background-color: white; -fx-background-radius: 0 25 25 0;">
                <children>
-                  <VBox prefHeight="476.0" prefWidth="398.0" spacing="5.0">
-                     <children>
-                        <HBox prefHeight="71.0" prefWidth="414.0" />
-                        <HBox prefHeight="38.0" prefWidth="358.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In" textAlignment="CENTER" wrappingWidth="353.336669921875">
-                                 <font>
-                                    <Font size="33.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="43.0" prefWidth="374.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sign in to your account" textAlignment="CENTER" wrappingWidth="353.3367004394531" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="46.0" prefWidth="414.0">
-                           <children>
-                              <TextField fx:id="TxtUserName" prefHeight="26.0" prefWidth="354.0" promptText="username" style="-fx-background-radius: 25;" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="26.0" prefWidth="358.0">
-                           <children>
-                              <PasswordField fx:id="TxtPassword" prefHeight="18.0" prefWidth="354.0" promptText="password" style="-fx-background-radius: 25;" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_RIGHT" prefHeight="37.0" prefWidth="358.0">
-                           <children>
-                              <Button fx:id="BtnForgotPw" mnemonicParsing="false" onAction="#BtnForgotPwOnAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-radius: 25;" text="forgot password" />
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="358.0">
-                           <children>
-                              <Button fx:id="BtnSignIn" mnemonicParsing="false" onAction="#BtnSignInOnAction" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Sign in" />
-                           </children>
-                        </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="or" textAlignment="CENTER" wrappingWidth="353.3367004394531" />
-                        <HBox alignment="TOP_CENTER" prefHeight="25.0" prefWidth="358.0">
-                           <children>
-                              <Button fx:id="BtnCreateNewAccount" mnemonicParsing="false" onAction="#BtnCreateNewAccountOnAction" prefHeight="26.0" prefWidth="206.0" style="-fx-background-radius: 25;" text="Create new account" />
-                           </children>
-                        </HBox>
-                     </children>
+                  <VBox alignment="CENTER" prefHeight="476.0" prefWidth="398.0" spacing="15.0">
                      <padding>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets left="30.0" right="30.0" />
                      </padding>
+                     <children>
+                        <Text text="Sign In" textAlignment="CENTER" wrappingWidth="353.336669921875">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </Text>
+
+                        <Text opacity="0.7" text="Sign in to your account" />
+
+                        <TextField fx:id="TxtUserName" prefHeight="40.0" prefWidth="354.0" promptText="Username" style="-fx-background-radius: 25;                                           -fx-border-radius: 25;                                           -fx-border-color: #4A90E2;                                           -fx-border-width: 1.5;                                           -fx-padding: 10;" />
+
+                        <PasswordField fx:id="TxtPassword" prefHeight="40.0" prefWidth="354.0" promptText="Password" style="-fx-background-radius: 25;                                               -fx-border-radius: 25;                                               -fx-border-color: #4A90E2;                                               -fx-border-width: 1.5;                                               -fx-padding: 10;" />
+
+                        <HBox alignment="TOP_RIGHT" prefWidth="354.0">
+                           <children>
+                              <Button fx:id="BtnForgotPw" onAction="#BtnForgotPwOnAction" style="-fx-background-color: transparent;                                              -fx-text-fill: #4A90E2;" text="Forgot password?" />
+                           </children>
+                        </HBox>
+
+                        <Button fx:id="BtnSignIn" onAction="#BtnSignInOnAction" prefHeight="40.0" prefWidth="354.0" style="-fx-background-color: #4A90E2;                                        -fx-text-fill: white;                                        -fx-background-radius: 25;                                        -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.3), 5, 0, 0, 2);" text="Sign In" />
+
+                        <Text opacity="0.7" text="or" textAlignment="CENTER" />
+
+                        <Button fx:id="BtnCreateNewAccount" onAction="#BtnCreateNewAccountOnAction" prefHeight="40.0" prefWidth="354.0" style="-fx-background-color: white;                                        -fx-text-fill: #4A90E2;                                        -fx-background-radius: 25;                                        -fx-border-color: #4A90E2;                                        -fx-border-width: 2;" text="Create New Account" />
+                     </children>
                   </VBox>
                </children>
             </Pane>
-            <Text layoutX="447.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back!" wrappingWidth="180.5367431640625">
+            <Text layoutX="447.0" layoutY="230.0" text="Welcome back!" wrappingWidth="180.5367431640625">
                <font>
                   <Font size="26.0" />
                </font>

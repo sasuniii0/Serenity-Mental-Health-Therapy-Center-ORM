@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -12,75 +11,55 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.SignupFormController">
    <children>
-      <AnchorPane layoutX="115.0" layoutY="87.0" prefHeight="476.0" prefWidth="669.0" style="-fx-background-color: #085AD3; -fx-background-radius: 25;">
+      <AnchorPane layoutX="115.0" layoutY="87.0" prefHeight="476.0" prefWidth="669.0" style="-fx-background-color: #2464D3; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
          <children>
-            <Pane prefHeight="476.0" prefWidth="398.0" style="-fx-background-color: white;">
+            <Pane prefHeight="476.0" prefWidth="398.0" style="-fx-background-color: white; -fx-background-radius: 0 25 25 0;">
                <children>
-                  <VBox prefHeight="476.0" prefWidth="398.0" spacing="5.0">
+                  <VBox alignment="CENTER" prefHeight="476.0" prefWidth="398.0" spacing="10.0">
+                     <padding>
+                        <Insets left="30.0" right="30.0" />
+                     </padding>
                      <children>
-                        <HBox prefHeight="71.0" prefWidth="414.0" />
-                        <HBox prefHeight="38.0" prefWidth="358.0">
+                        <Text text="Sign Up" textAlignment="CENTER" wrappingWidth="353.336669921875">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </Text>
+
+                        <Text opacity="0.7" text="Create your new account" textAlignment="CENTER" />
+
+                        <TextField fx:id="txtUsername" prefHeight="40.0" prefWidth="354.0" promptText="Username" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
+
+                        <TextField fx:id="txtEmail" prefHeight="40.0" prefWidth="354.0" promptText="Email" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
+
+                        <PasswordField fx:id="txtPassword" prefHeight="40.0" prefWidth="354.0" promptText="Password" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
+
+                        <PasswordField fx:id="txtConfirmPassword" prefHeight="40.0" prefWidth="354.0" promptText="Confirm Password" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
+
+                        <ComboBox fx:id="cmbRole" prefHeight="40.0" prefWidth="354.0" promptText="Select Role" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5;" />
+
+                        <HBox spacing="10.0" alignment="CENTER">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" textAlignment="CENTER" wrappingWidth="353.336669921875">
-                                 <font>
-                                    <Font size="33.0" />
-                                 </font>
-                              </Text>
+                              <TextField fx:id="txtAdminName" prefHeight="40.0" prefWidth="170.0" promptText="Admin Name" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
+                              <TextField fx:id="txtAdminCode" prefHeight="40.0" prefWidth="170.0" promptText="Admin Code" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="34.0" prefWidth="358.0">
+
+                        <Button fx:id="btnSignUp" onAction="#onSignUpAction" prefHeight="40.0" prefWidth="354.0" style="-fx-background-color: #2464D3; -fx-text-fill: white; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(36,100,211,0.3), 5, 0, 0, 2);" text="Sign Up" />
+
+                        <HBox alignment="CENTER" spacing="5.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="create new account" textAlignment="CENTER" wrappingWidth="353.3367004394531" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="30.0" prefWidth="358.0" spacing="5.0">
-                           <children>
-                              <TextField fx:id="TxtUserName" prefHeight="26.0" prefWidth="354.0" promptText="username" style="-fx-background-radius: 25;" />
-                              <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="354.0" promptText="email" style="-fx-background-radius: 25;" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="33.0" prefWidth="358.0">
-                           <children>
-                              <PasswordField fx:id="TxtPassword" prefHeight="26.0" prefWidth="359.0" promptText="password" style="-fx-background-radius: 25;" />
-                           </children>
-                        </HBox>
-                        <PasswordField fx:id="TxtPasswordReEnter" prefHeight="24.0" prefWidth="358.0" promptText="re enter password" style="-fx-background-radius: 25;" />
-                        <HBox alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="358.0">
-                           <children>
-                              <ComboBox fx:id="CmbAdminRece" prefHeight="26.0" prefWidth="215.0" promptText="Admin or Receptionist" style="-fx-background-radius: 25;" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="358.0" spacing="5.0">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <children>
-                              <TextField fx:id="TxtAdminName" prefHeight="26.0" prefWidth="166.0" promptText="admin name" style="-fx-background-radius: 25;" />
-                              <TextField fx:id="TxtAdminCode" prefHeight="26.0" prefWidth="166.0" promptText="admin code" style="-fx-background-radius: 25;" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="358.0">
-                           <children>
-                              <Button fx:id="BtnSignUp" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-radius: 25;" text="Sign up" />
-                           </children>
-                        </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="or" textAlignment="CENTER" wrappingWidth="353.3367004394531" />
-                        <HBox alignment="CENTER" prefHeight="25.0" prefWidth="358.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account" wrappingWidth="150.93670272827148" />
-                              <Button fx:id="BtnLogIn" mnemonicParsing="false"  prefHeight="26.0" prefWidth="118.0" style="-fx-background-radius: 25;" text="login" />
+                              <Text opacity="0.7" text="Already have an account?" />
+                              <Text fx:id="lnkLogin" style="-fx-fill: #2464D3; -fx-cursor: hand;" text="Login" />
                            </children>
                         </HBox>
                      </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
                   </VBox>
                </children>
             </Pane>
-            <Text fill="WHITE" layoutX="441.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Glad to see you!" wrappingWidth="192.5367431640625">
+            <Text fill="WHITE" layoutX="441.0" layoutY="230.0" text="Welcome Aboard!" wrappingWidth="192.5367431640625">
                <font>
                   <Font size="26.0" />
                </font>

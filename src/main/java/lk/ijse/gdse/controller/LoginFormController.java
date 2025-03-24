@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.bo.BOFactory;
+import lk.ijse.gdse.bo.custom.UserBO;
 
 public class LoginFormController {
 
@@ -27,6 +29,8 @@ public class LoginFormController {
     @FXML
     private AnchorPane root;
 
+    UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
+
     @FXML
     void BtnCreateNewAccountOnAction(ActionEvent event) {
 
@@ -39,7 +43,10 @@ public class LoginFormController {
 
     @FXML
     void BtnSignInOnAction(ActionEvent event) {
+        String email= TxtUserName.getText();
+        String password=TxtPassword.getText();
 
+        boolean isAvailable = userBO.searchUserByEmail(email);
     }
 
 }

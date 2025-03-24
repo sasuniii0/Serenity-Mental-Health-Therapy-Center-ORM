@@ -22,4 +22,6 @@ public class NewPwController {
 
     }
 
+    public void onChangePasswordAction(ActionEvent actionEvent) {
+    }
 }

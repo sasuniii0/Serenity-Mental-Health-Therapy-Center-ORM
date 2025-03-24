@@ -3,6 +3,7 @@ package lk.ijse.gdse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,6 +33,9 @@ public class PatientController {
     private Button BtnUpdate;
 
     @FXML
+    private ComboBox<?> CmbTherapyProgram;
+
+    @FXML
     private TableColumn<?, ?> ColAddress;
 
     @FXML
@@ -51,6 +55,9 @@ public class PatientController {
 
     @FXML
     private TableColumn<?, ?> ColNic;
+
+    @FXML
+    private TableColumn<?, ?> ColTherapyProgram;
 
     @FXML
     private TableView<?> TblPatient;
@@ -115,6 +122,14 @@ public class PatientController {
 
     }
 
-    public void TblPatientOnAction(MouseEvent mouseEvent) {
+    @FXML
+    void CmbTherapyProgramOnAction(ActionEvent event) {
+
     }
+
+    @FXML
+    void TblPatientOnAction(MouseEvent event) {
+
+    }
+
 }

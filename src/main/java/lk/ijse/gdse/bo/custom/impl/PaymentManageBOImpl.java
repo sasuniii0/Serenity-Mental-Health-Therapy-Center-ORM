@@ -1,4 +1,6 @@
 package lk.ijse.gdse.bo.custom.impl;
 
-public class PaymentManageBOImpl {
+import lk.ijse.gdse.bo.custom.PaymentManageBO;
+
+public class PaymentManageBOImpl implements PaymentManageBO {
 }

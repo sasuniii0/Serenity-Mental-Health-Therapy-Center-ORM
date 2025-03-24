@@ -59,6 +59,12 @@ public class PaymentController {
     private Text TxtDate;
 
     @FXML
+    private Text TxtDuration;
+
+    @FXML
+    private Text TxtFee;
+
+    @FXML
     private Text TxtId;
 
     @FXML
@@ -93,6 +99,9 @@ public class PaymentController {
 
     }
 
-    public void TblPaymentOnAction(MouseEvent mouseEvent) {
+    @FXML
+    void TblPaymentOnAction(MouseEvent event) {
+
     }
+
 }

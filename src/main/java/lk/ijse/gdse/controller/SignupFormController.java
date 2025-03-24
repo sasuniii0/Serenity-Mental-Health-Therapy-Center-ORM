@@ -55,4 +55,6 @@ public class SignupFormController {
 
     }
 
+    public void onSignUpAction(ActionEvent actionEvent) {
+    }
 }

@@ -24,4 +24,11 @@ public class TherapyProgram {
 
     @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Registration> registrations;
+
+    @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TherapySession> therapySessions;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 }

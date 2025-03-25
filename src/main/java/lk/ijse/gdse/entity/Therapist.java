@@ -20,7 +20,7 @@ public class Therapist {
     private String contactNumber;
 
     @ManyToOne
-    @JoinColumn(name = "program_id", nullable = false)
+    @JoinColumn(name = "program_id")
     private TherapyProgram therapyProgram;
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

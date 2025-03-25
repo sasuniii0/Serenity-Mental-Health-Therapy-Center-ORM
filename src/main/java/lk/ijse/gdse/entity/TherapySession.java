@@ -24,4 +24,8 @@ public class TherapySession {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    @ManyToOne
+    @JoinColumn(name = "therapy_program_id")
+    private TherapyProgram therapyProgram;
+
 }

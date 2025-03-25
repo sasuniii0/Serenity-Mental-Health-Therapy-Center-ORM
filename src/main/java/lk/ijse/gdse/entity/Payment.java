@@ -16,8 +16,12 @@ public class Payment {
     private double amount;
     private String date;
 
-    @OneToOne
-    @JoinColumn(name = "registration_id")
-    private Registration registration;
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "session_id")
+    private TherapySession therapySession;
 
 }

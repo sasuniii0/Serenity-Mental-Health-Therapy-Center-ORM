@@ -22,10 +22,13 @@ public class Patient {
     private String email;
     private String dateOfBirth;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<TherapySession> therapySessions;
+    @OneToMany(mappedBy = "patient" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Registration> registrations;
 
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Registration> registrations;
+    private List<Payment> payments;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TherapySession> therapySessions;
 
 }

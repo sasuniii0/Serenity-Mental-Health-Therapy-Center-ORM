@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class Registration {
     @Id
     private String id;
+    private double upfrontPayment;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
@@ -21,10 +22,5 @@ public class Registration {
     @ManyToOne
     @JoinColumn(name = "program_id")
     private TherapyProgram therapyProgram;
-
-    @OneToOne(mappedBy = "registration", cascade = CascadeType.ALL)
-    private Payment payment;
-
-    private double upfrontPayment;
 
 }

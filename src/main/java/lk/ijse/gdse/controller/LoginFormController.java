@@ -29,7 +29,9 @@ public class LoginFormController {
     @FXML
     private AnchorPane root;
 
+/*
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
+*/
 
     @FXML
     void BtnCreateNewAccountOnAction(ActionEvent event) {
@@ -43,10 +45,10 @@ public class LoginFormController {
 
     @FXML
     void BtnSignInOnAction(ActionEvent event) {
-        String email= TxtUserName.getText();
+        /*String email= TxtUserName.getText();
         String password=TxtPassword.getText();
 
-        boolean isAvailable = userBO.searchUserByEmail(email);
+        boolean isAvailable = userBO.searchUserByEmail(email);*/
     }
 
 }

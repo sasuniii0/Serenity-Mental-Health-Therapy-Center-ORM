@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class UserDAOImpl implements UserDAO {
-    @Override
+    /*@Override
     public boolean searchUserByEmail(String email) {
         Session session = FactoryConfiguration.getInstance().getSession();
         try{
@@ -26,5 +26,5 @@ public class UserDAOImpl implements UserDAO {
         }finally {
             session.close();
         }
-    }
+    }*/
 }

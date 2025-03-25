@@ -1,7 +1,11 @@
 package lk.ijse.gdse.bo.custom;
 
-public interface UserBO {
-/*
-    boolean searchUserByEmail(String email);
-*/
+import lk.ijse.gdse.bo.SuperBO;
+import lk.ijse.gdse.entity.User;
+
+public interface UserBO extends SuperBO {
+    void initializeDefaultUsers();
+
+    User searchUserByEmail(String email);
+
 }

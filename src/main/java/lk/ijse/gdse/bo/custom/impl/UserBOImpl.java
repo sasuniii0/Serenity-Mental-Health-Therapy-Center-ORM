@@ -3,12 +3,19 @@ package lk.ijse.gdse.bo.custom.impl;
 import lk.ijse.gdse.bo.custom.UserBO;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.UserDAO;
+import lk.ijse.gdse.entity.User;
 
 public class UserBOImpl implements UserBO {
-    /*UserDAO userDAO = (UserDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.USER);
+
+    UserDAO userDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.USER);
+    @Override
+    public void initializeDefaultUsers() {
+        userDAO.initializeDefaultUsers();
+    }
 
     @Override
-    public boolean searchUserByEmail(String email) {
+    public User searchUserByEmail(String email) {
         return userDAO.searchUserByEmail(email);
-    }*/
+    }
+
 }

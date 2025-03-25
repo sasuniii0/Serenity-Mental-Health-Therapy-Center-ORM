@@ -18,10 +18,12 @@ public class Registration {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-
     @ManyToOne
-    @JoinColumn(name = "therapy_program_id")
+    @JoinColumn(name = "program_id")
     private TherapyProgram therapyProgram;
+
+    @OneToOne(mappedBy = "registration", cascade = CascadeType.ALL)
+    private Payment payment;
 
     private double upfrontPayment;
 

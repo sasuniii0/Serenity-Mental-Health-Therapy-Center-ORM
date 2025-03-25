@@ -1,9 +1,6 @@
 package lk.ijse.gdse.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +18,13 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private String role;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role; // ADMIN or RECEPTIONIST
+
+    public enum UserRole {
+        ADMIN, RECEPTIONIST
+    }
 
     @PrePersist
     public void generateUserId() {

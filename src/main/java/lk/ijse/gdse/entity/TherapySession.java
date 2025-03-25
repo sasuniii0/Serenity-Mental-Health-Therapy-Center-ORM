@@ -17,14 +17,11 @@ public class TherapySession {
     private String date;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @ManyToOne
     @JoinColumn(name = "therapist_id")
     private Therapist therapist;
 
     @ManyToOne
-    @JoinColumn(name = "therapy_program_id")
-    private TherapyProgram therapyProgram;
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
 }

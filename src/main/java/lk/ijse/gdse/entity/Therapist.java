@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Table (name = "Therapist")
 @Data
@@ -18,7 +20,9 @@ public class Therapist {
     private String contactNumber;
 
     @ManyToOne
-    @JoinColumn(name = "therapy_program_id")
+    @JoinColumn(name = "program_id", nullable = false)
     private TherapyProgram therapyProgram;
 
+    @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TherapySession> therapySessions;
 }

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,20 +13,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PatientController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PatientController">
    <children>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="622.0" prefWidth="685.0" spacing="10.0">
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="622.0" prefWidth="686.0" spacing="10.0">
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="686.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Registration" textAlignment="CENTER" wrappingWidth="296.5366973876953">
                      <font>
-                        <Font size="32.0" />
+                        <Font name="System Bold" size="32.0" />
                      </font>
                   </Text>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="686.0">
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="686.0">
                <children>
                   <HBox prefHeight="30.0" prefWidth="330.0">
                      <children>
@@ -41,98 +42,125 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="686.0">
+            <Separator prefWidth="200.0" />
+            <HBox prefHeight="34.0" prefWidth="686.0">
                <children>
-                  <HBox prefHeight="30.0" prefWidth="330.0">
+                  <HBox prefHeight="34.0" prefWidth="386.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.93670272827148" />
-                        <TextField fx:id="TxtName" prefHeight="26.0" prefWidth="211.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="100.53674697875977" />
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="98.13665381073952" />
-                        <TextField fx:id="TxtNic" prefHeight="26.0" prefWidth="169.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="100.53674697875977" />
                      </children>
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="686.0">
+            <HBox prefHeight="216.0" prefWidth="686.0">
                <children>
-                  <HBox prefHeight="30.0" prefWidth="330.0">
+                  <VBox prefHeight="135.0" prefWidth="374.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact-Number" wrappingWidth="106.93670272827148" />
-                        <TextField fx:id="TxtContactNumber" prefHeight="26.0" prefWidth="211.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="34.0" prefWidth="329.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address" textAlignment="CENTER" wrappingWidth="161.33666586875916" />
-                        <TextField fx:id="TxtAddress" prefHeight="26.0" prefWidth="230.0" />
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="686.0">
-               <children>
-                  <HBox prefHeight="30.0" prefWidth="330.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="106.93670272827148" />
-                        <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="210.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Therapy Program" wrappingWidth="106.93670272827148" />
-                        <ComboBox fx:id="CmbTherapyProgram" onAction="#CmbTherapyProgramOnAction" prefHeight="26.0" prefWidth="168.0" />
-                     </children></HBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="686.0">
-               <children>
-                  <HBox prefHeight="30.0" prefWidth="330.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth" wrappingWidth="106.93670272827148" />
-                        <DatePicker fx:id="TxtDateOfBirth" prefHeight="26.0" prefWidth="210.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
-                     <children>
-                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
+                        <HBox prefHeight="30.0" prefWidth="330.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="History" wrappingWidth="77.33672714233398" />
-                              <Button fx:id="BtnHistory" mnemonicParsing="false" onAction="#BtnHistoryOnAction" prefHeight="26.0" prefWidth="138.0" text="View" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.93670272827148" />
+                              <TextField fx:id="TxtName" prefHeight="26.0" prefWidth="211.0" promptText="Enter patient name" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="107.73662939667702" />
+                              <TextField fx:id="TxtNic" prefHeight="26.0" prefWidth="210.0" promptText="Enter NIC number" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact-Number" wrappingWidth="106.93670272827148" />
+                              <TextField fx:id="TxtContactNumber" prefHeight="26.0" prefWidth="211.0" promptText="Enter contact number" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="329.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="108.5366780757904" />
+                              <TextField fx:id="TxtAddress" prefHeight="26.0" prefWidth="211.0" promptText="Enter patient address" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="106.93670272827148" />
+                              <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="215.0" promptText="Enter email address" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth" wrappingWidth="106.93670272827148" />
+                              <DatePicker fx:id="TxtDateOfBirth" prefHeight="26.0" prefWidth="216.0" promptText="Select date of birth" />
                            </children>
                         </HBox>
                      </children>
-                  </HBox>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <VBox prefHeight="135.0" prefWidth="299.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Therapy Program" wrappingWidth="106.93670272827148" />
+                              <ComboBox fx:id="CmbTherapyProgram" onAction="#CmbTherapyProgramOnAction" prefHeight="26.0" prefWidth="168.0" promptText="Select therapy program" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program fee" wrappingWidth="106.93670272827148" />
+                              <TextField fx:id="TxtProgramFee" prefHeight="26.0" prefWidth="167.0" promptText="Enter program fee" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Upfront Payment" wrappingWidth="106.93670272827148" />
+                              <TextField fx:id="TxtUpfrontPayment" prefHeight="26.0" prefWidth="167.0" promptText="Enter upfront payment" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="299.0" spacing="20.0">
+                           <children>
+                              <Button fx:id="BtnRegisterPatient" mnemonicParsing="false" onAction="#BtnRegisterPatientOnAction" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Register Patient" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="299.0" spacing="20.0">
+                           <children>
+                              <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 5;" text="Reset" />
+                              <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
+                              <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="71.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="670.0" spacing="10.0">
                <children>
-                  <TextField fx:id="TxtSearch" prefHeight="26.0" prefWidth="265.0" />
-                  <Button fx:id="BtnSearch" mnemonicParsing="false" onAction="#BtnSearchOnAction" text="Search" />
-                  <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="337.0" spacing="20.0">
+                  <TextField fx:id="TxtSearch" prefHeight="26.0" prefWidth="263.0" promptText="Search patients" />
+                  <Button fx:id="BtnSearch" mnemonicParsing="false" onAction="#BtnSearchOnAction" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Search" />
+                  <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="344.0">
                      <children>
-                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" text="Reset" />
-                        <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" text="Add" />
-                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" text="Update" />
-                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" text="Delete" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="History" wrappingWidth="77.33672714233398" />
+                        <Button fx:id="BtnHistory" mnemonicParsing="false" onAction="#BtnHistoryOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;" text="View" />
                      </children>
                   </HBox>
                </children>
             </HBox>
-            <TableView fx:id="TblPatient" onMouseClicked="#TblPatientOnAction" prefHeight="259.0" prefWidth="686.0">
-              <columns>
-                <TableColumn fx:id="ColId" prefWidth="54.399993896484375" text="Id" />
-                <TableColumn fx:id="ColName" prefWidth="67.20001220703125" text="Name" />
-                  <TableColumn fx:id="ColNic" prefWidth="65.5999755859375" text="NIC" />
-                  <TableColumn fx:id="ColContactNumber" prefWidth="107.20001220703125" text="Contact-Number" />
-                  <TableColumn fx:id="ColAddress" prefWidth="92.0" text="Address" />
-                  <TableColumn fx:id="ColEmail" prefWidth="84.0" text="Email" />
-                  <TableColumn fx:id="ColDateOfBirth" prefWidth="87.20001220703125" text="Date of Birth" />
-                  <TableColumn fx:id="ColTherapyProgram" prefWidth="124.80001220703127" text="Therapy Program" />
-              </columns>
+            <HBox prefHeight="19.0" prefWidth="686.0" spacing="10.0" />
+            <TableView fx:id="TblPatient" onMouseClicked="#TblPatientOnAction" prefHeight="114.0" prefWidth="686.0">
+               <columns>
+                  <TableColumn fx:id="ColId" prefWidth="37.59994602203369" text="Id" />
+                  <TableColumn fx:id="ColName" prefWidth="66.39995956420898" text="Name" />
+                  <TableColumn fx:id="ColNic" prefWidth="60.800048828125" text="NIC" />
+                  <TableColumn fx:id="ColContactNumber" prefWidth="108.00001525878906" text="Contact-Number" />
+                  <TableColumn fx:id="ColAddress" prefWidth="75.20001220703125" text="Address" />
+                  <TableColumn fx:id="ColEmail" prefWidth="63.99993896484375" text="Email" />
+                  <TableColumn fx:id="ColDateOfBirth" prefWidth="79.2000732421875" text="Date of Birth" />
+                  <TableColumn fx:id="ColTherapyProgram" prefWidth="106.39990234375" text="Therapy Program" />
+                  <TableColumn fx:id="ColUpfrontPayment" prefWidth="100.0001220703125" text="UpFront Payment" />
+               </columns>
             </TableView>
          </children>
       </VBox>

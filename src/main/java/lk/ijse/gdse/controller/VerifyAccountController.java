@@ -36,5 +36,6 @@ public class VerifyAccountController {
     }
 
     public void onVerifyAction(ActionEvent actionEvent) {
+        
     }
 }

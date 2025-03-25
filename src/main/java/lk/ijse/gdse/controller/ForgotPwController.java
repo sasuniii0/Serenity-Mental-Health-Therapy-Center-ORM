@@ -30,5 +30,6 @@ public class ForgotPwController {
     }
 
     public void onVerifyAction(ActionEvent actionEvent) {
+        
     }
 }

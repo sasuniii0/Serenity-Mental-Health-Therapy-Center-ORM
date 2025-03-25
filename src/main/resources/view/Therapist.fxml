@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.TherapistManageController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.TherapistManageController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="627.0" prefWidth="686.0">
          <children>
@@ -50,13 +50,13 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="89.33670043945312" />
-                        <TextField fx:id="TxtName" prefHeight="26.0" prefWidth="204.0" promptText="example" />
+                        <TextField fx:id="TxtName" prefHeight="26.0" prefWidth="204.0" promptText="Enter therapist name" style="-fx-background-radius: 5;" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="89.33670043945312" />
-                        <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="204.0" promptText="example@gmail.com" />
+                        <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="204.0" promptText="example@gmail.com" style="-fx-background-radius: 5;" />
                      </children>
                   </HBox>
                </children>
@@ -66,7 +66,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="89.33670043945312" />
-                        <TextField fx:id="TxtPhone" prefHeight="26.0" prefWidth="204.0" promptText="0xxxxxxxxx" />
+                        <TextField fx:id="TxtPhone" prefHeight="26.0" prefWidth="204.0" promptText="0xxxxxxxxx" style="-fx-background-radius: 5;" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0" />
@@ -76,42 +76,42 @@
             <HBox alignment="CENTER" prefHeight="70.0" prefWidth="686.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapy Program" wrappingWidth="144.53671264648438" />
-                  <ComboBox fx:id="CmbTherapyProgram" onAction="#CmbTherapyProgramOnAction" prefHeight="26.0" prefWidth="259.0" />
+                  <ComboBox fx:id="CmbTherapyProgram" onAction="#CmbTherapyProgramOnAction" prefHeight="26.0" prefWidth="259.0" style="-fx-background-radius: 5;" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program-Id" />
-                  <TextField fx:id="TxtProgramId" />
+                  <TextField fx:id="TxtProgramId" style="-fx-background-radius: 5;" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
             <HBox prefHeight="188.0" prefWidth="686.0">
                <children>
                   <LineChart fx:id="ChartTherapist" prefHeight="188.0" prefWidth="447.0">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" fx:id="xaxis" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis fx:id="yaxis" side="LEFT" />
-                    </yAxis>
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" fx:id="xaxis" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="yaxis" side="LEFT" />
+                     </yAxis>
                   </LineChart>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <VBox alignment="CENTER" prefHeight="188.0" prefWidth="220.0" spacing="20.0">
                      <children>
-                        <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="26.0" prefWidth="139.0" text="Add" />
-                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="139.0" text="Update" />
-                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="139.0" text="Delete" />
-                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="139.0" text="Reset" />
+                        <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
+                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
+                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
+                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 5;" text="Reset" />
                      </children>
                   </VBox>
                </children>
             </HBox>
             <TableView fx:id="TblTherapist" onMouseClicked="#TblTherapistOnAction" prefHeight="177.0" prefWidth="686.0">
-              <columns>
-                <TableColumn fx:id="ColId" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="ColName" prefWidth="75.0" text="Name" />
+               <columns>
+                  <TableColumn fx:id="ColId" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="ColName" prefWidth="75.0" text="Name" />
                   <TableColumn fx:id="ColEmail" prefWidth="92.79998779296875" text="Email" />
                   <TableColumn fx:id="ColPhone" prefWidth="79.20001220703125" text="Phone" />
                   <TableColumn fx:id="ColProgramId" prefWidth="132.00006103515625" text="ProgramId" />
                   <TableColumn fx:id="ColTherapyProgarm" prefWidth="232.7999267578125" text="Therapy Program" />
-              </columns>
+               </columns>
             </TableView>
          </children>
       </VBox>

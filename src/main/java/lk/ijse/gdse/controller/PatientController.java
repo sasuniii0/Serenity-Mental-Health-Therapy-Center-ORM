@@ -15,13 +15,13 @@ import javafx.scene.text.Text;
 public class PatientController {
 
     @FXML
-    private Button BtnAdd;
-
-    @FXML
     private Button BtnDelete;
 
     @FXML
     private Button BtnHistory;
+
+    @FXML
+    private Button BtnRegisterPatient;
 
     @FXML
     private Button BtnReset;
@@ -60,6 +60,9 @@ public class PatientController {
     private TableColumn<?, ?> ColTherapyProgram;
 
     @FXML
+    private TableColumn<?, ?> ColUpfrontPayment;
+
+    @FXML
     private TableView<?> TblPatient;
 
     @FXML
@@ -87,15 +90,16 @@ public class PatientController {
     private TextField TxtNic;
 
     @FXML
+    private TextField TxtProgramFee;
+
+    @FXML
     private TextField TxtSearch;
 
     @FXML
-    private AnchorPane root;
+    private TextField TxtUpfrontPayment;
 
     @FXML
-    void BtnAddOnAction(ActionEvent event) {
-
-    }
+    private AnchorPane root;
 
     @FXML
     void BtnDeleteOnAction(ActionEvent event) {
@@ -104,6 +108,11 @@ public class PatientController {
 
     @FXML
     void BtnHistoryOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void BtnRegisterPatientOnAction(ActionEvent event) {
 
     }
 

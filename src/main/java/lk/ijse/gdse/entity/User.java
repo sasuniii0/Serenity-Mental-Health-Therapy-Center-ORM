@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "User")
+@Table(name = "users")
 public class User {
     @Id
     private String id;  // Custom ID (Auto-generated)

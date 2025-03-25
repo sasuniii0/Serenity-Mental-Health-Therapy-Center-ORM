@@ -17,8 +17,10 @@ public class UserDAOImpl implements UserDAO {
         Transaction transaction = session.beginTransaction();
 
         try {
-            NativeQuery nativeQuery = session.createNativeQuery("SELECT COUNT (*) FROM user");
-            System.out.println("res:"+nativeQuery.uniqueResult());
+            System.out.println("njasd");
+            NativeQuery nativeQuery = session.createNativeQuery("SELECT COUNT(*) FROM users");
+            // System.out.println("njksndf");
+            // System.out.println("res:"+nativeQuery.uniqueResult());
             Long result = (Long) nativeQuery.uniqueResult();
 
             boolean isUserTableExist = result ==0;
@@ -45,7 +47,7 @@ public class UserDAOImpl implements UserDAO {
         try{
             Transaction transaction = session.beginTransaction();
 
-            Query query = session.createQuery("FROM User WHERE email = :email");
+            Query query = session.createQuery("FROM User  WHERE email = :email");
             query.setParameter("email", email);
             User user = (User) query.uniqueResult();
             if (transaction != null) {

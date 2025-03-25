@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Patient")
+@Table(name = "patient")
 public class Patient {
     @Id
     private String id;

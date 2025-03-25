@@ -3,6 +3,7 @@ package lk.ijse.gdse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -58,41 +59,49 @@ public class LoginFormController {
         User user = userBO.searchUserByEmail(email);
 
         if (user != null) {
-            if (user.getRole().equals(User.UserRole.ADMIN)) {
-                boolean issPassRight  = PasswordUtil.verifyPassword(password,user.getPassword());
-                if (issPassRight) {
-                    navigateToAdminSidePane();
-                }else {
-                    new Alert(Alert.AlertType.ERROR,"Wrong Password").show();
+            boolean isPassRight = PasswordUtil.verifyPassword(password, user.getPassword());
+
+            if (isPassRight) {
+                // Load main Dashboard
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
+                Parent rootNode = loader.load();
+
+                // Get the Dashboard controller
+                DashBoardController dashboardController = loader.getController();
+
+                dashboardController.setLoggedInUser(user);
+
+                // Load the correct side pane based on the user role
+                if (user.getRole().equals(User.UserRole.ADMIN)) {
+                    dashboardController.navigateTo("/view/AdminSidePane.fxml");
+                } else {
+                    dashboardController.navigateTo("/view/ReceptionistSidePane.fxml");
                 }
-            }else{
-                boolean issPassRight  = PasswordUtil.verifyPassword(password,user.getPassword());
-                if (issPassRight) {
-                    navigatoToReceptionistSidePanel();
-                }else {
-                    new Alert(Alert.AlertType.ERROR,"Wrong Password").show();
-                }
+
+                // Set scene
+                Scene scene = new Scene(rootNode);
+                Stage stage = (Stage) root.getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Wrong Password").show();
             }
         }
         else {
             new Alert(Alert.AlertType.ERROR,"User Not Found").show();
         }
     }
-    void navigateToAdminSidePane() throws IOException {
-        AnchorPane mainNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/AdminSidePane.fxml")));
 
-        Scene scene = new Scene(mainNode);
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Home Page");
-    }
-    void navigatoToReceptionistSidePanel() throws IOException {
-        AnchorPane mainNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/ReceptionistSidePane.fxml")));
-        Scene scene = new Scene(mainNode);
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Home Page");
+    public void navigateTo(String fxml) throws IOException {
+        try{
+            root.getChildren().clear();
+            AnchorPane anchorPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
+            root.getChildren().add(anchorPane);
+        }catch(IOException e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR,"Failed to load the page");
+        }
+
     }
 }

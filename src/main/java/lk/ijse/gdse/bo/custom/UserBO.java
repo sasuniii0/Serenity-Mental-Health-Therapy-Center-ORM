@@ -8,4 +8,5 @@ public interface UserBO extends SuperBO {
 
     User searchUserByEmail(String email);
 
+    User searchUserByAdminEmail(String adMail);
 }

@@ -8,4 +8,6 @@ public interface UserDAO extends CrudDAO<User> {
 
     User searchUserByEmail(String email);
 
+    User searchUserByAdminMail(String adMail);
+
 }

@@ -67,4 +67,29 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
+    @Override
+    public User searchUserByAdminMail(String adMail) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+
+            Transaction transaction = session.beginTransaction();
+
+            Query query = session.createQuery("FROM User WHERE email=:mail");
+            query.setParameter("mail", adMail);
+            User user = (User) query.uniqueResult();
+            if (user != null) {
+                return user;
+            }else{
+
+                return null;
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+
+    }
+
 }

@@ -18,4 +18,9 @@ public class UserBOImpl implements UserBO {
         return userDAO.searchUserByEmail(email);
     }
 
+    @Override
+    public User searchUserByAdminEmail(String adMail) {
+        return userDAO.searchUserByAdminMail(adMail);
+    }
+
 }

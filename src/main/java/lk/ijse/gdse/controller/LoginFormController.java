@@ -42,13 +42,25 @@ public class LoginFormController {
     UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     @FXML
-    void BtnCreateNewAccountOnAction(ActionEvent event) {
+    void BtnCreateNewAccountOnAction(ActionEvent event) throws IOException {
+        AnchorPane mainNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/SignupForm.fxml")));
 
+        Scene scene = new Scene(mainNode);
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("SignUp Page");
     }
 
     @FXML
-    void BtnForgotPwOnAction(ActionEvent event) {
+    void BtnForgotPwOnAction(ActionEvent event) throws IOException {
+        AnchorPane mainNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/ForgotPw.fxml")));
 
+        Scene scene = new Scene(mainNode);
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Forgot-password Page");
     }
 
     @FXML

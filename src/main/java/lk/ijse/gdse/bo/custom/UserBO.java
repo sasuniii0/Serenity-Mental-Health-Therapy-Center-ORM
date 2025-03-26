@@ -9,4 +9,6 @@ public interface UserBO extends SuperBO {
     User searchUserByEmail(String email);
 
     User searchUserByAdminEmail(String adMail);
+
+    boolean updateUser(String selectedEmail, String password);
 }

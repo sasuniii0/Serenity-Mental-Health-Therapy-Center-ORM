@@ -53,7 +53,7 @@
                         <HBox alignment="CENTER" spacing="5.0">
                            <children>
                               <Text opacity="0.7" text="Already have an account?" />
-                              <Text fx:id="lnkLogin" style="-fx-fill: #2464D3; -fx-cursor: hand;" text="Login" />
+                              <Text fx:id="lnkLogin" onMouseClicked="#lnkLoginOnAction" style="-fx-fill: #2464D3; -fx-cursor: hand;" text="Login" />
                            </children>
                         </HBox>
                      </children>

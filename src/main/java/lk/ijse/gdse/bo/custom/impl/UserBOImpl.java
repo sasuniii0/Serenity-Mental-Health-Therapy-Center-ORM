@@ -23,4 +23,9 @@ public class UserBOImpl implements UserBO {
         return userDAO.searchUserByAdminMail(adMail);
     }
 
+    @Override
+    public boolean updateUser(String selectedEmail, String password) {
+        return false;
+    }
+
 }

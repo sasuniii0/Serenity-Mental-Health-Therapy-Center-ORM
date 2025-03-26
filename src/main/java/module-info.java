@@ -10,6 +10,7 @@ module SerenityMentalHealthTherapyCenter.ORM {
 
     requires java.naming;
     requires java.desktop;
+    requires java.mail;
 
     opens lk.ijse.gdse.controller to javafx.fxml;
     opens lk.ijse.gdse.dto.tm to javafx.base;

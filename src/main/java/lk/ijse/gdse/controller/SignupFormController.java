@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.gdse.bo.BOFactory;
@@ -103,5 +104,9 @@ public class SignupFormController {
         stage.setScene(new Scene(
                 FXMLLoader.load(getClass().getResource(location))));
         stage.centerOnScreen();
+    }
+
+    public void lnkLoginOnAction(MouseEvent mouseEvent) throws IOException {
+        setUi("/view/LoginForm.fxml");
     }
 }

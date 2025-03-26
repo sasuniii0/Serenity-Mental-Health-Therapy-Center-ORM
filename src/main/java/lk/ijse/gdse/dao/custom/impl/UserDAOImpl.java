@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 public class UserDAOImpl implements UserDAO {
     @Override
     public void initializeDefaultUsers() {
@@ -92,4 +94,23 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+    @Override
+    public boolean save(User entity) {
+        return false;
+    }
+
+    @Override
+    public boolean update(User entity) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return List.of();
+    }
 }

@@ -32,7 +32,7 @@ public class Launcher extends Application {
         Task<Scene> loadingTask = new Task<Scene>(){
             @Override
             protected Scene call() throws IOException {
-                FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/view/DashBoard.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/view/Loading.fxml"));
                 return new Scene(fxmlLoader.load());
             }
         };

@@ -17,29 +17,31 @@ public class UserDAOImpl implements UserDAO {
         Transaction transaction = session.beginTransaction();
 
         try {
-            System.out.println("njasd");
-            NativeQuery nativeQuery = session.createNativeQuery("SELECT COUNT(*) FROM users");
-            // System.out.println("njksndf");
-            System.out.println("res:"+nativeQuery.uniqueResult());
-            Long result = (Long) nativeQuery.uniqueResult();
+            System.out.println("Checking users table...");
 
-            boolean isUserTableExist = result == 0;
-            if(isUserTableExist){
+            NativeQuery<?> nativeQuery = session.createNativeQuery("SELECT COUNT(*) FROM users");
+            Object resultObj = nativeQuery.uniqueResult();  // Ensure result is not null
+
+            long result = resultObj != null ? ((Number) resultObj).longValue() : 0;  // Safe casting
+            System.out.println("User count: " + result);
+
+            if (result == 0) {
                 String hashedPassword = PasswordUtil.hashPassword("1234");
-                User user = new User("U-1","admin@gmail.com",hashedPassword,"admin","admin", User.UserRole.ADMIN);
-                session.save(user);
+                User user = new User("U-1", "admin@gmail.com", hashedPassword, "admin", "admin", User.UserRole.ADMIN);
+                session.persist(user);
             }
 
             transaction.commit();
-        }catch (HibernateException e){
+        } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
-        }finally {
+        } finally {
             session.close();
         }
     }
+
 
     @Override
     public User searchUserByEmail(String email) {
@@ -47,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
         try{
             Transaction transaction = session.beginTransaction();
 
-            Query query = session.createQuery("FROM User  WHERE email = :email");
+            Query query = session.createQuery("FROM User WHERE email = :email");
             query.setParameter("email", email);
             User user = (User) query.uniqueResult();
             if (transaction != null) {

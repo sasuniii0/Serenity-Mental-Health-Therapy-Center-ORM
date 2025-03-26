@@ -86,43 +86,43 @@ public class DashBoardController {
     }
 
     @FXML
-    void BtnLogOutOnAction(ActionEvent event) {
-
+    void BtnLogOutOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/LoginPage.fxml");
     }
 
     @FXML
-    void BtnPatientOnAction(ActionEvent event) {
-
+    void BtnPatientOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/PatientForm.fxml");
     }
 
     @FXML
-    void BtnPaymentOnAction(ActionEvent event) {
-
+    void BtnPaymentOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/PaymentForm.fxml");
     }
 
     @FXML
-    void BtnRegistrationOnAction(ActionEvent event) {
-
+    void BtnRegistrationOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/PatientForm.fxml");
     }
 
     @FXML
-    void BtnSessionAppoinmentOnAction(ActionEvent event) {
-
+    void BtnSessionAppoinmentOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/SessionAppoinmentForm.fxml");
     }
 
     @FXML
-    void BtnTherapistOnAction(ActionEvent event) {
-
+    void BtnTherapistOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/TherapistForm.fxml");
     }
 
     @FXML
-    void BtnTherapyProgramsOnAction(ActionEvent event) {
-
+    void BtnTherapyProgramsOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/TherapyProgramsForm.fxml");
     }
 
     @FXML
-    void BtnUserOnAction(ActionEvent event) {
-
+    void BtnUserOnAction(ActionEvent event) throws IOException {
+        navigateTo("/view/UserForm.fxml");
     }
 
 }

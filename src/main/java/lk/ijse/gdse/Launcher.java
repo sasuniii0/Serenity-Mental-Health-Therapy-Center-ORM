@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lk.ijse.gdse.bo.BOFactory;
 import lk.ijse.gdse.bo.custom.UserBO;
+import lk.ijse.gdse.config.FactoryConfiguration;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -23,6 +24,7 @@ public class Launcher extends Application {
     public void start(Stage stage) throws Exception {
         System.out.println("ikjdw");
 
+        FactoryConfiguration.getInstance().getSession();
         userBO.initializeDefaultUsers();
 
         Parent load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Loading.fxml")));
@@ -32,7 +34,7 @@ public class Launcher extends Application {
         Task<Scene> loadingTask = new Task<Scene>(){
             @Override
             protected Scene call() throws IOException {
-                FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/view/Loading.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/view/LoginForm.fxml"));
                 return new Scene(fxmlLoader.load());
             }
         };

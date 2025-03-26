@@ -1,5 +1,6 @@
 package lk.ijse.gdse.config;
 
+import lk.ijse.gdse.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,24 +13,26 @@ public class FactoryConfiguration {
     private SessionFactory sessionFactory;
 
    private FactoryConfiguration(){
-       Configuration configuration = new Configuration();
 
-       //add property
-       Properties properties = new Properties();
+       try{
+           Configuration configuration = new Configuration();
+           Properties properties = new Properties();
+           properties.load(getClass().getClassLoader().getResourceAsStream("hibernate.properties"));
 
-       //add already created hibernate file to properties in current thread
-       try {
-           properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));   //set path file is found no matter where the code is running
-       } catch (IOException e) {
-           throw new RuntimeException(e);
+           configuration.setProperties(properties)
+                   .addAnnotatedClass(Patient.class)
+                   .addAnnotatedClass(Payment.class)
+                   .addAnnotatedClass(Therapist.class)
+                   .addAnnotatedClass(TherapyProgram.class)
+                   .addAnnotatedClass(TherapySession.class)
+                   .addAnnotatedClass(Registration.class)
+                   .addAnnotatedClass(User.class);
+
+           sessionFactory = configuration.buildSessionFactory();
+
+       }catch (Exception e){
+           throw new RuntimeException("Failed to load hibernate.properties",e);
        }
-
-       //add properties to configure
-       configuration.setProperties(properties);
-
-       //build session factory
-       sessionFactory = configuration.buildSessionFactory();
-
 
    }
 

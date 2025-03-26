@@ -12,15 +12,24 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 public class User {
     @Id
-    private String id;  // Custom ID (Auto-generated)
+    @Column(name = "id")
+    private String id;
 
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "firstName", nullable = false)
     private String firstName;
+
+    @Column(name = "lastName", nullable = false)
     private String lastName;
 
     @Enumerated(EnumType.STRING)
-    private UserRole role; // ADMIN or RECEPTIONIST
+    @Column(name = "role", nullable = false)
+    private UserRole role;
 
     public enum UserRole {
         ADMIN, RECEPTIONIST

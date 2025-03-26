@@ -20,14 +20,14 @@ public class UserDAOImpl implements UserDAO {
             System.out.println("njasd");
             NativeQuery nativeQuery = session.createNativeQuery("SELECT COUNT(*) FROM users");
             // System.out.println("njksndf");
-            // System.out.println("res:"+nativeQuery.uniqueResult());
+            System.out.println("res:"+nativeQuery.uniqueResult());
             Long result = (Long) nativeQuery.uniqueResult();
 
-            boolean isUserTableExist = result ==0;
+            boolean isUserTableExist = result == 0;
             if(isUserTableExist){
                 String hashedPassword = PasswordUtil.hashPassword("1234");
                 User user = new User("U-1","admin@gmail.com",hashedPassword,"admin","admin", User.UserRole.ADMIN);
-                session.persist(user);
+                session.save(user);
             }
 
             transaction.commit();

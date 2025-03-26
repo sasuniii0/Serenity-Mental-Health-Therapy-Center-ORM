@@ -88,12 +88,12 @@
          <!-- User Table -->
          <TableView fx:id="TblUsers" onMouseClicked="#TblUserOnAction" prefHeight="200.0" prefWidth="632.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
             <columns>
-               <TableColumn fx:id="ColId" prefWidth="80.0" text="ID" />
-               <TableColumn fx:id="ColEmail" prefWidth="109.60003662109375" text="Email" />
-               <TableColumn fx:id="ColFirstName" prefWidth="100.80000305175781" text="First Name" />
-               <TableColumn fx:id="ColLastName" prefWidth="107.2000732421875" text="Last Name" />
-               <TableColumn fx:id="ColRole" prefWidth="96.7999267578125" text="Role" />
-               <TableColumn fx:id="ColPw" prefWidth="133.5999755859375" text="Actions" />
+               <TableColumn fx:id="ColId" prefWidth="66.39996337890625" text="ID" />
+               <TableColumn fx:id="ColEmail" prefWidth="96.79998779296875" text="Email" />
+               <TableColumn fx:id="ColFirstName" prefWidth="92.79998779296875" text="First Name" />
+               <TableColumn fx:id="ColLastName" prefWidth="100.0" text="Last Name" />
+               <TableColumn fx:id="ColRole" prefWidth="96.79998779296875" text="Role" />
+               <TableColumn fx:id="ColPw" prefWidth="94.4000244140625" text="Password" />
             </columns>
          </TableView>
       </VBox>

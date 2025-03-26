@@ -17,4 +17,6 @@ public class UserTM {
     private String role;
     private String action;
 
+    public UserTM(String id, String email, String password, String firstName, String lastName, String role) {
+    }
 }

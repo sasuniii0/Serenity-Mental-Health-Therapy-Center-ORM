@@ -1,5 +1,6 @@
 package lk.ijse.gdse.dto;
 
+import lk.ijse.gdse.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,6 @@ public class UserDTO {
     private String lastName;
     private String role;
 
+    public UserDTO(String id, String email, String password, String firstName, String lastName, User.UserRole role) {
+    }
 }

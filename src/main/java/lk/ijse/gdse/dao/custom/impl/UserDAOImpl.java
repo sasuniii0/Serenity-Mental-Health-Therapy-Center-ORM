@@ -111,6 +111,18 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAll() {
-        return List.of();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try{
+            Transaction transaction = session.beginTransaction();
+
+            Query query = session.createQuery("FROM User");
+            List<User> users = query.list();
+            session.close();
+            return users;
+        }catch (HibernateException e){
+            throw new RuntimeException(e);
+        }finally {
+            session.close();
+        }
     }
 }

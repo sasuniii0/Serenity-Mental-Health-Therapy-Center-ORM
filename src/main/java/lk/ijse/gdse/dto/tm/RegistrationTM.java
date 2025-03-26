@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class RegistrationDTO {
+public class RegistrationTM {
     private String id;
     private Patient patient;
     private TherapyProgram therapyProgram;

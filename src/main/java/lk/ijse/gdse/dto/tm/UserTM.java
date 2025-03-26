@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserDTO {
+public class UserTM {
     private String id;  // Custom ID (Auto-generated)
 
     private String email;

@@ -1,17 +1,13 @@
 package lk.ijse.gdse.dto.tm;
 
-import lk.ijse.gdse.entity.Registration;
-import lk.ijse.gdse.entity.TherapySession;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PatientDTO {
+public class PatientTM {
     private String id;
     private String name;
     private String nic;

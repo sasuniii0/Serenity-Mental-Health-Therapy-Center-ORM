@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PaymentDTO {
+public class PaymentTM {
     private String id;
     private double amount;
     private LocalDate date;

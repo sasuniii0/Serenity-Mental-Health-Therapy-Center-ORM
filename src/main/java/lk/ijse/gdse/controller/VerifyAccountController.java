@@ -52,11 +52,6 @@ public class VerifyAccountController {
         stage.centerOnScreen();
     }
 
-    @FXML
-    void BtnVerifyOnAction(ActionEvent event) throws IOException {
-
-    }
-
     public void onVerifyAction(ActionEvent actionEvent) throws IOException {
         if (String.valueOf(code).equals(TxtCode.getText().trim())) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ResetPwd.fxml"));

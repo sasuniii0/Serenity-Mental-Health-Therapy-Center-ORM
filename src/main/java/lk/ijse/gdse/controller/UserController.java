@@ -31,7 +31,7 @@ public class UserController implements Initializable {
     private Button BtnUpdate;
 
     @FXML
-    private ComboBox<?> CmbRole;
+    private ComboBox<String> CmbRole;
 
     @FXML
     private TableColumn<?, ?> ColEmail;

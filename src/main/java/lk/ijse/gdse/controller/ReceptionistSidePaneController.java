@@ -2,11 +2,15 @@ package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-public class ReceptionistSidePaneController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ReceptionistSidePaneController implements Initializable {
 
     @FXML
     private Button BtnFinacialReports;
@@ -66,5 +70,10 @@ public class ReceptionistSidePaneController {
 
     public void BtnAppointmentManagementOnAction(ActionEvent actionEvent) {
         
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

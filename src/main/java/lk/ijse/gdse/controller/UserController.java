@@ -2,6 +2,7 @@ package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
@@ -12,7 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class UserController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class UserController implements Initializable {
 
     @FXML
     private Button BtnAdd;
@@ -100,5 +104,10 @@ public class UserController {
     }
 
     public void TblUserOnAction(MouseEvent mouseEvent) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

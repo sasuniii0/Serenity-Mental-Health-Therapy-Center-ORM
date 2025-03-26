@@ -2,6 +2,7 @@ package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -14,7 +15,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class TherapistManageController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TherapistManageController implements Initializable {
 
     @FXML
     private Button BtnAdd;
@@ -108,6 +112,11 @@ public class TherapistManageController {
     }
 
     public void TblTherapistOnAction(MouseEvent mouseEvent) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

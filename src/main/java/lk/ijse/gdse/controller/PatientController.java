@@ -2,6 +2,7 @@ package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -12,7 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class PatientController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PatientController implements Initializable {
 
     @FXML
     private Button BtnDelete;
@@ -141,4 +145,8 @@ public class PatientController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

@@ -2,6 +2,7 @@ package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -11,7 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class PaymentController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PaymentController implements Initializable {
 
     @FXML
     private Button BtnPay;
@@ -104,4 +108,8 @@ public class PaymentController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

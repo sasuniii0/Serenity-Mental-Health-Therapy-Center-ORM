@@ -2,6 +2,7 @@ package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -10,7 +11,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class TherapyProgramManageController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TherapyProgramManageController implements Initializable {
 
     @FXML
     private Button BtnAdd;
@@ -78,6 +82,11 @@ public class TherapyProgramManageController {
     }
 
     public void TblProgramsOnAction(MouseEvent mouseEvent) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

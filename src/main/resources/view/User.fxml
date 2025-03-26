@@ -35,11 +35,11 @@
             <children>
                <HBox spacing="10.0">
                   <Label style="-fx-text-fill: #7f8c8d;" text="User ID:" />
-                  <Label fx:id="TxtId" style="-fx-text-fill: #2980b9;" text="U-1" />
+                  <Label fx:id="txtId" style="-fx-text-fill: #2980b9;" text="U-1" />
                </HBox>
                <HBox spacing="10.0">
                   <Label style="-fx-text-fill: #7f8c8d;" text="Date:" />
-                  <Label fx:id="TxtDate" style="-fx-text-fill: #2980b9;" text="2025/03/24" />
+                  <Label fx:id="txtDate" style="-fx-text-fill: #2980b9;" text="2025/03/24" />
                </HBox>
             </children>
          </HBox>
@@ -75,18 +75,18 @@
                <!-- Role and Actions -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
                   <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="Role" />
-                  <ComboBox fx:id="CmbRole" prefHeight="40.0" prefWidth="250.0" promptText="Select user role" style="-fx-background-radius: 8; -fx-border-radius: 8;" />
+                  <ComboBox fx:id="CmbRole" onAction="#CmbRoleOnAction" prefHeight="40.0" prefWidth="250.0" promptText="Select user role" style="-fx-background-radius: 8; -fx-border-radius: 8;" />
                   <HBox spacing="10.0">
-                     <Button fx:id="BtnAdd" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 8;" text="Add" />
-                     <Button fx:id="BtnUpdate" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 8;" text="Update" />
-                     <Button fx:id="BtnDelete" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Delete" />
+                     <Button fx:id="BtnAdd" onAction="#BtnAddOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 8;" text="Add" />
+                     <Button fx:id="BtnUpdate" onAction="#BtnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 8;" text="Update" />
+                     <Button fx:id="BtnDelete" onAction="#BtnDeleteOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Delete" />
                   </HBox>
                </HBox>
             </children>
          </VBox>
 
          <!-- User Table -->
-         <TableView fx:id="TblUsers" prefHeight="200.0" prefWidth="632.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+         <TableView fx:id="TblUsers" onMouseClicked="#TblUserOnAction" prefHeight="200.0" prefWidth="632.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
             <columns>
                <TableColumn fx:id="ColId" prefWidth="80.0" text="ID" />
                <TableColumn fx:id="ColEmail" prefWidth="109.60003662109375" text="Email" />

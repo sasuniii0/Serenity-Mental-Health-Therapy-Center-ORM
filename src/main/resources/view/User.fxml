@@ -52,8 +52,8 @@
             <children>
                <!-- Email Input -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="Email" />
-                  <TextField fx:id="TxtEmail" prefHeight="40.0" prefWidth="400.0" promptText="Enter email address" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
+                  <Label prefHeight="18.0" prefWidth="100.0" style="-fx-text-fill: #34495e;" text="Email" />
+                  <TextField fx:id="TxtEmail" prefHeight="42.0" prefWidth="475.0" promptText="Enter email address" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
                </HBox>
 
                <!-- Name Inputs -->
@@ -89,11 +89,11 @@
          <TableView fx:id="TblUsers" onMouseClicked="#TblUserOnAction" prefHeight="200.0" prefWidth="632.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
             <columns>
                <TableColumn fx:id="ColId" prefWidth="66.39996337890625" text="ID" />
-               <TableColumn fx:id="ColEmail" prefWidth="96.79998779296875" text="Email" />
-               <TableColumn fx:id="ColFirstName" prefWidth="92.79998779296875" text="First Name" />
-               <TableColumn fx:id="ColLastName" prefWidth="100.0" text="Last Name" />
-               <TableColumn fx:id="ColRole" prefWidth="96.79998779296875" text="Role" />
-               <TableColumn fx:id="ColPw" prefWidth="94.4000244140625" text="Password" />
+               <TableColumn fx:id="ColEmail" prefWidth="114.4000244140625" text="Email" />
+               <TableColumn fx:id="ColFirstName" prefWidth="128.79998779296875" text="First Name" />
+               <TableColumn fx:id="ColLastName" prefWidth="112.79998779296875" text="Last Name" />
+               <TableColumn fx:id="ColRole" prefWidth="88.0" text="Role" />
+               <TableColumn fx:id="ColPw" prefWidth="120.0" text="Password" />
             </columns>
          </TableView>
       </VBox>

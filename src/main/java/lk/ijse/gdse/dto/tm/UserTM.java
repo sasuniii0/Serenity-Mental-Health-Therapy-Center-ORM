@@ -1,12 +1,12 @@
 package lk.ijse.gdse.dto.tm;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class UserTM {
     private String id;  // Custom ID (Auto-generated)
 
@@ -15,8 +15,5 @@ public class UserTM {
     private String firstName;
     private String lastName;
     private String role;
-    private String action;
 
-    public UserTM(String id, String email, String password, String firstName, String lastName, String role) {
-    }
 }

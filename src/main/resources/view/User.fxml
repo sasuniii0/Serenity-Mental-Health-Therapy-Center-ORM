@@ -90,10 +90,10 @@
             <columns>
                <TableColumn fx:id="ColId" prefWidth="66.39996337890625" text="ID" />
                <TableColumn fx:id="ColEmail" prefWidth="114.4000244140625" text="Email" />
+               <TableColumn fx:id="ColPw" prefWidth="120.0" text="Password" />
                <TableColumn fx:id="ColFirstName" prefWidth="128.79998779296875" text="First Name" />
                <TableColumn fx:id="ColLastName" prefWidth="112.79998779296875" text="Last Name" />
                <TableColumn fx:id="ColRole" prefWidth="88.0" text="Role" />
-               <TableColumn fx:id="ColPw" prefWidth="120.0" text="Password" />
             </columns>
          </TableView>
       </VBox>

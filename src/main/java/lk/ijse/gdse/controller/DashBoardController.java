@@ -68,7 +68,7 @@ public class DashBoardController implements Initializable {
     public void navigateTo(String fxmlPath) {
         try{
             sideAncPane.getChildren().clear();
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource(fxmlPath));
+            AnchorPane anchorPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath)));
             sideAncPane.getChildren().add(anchorPane);
         }catch(IOException e){
             e.printStackTrace();

@@ -40,7 +40,7 @@ public class UserController implements Initializable {
     private TableColumn<UserTM, String> ColEmail;
 
     @FXML
-    private TableColumn<UserTM, String> ColFiirstName;
+    private TableColumn<UserTM, String> ColFirstName;
 
     @FXML
     private TableColumn<UserTM, String> ColId;
@@ -49,7 +49,7 @@ public class UserController implements Initializable {
     private TableColumn<UserTM, String> ColLastName;
 
     @FXML
-    private TableColumn<UserTM, String> ColPwd;
+    private TableColumn<UserTM, String> ColPw;
 
     @FXML
     private TableColumn<UserTM, String> ColRole;
@@ -133,9 +133,9 @@ public class UserController implements Initializable {
     private void setCellValueFactory(){
         ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
         ColEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        ColFiirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        ColPw.setCellValueFactory(new PropertyValueFactory<>("password"));
+        ColFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         ColLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         ColRole.setCellValueFactory(new PropertyValueFactory<>("role"));
-        ColPwd.setCellValueFactory(new PropertyValueFactory<>("password"));
     }
 }

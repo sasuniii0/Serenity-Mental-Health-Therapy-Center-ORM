@@ -12,20 +12,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.RegistrationController">
    <children>
       <VBox layoutX="12.0" layoutY="16.0" prefHeight="626.0" prefWidth="687.0" spacing="10.0">
          <children>
             <HBox alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="712.0" spacing="100.0">
                <children>
-                  <Button fx:id="BtnViewAll" mnemonicParsing="false" onAction="#BtnViewAllOnAction" prefHeight="26.0" prefWidth="162.0" text="View All" />
+                  <Button fx:id="BtnViewAll" mnemonicParsing="false" onAction="#BtnViewAllOnAction" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #2196F3;" text="View All" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" textAlignment="CENTER" wrappingWidth="198.93671226501465">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Text>
-                  <Button fx:id="BtnPayment" mnemonicParsing="false" onAction="#BtnPaymentOnAction" prefHeight="26.0" prefWidth="153.0" text="Payment" />
+                  <Button fx:id="BtnPayment" mnemonicParsing="false" onAction="#BtnPaymentOnAction" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #2196F3;" text="Payment" />
                </children>
             </HBox>
             <HBox alignment="BASELINE_CENTER" prefHeight="28.0" prefWidth="542.0">
@@ -33,7 +32,7 @@
                   <HBox prefHeight="28.0" prefWidth="280.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Id" wrappingWidth="122.13674926757812" />
-                        <Text fx:id="TxtRegId" strokeType="OUTSIDE" strokeWidth="0.0" text="R-1" wrappingWidth="98.93673706054688" />
+                        <Text fx:id="TxtRegId" strokeType="OUTSIDE" strokeWidth="0.0" text="R-001" wrappingWidth="98.93673706054688" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="28.0" prefWidth="280.0">
@@ -64,7 +63,7 @@
                         <TextField fx:id="TxtIdName" prefHeight="26.0" prefWidth="176.0" promptText="example" />
                      </children>
                   </HBox>
-                  <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="26.0" prefWidth="94.0" text="Add" />
+                  <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #F44336;" text="Add" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -119,7 +118,7 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="354.0">
                      <children>
-                        <Button fx:id="BtnRegister" mnemonicParsing="false" onAction="#BtnRegisterOnAction" prefHeight="26.0" prefWidth="134.0" text="Register" textAlignment="CENTER" />
+                        <Button fx:id="BtnRegister" mnemonicParsing="false" onAction="#BtnRegisterOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Register" textAlignment="CENTER" />
                      </children>
                   </HBox>
                </children>
@@ -135,7 +134,7 @@
             </TableView>
             <HBox alignment="TOP_RIGHT" prefHeight="35.0" prefWidth="687.0">
                <children>
-                  <Button fx:id="BtnConfirm" mnemonicParsing="false" onAction="#BtnConfirmOnAction" prefHeight="26.0" prefWidth="134.0" text="Confirm" textAlignment="CENTER" />
+                  <Button fx:id="BtnConfirm" mnemonicParsing="false" onAction="#BtnConfirmOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #4CAF50;" text="Confirm" textAlignment="CENTER" />
                </children>
             </HBox>
          </children>

@@ -38,4 +38,9 @@ public class TherapyProgram {
         this.fee = fee;
         this.duration = duration;
     }
+
+    public TherapyProgram(String therapyProgramId, String therapyProgramName) {
+        this.id = therapyProgramId;
+        this.name = therapyProgramName;
+    }
 }

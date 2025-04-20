@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
 public class TherapistTM {
     private String id;
     private String name;

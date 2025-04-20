@@ -98,7 +98,7 @@
                         <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
                         <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
                         <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
-                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 5;" text="Reset" />
+                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Reset" />
                      </children>
                   </VBox>
                </children>

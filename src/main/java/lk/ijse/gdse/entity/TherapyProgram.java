@@ -31,4 +31,11 @@ public class TherapyProgram {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
+
+    public TherapyProgram(String id, String name, double fee, String duration) {
+        this.id = id;
+        this.name = name;
+        this.fee = fee;
+        this.duration = duration;
+    }
 }

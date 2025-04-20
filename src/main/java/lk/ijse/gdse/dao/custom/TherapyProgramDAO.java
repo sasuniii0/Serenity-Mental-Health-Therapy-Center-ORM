@@ -4,4 +4,5 @@ import lk.ijse.gdse.dao.CrudDAO;
 import lk.ijse.gdse.entity.TherapyProgram;
 
 public interface TherapyProgramDAO extends CrudDAO<TherapyProgram> {
+    String getLastTherapyProId();
 }

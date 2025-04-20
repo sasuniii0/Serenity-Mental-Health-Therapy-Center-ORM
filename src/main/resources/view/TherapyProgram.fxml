@@ -33,7 +33,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="314.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program-Id" wrappingWidth="100.53668212890625" />
-                        <Text fx:id="TxtId" strokeType="OUTSIDE" strokeWidth="0.0" text="PRO-1" wrappingWidth="100.53668212890625" />
+                        <Text fx:id="TxtId" strokeType="OUTSIDE" strokeWidth="0.0" text="MT1001" wrappingWidth="100.53668212890625" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="314.0">
@@ -75,10 +75,10 @@
                   <Separator orientation="VERTICAL" prefHeight="214.0" prefWidth="3.0" />
                   <VBox alignment="CENTER" prefHeight="235.0" prefWidth="219.0" spacing="15.0">
                      <children>
-                        <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="35.0" prefWidth="154.0" text="Add" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" />
-                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="35.0" prefWidth="154.0" text="Delete" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;" />
-                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="35.0" prefWidth="154.0" text="Update" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;" />
-                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="35.0" prefWidth="154.0" text="Reset" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;" />
+                        <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddOnAction" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Add" />
+                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
+                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
+                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;" text="Reset" />
                      </children>
                   </VBox>
                </children>

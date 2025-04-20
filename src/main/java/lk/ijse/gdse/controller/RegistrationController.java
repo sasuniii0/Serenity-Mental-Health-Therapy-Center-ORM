@@ -1,5 +1,7 @@
 package lk.ijse.gdse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,9 +10,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import lk.ijse.gdse.dto.tm.RegistrationTM;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -117,6 +121,19 @@ public class RegistrationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setCellValueFactory();
+        loadAllPatients();
+    }
 
+    private void loadAllPatients() {
+        ObservableList<RegistrationTM> obList = FXCollections.observableArrayList();
+    }
+
+    private void setCellValueFactory() {
+        ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ColPatient.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        ColProgram.setCellValueFactory(new PropertyValueFactory<>("therapyProgramName"));
+        ColFee.setCellValueFactory(new PropertyValueFactory<>("therapyProgramFee"));
+        ColAdvance.setCellValueFactory(new PropertyValueFactory<>("upfrontPayment"));
     }
 }

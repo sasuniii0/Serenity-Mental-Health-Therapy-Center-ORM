@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class RegistrationTM {
     private String id;
-    private Patient patient;
-    private TherapyProgram therapyProgram;
+    private Patient patientName;
+    private TherapyProgram therapyProgramName;
+    private TherapyProgram therapyProgramFee;
     private double upfrontPayment;
 }

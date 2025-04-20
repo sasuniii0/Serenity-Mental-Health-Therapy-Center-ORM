@@ -13,7 +13,13 @@ public interface UserBO extends SuperBO {
 
     User searchUserByAdminEmail(String adMail);
 
-    boolean updateUser(String selectedEmail, String password);
+    boolean updateUser(UserDTO userDTO);
 
     List<UserDTO> getAllUser();
+
+    boolean deleteUser(String email);
+
+    boolean addUser(UserDTO userDTO);
+
+    String generateNextUserId();
 }

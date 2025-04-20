@@ -4,17 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import lk.ijse.gdse.bo.BOFactory;
 import lk.ijse.gdse.bo.custom.UserBO;
 import lk.ijse.gdse.dto.UserDTO;
 import lk.ijse.gdse.dto.tm.UserTM;
+import lk.ijse.gdse.entity.User;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -58,7 +63,7 @@ public class UserController implements Initializable {
     private TableView<UserTM> TblUsers;
 
     @FXML
-    private Text TxtDate;
+    private Label txtDate;
 
     @FXML
     private TextField TxtEmail;
@@ -67,7 +72,7 @@ public class UserController implements Initializable {
     private TextField TxtFirstName;
 
     @FXML
-    private Text TxtId;
+    private Label txtId;
 
     @FXML
     private TextField TxtLastName;
@@ -85,12 +90,52 @@ public class UserController implements Initializable {
 
     @FXML
     void BtnAddOnAction(ActionEvent event) {
-
+        String id = txtId.getText();
+        String email = TxtEmail.getText();
+        String firstName = TxtFirstName.getText();
+        String lastName = TxtLastName.getText();
+        String password = TxtPassword.getText();
+        String reEnterPassword = TxtReEnterPassword.getText();
+        String role = CmbRole.getValue();
+        try {
+            UserDTO userDTO = new UserDTO(id, email, firstName, lastName, password, role);
+            boolean isAdded = userBO.addUser(userDTO);
+            if (isAdded) {
+                new Alert(Alert.AlertType.INFORMATION, "User Added Successfully").show();
+                loadAllUsers();
+                clearFields();
+                userBO.generateNextUserId();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to add user").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML
     void BtnDeleteOnAction(ActionEvent event) {
+        String email = TxtEmail.getText();
+        try {
+            boolean isDeleted = userBO.deleteUser(email);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.INFORMATION, "User Deleted Successfully").show();
+                loadAllUsers();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to delete user").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
 
+    private void clearFields() {
+        TxtEmail.clear();
+        TxtFirstName.clear();
+        TxtLastName.clear();
+        TxtPassword.clear();
+        TxtReEnterPassword.clear();
     }
 
     @FXML
@@ -100,35 +145,108 @@ public class UserController implements Initializable {
 
     @FXML
     void BtnUpdateOnAction(ActionEvent event) {
-
+        String id = txtId.getText();
+        String email = TxtEmail.getText();
+        String firstName = TxtFirstName.getText();
+        String lastName = TxtLastName.getText();
+        String password = TxtPassword.getText();
+        String role = CmbRole.getValue();
+        try {
+            UserDTO userDTO = new UserDTO(id, email, firstName, lastName, password, role);
+            boolean isAdded = userBO.updateUser(userDTO);
+            if (isAdded) {
+                new Alert(Alert.AlertType.INFORMATION, "User Updated Successfully").show();
+                loadAllUsers();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to Update user").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
+
+    User userSelected;
 
     @FXML
     void CmbRoleOnAction(ActionEvent event) {
-
+        String role = CmbRole.getValue();
+        if (role.equals("Admin")) {
+            TxtPassword.setDisable(false);
+            TxtReEnterPassword.setDisable(false);
+        } else {
+            TxtPassword.setDisable(true);
+            TxtReEnterPassword.setDisable(true);
+        }
     }
 
     public void TblUserOnAction(MouseEvent mouseEvent) {
+        String id = TblUsers.getSelectionModel().getSelectedItem().getEmail();
+        try {
+            userSelected = userBO.searchUserByEmail(id);
+            if (userSelected != null) {
+                TxtEmail.setText(userSelected.getEmail());
+                TxtFirstName.setText(userSelected.getFirstName());
+                TxtLastName.setText(userSelected.getLastName());
+                TxtPassword.setText(userSelected.getPassword());
+                CmbRole.setValue(String.valueOf(userSelected.getRole()));
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "User not found!").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory();
         loadAllUsers();
+        loadRoles();
+
+        String id;
+        try {
+            id = userBO.generateNextUserId();
+            System.out.println("Generated ID: " + userBO.generateNextUserId());
+            txtId.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to generate ID").show();
+        }
+    }
+
+    private void loadRoles() {
+        ObservableList<String> roles = FXCollections.observableArrayList(
+                "Admin",
+                "Receptionist"
+        );
+        CmbRole.setItems(roles);
     }
 
     private void loadAllUsers() {
         ObservableList<UserTM> obList = FXCollections.observableArrayList();
-        try{
+
+        try {
             List<UserDTO> userDTOS = userBO.getAllUser();
+
             for (UserDTO userDTO : userDTOS) {
-                obList.add(new UserTM(userDTO.getId(),userDTO.getEmail(),userDTO.getPassword(),userDTO.getFirstName(),userDTO.getLastName(),userDTO.getRole()));
+                System.out.println(userDTO.getEmail()); // Debug print
+
+                obList.add(new UserTM(
+                        userDTO.getId(),
+                        userDTO.getEmail(),
+                        userDTO.getPassword(),
+                        userDTO.getFirstName(),
+                        userDTO.getLastName(),
+                        userDTO.getRole()
+                ));
             }
             TblUsers.setItems(obList);
-        }catch (Exception e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        } catch (Exception e) {
+            e.printStackTrace(); // For dev/debugging
+            new Alert(Alert.AlertType.ERROR, "Failed to load user data: " + e.getMessage()).show();
         }
     }
+
 
     private void setCellValueFactory(){
         ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -138,4 +256,5 @@ public class UserController implements Initializable {
         ColLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         ColRole.setCellValueFactory(new PropertyValueFactory<>("role"));
     }
+
 }

@@ -83,7 +83,7 @@ public class DashBoardController implements Initializable {
             System.out.println("Logged-in user: " + loggedInUser.getFirstName() + " " + loggedInUser.getLastName());
             System.out.println("Role: " + loggedInUser.getRole());
 
-            if (loggedInUser.getRole() == User.UserRole.ADMIN) {
+            if (loggedInUser.getRole() == User.UserRole.Admin) {
                 navigateTo("/view/AdminSidePane.fxml");
             } else {
                 navigateTo("/view/ReceptionistSidePane.fxml");

@@ -23,7 +23,7 @@ public class SignupFormController {
     private Button BtnLogIn;
 
     @FXML
-    private Button BtnSignUp;
+    public Button BtnSignUp;
 
     @FXML
     private ComboBox<String> CmbAdminRece;
@@ -38,10 +38,10 @@ public class SignupFormController {
     private TextField TxtEmail;
 
     @FXML
-    private PasswordField TxtPassword;
+    public PasswordField TxtPassword;
 
     @FXML
-    private PasswordField TxtPasswordReEnter;
+    public PasswordField TxtPasswordReEnter;
 
     @FXML
     private TextField TxtUserName;
@@ -108,5 +108,26 @@ public class SignupFormController {
 
     public void lnkLoginOnAction(MouseEvent mouseEvent) throws IOException {
         setUi("/view/LoginForm.fxml");
+    }
+
+    private UserController usersFormController; // Reference to UsersFormController
+
+    public void setUserController(UserController userController) {
+        this.usersFormController = userController;
+    }
+
+    public void signupInitialize() {
+        User userselected = usersFormController.userSelected;
+        TxtUserName.setText(userselected.getEmail());
+        TxtPassword.setText(userselected.getPassword());
+        TxtAdminName.setText(userselected.getFirstName());
+        TxtAdminCode.setText(userselected.getLastName());
+        CmbAdminRece.setValue(String.valueOf(userselected.getRole()));
+        TxtEmail.setText(userselected.getEmail());
+        TxtPasswordReEnter.setText(userselected.getPassword());
+        TxtPassword.setVisible(false);
+        TxtPassword.setManaged(false);
+        // Copy text to the visible TextField
+
     }
 }

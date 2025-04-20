@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.bo.custom.UserBO;
 import lk.ijse.gdse.bo.custom.impl.UserBOImpl;
+import lk.ijse.gdse.dto.UserDTO;
 import lombok.Setter;
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class NewPwController {
 
     public void onChangePasswordAction(ActionEvent actionEvent) throws IOException {
         String password = TxtNewPassword.getText();
-        boolean isUpdate = userBO.updateUser(selectedEmail, password);
+        boolean isUpdate = userBO.updateUser(new UserDTO());
         if (isUpdate) {
             new Alert(Alert.AlertType.INFORMATION, "Password updated successfully").show();
             Parent load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/LoginPage.fxml")));

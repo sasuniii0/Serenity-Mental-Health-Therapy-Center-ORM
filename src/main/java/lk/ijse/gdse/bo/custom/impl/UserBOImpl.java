@@ -28,8 +28,21 @@ public class UserBOImpl implements UserBO {
     }
 
     @Override
-    public boolean updateUser(String selectedEmail, String password) {
-        return false;
+    public boolean updateUser(UserDTO userDTO) {
+        try {
+            User user = new User(
+                    userDTO.getId(),
+                    userDTO.getEmail(),
+                    userDTO.getFirstName(),
+                    userDTO.getLastName(),
+                    userDTO.getPassword(),
+                    User.UserRole.valueOf(userDTO.getRole())  // Assuming 'role' is a String
+            );
+            return userDAO.update(user);  // Call DAO's update method to persist the user
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -50,6 +63,44 @@ public class UserBOImpl implements UserBO {
         }
 
         return userDTOs;
+    }
+
+    @Override
+    public boolean deleteUser(String email) {
+        return userDAO.delete(email);
+    }
+
+    @Override
+    public boolean addUser(UserDTO userDTO) {
+            try {
+                // Convert UserDTO to User entity
+                User user = new User(
+                        userDTO.getId(),
+                        userDTO.getEmail(),
+                        userDTO.getFirstName(),
+                        userDTO.getLastName(),
+                        userDTO.getPassword(),
+                        User.UserRole.valueOf(userDTO.getRole())  // Assuming 'role' is a String
+                );
+
+                return userDAO.save(user);  // Call DAO's save method to persist the user
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+    }
+
+    @Override
+    public String generateNextUserId() {
+        String lastId = userDAO.getLastUserId(); // returns something like "U-3"
+
+        if (lastId != null && lastId.matches("U-\\d+")) {
+            int lastNumber = Integer.parseInt(lastId.split("-")[1]);
+            int nextNumber = lastNumber + 1;
+            return "U-" + nextNumber;
+        } else {
+            return "U-1"; // If no users exist
+        }
     }
 
 }

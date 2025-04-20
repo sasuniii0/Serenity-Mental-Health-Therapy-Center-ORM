@@ -1,5 +1,6 @@
 package lk.ijse.gdse.dao.custom.impl;
 
+import javafx.scene.control.Alert;
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.UserDAO;
 import lk.ijse.gdse.entity.User;
@@ -29,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
 
             if (result == 0) {
                 String hashedPassword = PasswordUtil.hashPassword("1234");
-                User user = new User("U-1", "admin@gmail.com", hashedPassword, "admin", "admin", User.UserRole.ADMIN);
+                User user = new User("U-1", "admin@gmail.com", hashedPassword, "admin", "admin", User.UserRole.Admin);
                 session.persist(user);
             }
 
@@ -95,18 +96,105 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean save(User entity) {
-        return false;
+    public String getLastUserId() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        String lastId = null;
+
+        try {
+            lastId = session.createQuery("SELECT u.id FROM User u ORDER BY u.id DESC", String.class)
+                    .setMaxResults(1)
+                    .uniqueResult();
+        } finally {
+            session.close();
+        }
+
+        return lastId;
     }
+
+
+    @Override
+    public boolean save(User entity) {
+        Session session = null;
+        Transaction transaction = null;
+
+        try {
+            // Hash the password before saving
+            String hashedPassword = PasswordUtil.hashPassword(entity.getPassword());
+            entity.setPassword(hashedPassword);
+
+            // Open session and transaction
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            // Persist the user entity
+            session.persist(entity);
+
+            // Commit the transaction
+            transaction.commit();
+            return true;
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();  // Rollback the transaction in case of failure
+            }
+            e.printStackTrace();  // Log the exception for debugging
+            return false;
+        } finally {
+            if (session != null) {
+                session.close();  // Ensure the session is closed
+            }
+        }
+    }
+
 
     @Override
     public boolean update(User entity) {
-        return false;
+        Session session = null;
+        Transaction transaction = null;
+
+        try {
+            // Hash the password before saving
+            String hashedPassword = PasswordUtil.hashPassword(entity.getPassword());
+            entity.setPassword(hashedPassword);
+
+            // Open session and transaction
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            // Persist the user entity
+            session.merge(entity);
+
+            // Commit the transaction
+            transaction.commit();
+            return true;
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();  // Rollback the transaction in case of failure
+            }
+            e.printStackTrace();  // Log the exception for debugging
+            return false;
+        } finally {
+            if (session != null) {
+                session.close();  // Ensure the session is closed
+            }
+        }
     }
 
     @Override
     public boolean delete(String id) {
-        return false;
+        try{
+            Session session = FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+
+            Query query = session.createQuery("delete from User where email = ?1");
+            query.setParameter(1, id);
+            boolean isDelete = query.executeUpdate() > 0;
+            transaction.commit();
+            session.close();
+            return true;
+        }catch (HibernateException e){
+            new Alert(Alert.AlertType.CONFIRMATION,e.getMessage()).show();
+            return false;
+        }
     }
 
     @Override

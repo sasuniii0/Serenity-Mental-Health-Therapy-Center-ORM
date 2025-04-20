@@ -10,4 +10,5 @@ public interface UserDAO extends CrudDAO<User> {
 
     User searchUserByAdminMail(String adMail);
 
+    String getLastUserId();
 }

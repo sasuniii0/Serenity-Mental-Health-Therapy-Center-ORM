@@ -84,7 +84,7 @@ public class LoginFormController {
                 dashboardController.setLoggedInUser(user);
 
                 // Load the correct side pane based on the user role
-                if (user.getRole().equals(User.UserRole.ADMIN)) {
+                if (user.getRole().equals(User.UserRole.Admin)) {
                     dashboardController.navigateTo("/view/AdminSidePane.fxml");
                 } else {
                     dashboardController.navigateTo("/view/ReceptionistSidePane.fxml");

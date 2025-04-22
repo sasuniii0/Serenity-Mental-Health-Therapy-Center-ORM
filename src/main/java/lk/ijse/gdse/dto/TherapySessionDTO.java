@@ -14,7 +14,7 @@ public class TherapySessionDTO {
     private String id;
     private String name;
     private String date;
-    private Patient patient;
-    private Therapist therapist;
-    private TherapyProgram therapyProgram;
+    private String patient;
+    private String therapist;
+    private String therapyProgram;
 }

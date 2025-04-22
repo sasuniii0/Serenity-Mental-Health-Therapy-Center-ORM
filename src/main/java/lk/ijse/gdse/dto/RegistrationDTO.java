@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class RegistrationDTO {
     private String id;
-    private Patient patient;
-    private TherapyProgram therapyProgram;
+    private String patientId;
+    private String therapyProgramId;
     private double upfrontPayment;
 }

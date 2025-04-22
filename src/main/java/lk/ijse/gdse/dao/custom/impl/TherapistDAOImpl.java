@@ -3,6 +3,7 @@ package lk.ijse.gdse.dao.custom.impl;
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.TherapistDAO;
 import lk.ijse.gdse.entity.Therapist;
+import lk.ijse.gdse.entity.TherapyProgram;
 import lk.ijse.gdse.util.PasswordUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -94,5 +95,39 @@ public class TherapistDAOImpl implements TherapistDAO {
         }
 
         return lastId;
+    }
+
+    @Override
+    public List<TherapyProgram> getAllPrograms() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try{
+            Query query = session.createQuery("FROM TherapyProgram");
+            List<TherapyProgram> therapyPrograms = query.list();
+            transaction.commit();
+            return therapyPrograms;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<TherapyProgram> getAllTherapyPrograms() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try{
+            Query query = session.createQuery("FROM TherapyProgram");
+            List<TherapyProgram> therapyPrograms = query.list();
+            transaction.commit();
+            return therapyPrograms;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }finally {
+            session.close();
+        }
     }
 }

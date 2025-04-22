@@ -21,8 +21,8 @@ public class TherapyProgramDTO {
     private double fee;
     private String duration;
 
-    private List<Therapist> therapists;
-    private List<Registration> registrations;
+    private String therapistsId;
+    private String registrations;
 
     public TherapyProgramDTO(String id, String name, double fee, String duration) {
         this.id = id;

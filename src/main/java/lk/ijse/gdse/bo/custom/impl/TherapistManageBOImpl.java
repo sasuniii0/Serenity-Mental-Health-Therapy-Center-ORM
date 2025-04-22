@@ -4,6 +4,7 @@ import lk.ijse.gdse.bo.custom.TherapistManageBO;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.TherapistDAO;
 import lk.ijse.gdse.dto.TherapistDTO;
+import lk.ijse.gdse.dto.TherapyProgramDTO;
 import lk.ijse.gdse.entity.Therapist;
 
 import java.util.ArrayList;
@@ -80,5 +81,25 @@ public class TherapistManageBOImpl implements TherapistManageBO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public List<TherapyProgramDTO> getAllPrograms() {
+        List<TherapyProgramDTO> therapyProgramDTOS = new ArrayList<>();
+        List<lk.ijse.gdse.entity.TherapyProgram> therapyPrograms = therapistDAO.getAllPrograms();
+        for (lk.ijse.gdse.entity.TherapyProgram therapyProgram : therapyPrograms){
+            therapyProgramDTOS.add(new TherapyProgramDTO(therapyProgram.getId(),therapyProgram.getName(),therapyProgram.getFee(),therapyProgram.getDuration()));
+        }
+        return therapyProgramDTOS;
+    }
+
+    @Override
+    public List<TherapyProgramDTO> getAllTherapyPrograms() {
+        List<TherapyProgramDTO> therapyProgramDTOS = new ArrayList<>();
+        List<lk.ijse.gdse.entity.TherapyProgram> therapyPrograms = therapistDAO.getAllTherapyPrograms();
+        for (lk.ijse.gdse.entity.TherapyProgram therapyProgram : therapyPrograms){
+            therapyProgramDTOS.add(new TherapyProgramDTO(therapyProgram.getId(),therapyProgram.getName(),therapyProgram.getFee(),therapyProgram.getDuration()));
+        }
+        return therapyProgramDTOS;
     }
 }

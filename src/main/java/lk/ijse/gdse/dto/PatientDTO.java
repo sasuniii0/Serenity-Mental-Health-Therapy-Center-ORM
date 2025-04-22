@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,7 +21,8 @@ public class PatientDTO {
     private String address;
     private String contactNumber;
     private String email;
-    private String dateOfBirth;
-    private List<TherapySession> therapySessions;
-    private List<Registration> registrations;
+    private Date dateOfBirth;
+    private String therapyPrograms;
+    private Double upfrontPayment;
+
 }

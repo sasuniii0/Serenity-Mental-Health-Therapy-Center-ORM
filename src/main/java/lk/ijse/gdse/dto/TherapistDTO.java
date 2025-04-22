@@ -18,7 +18,7 @@ public class TherapistDTO {
     private String name;
     private String email;
     private String contactNumber;
-    private List<TherapySession> therapySessions;
+    private String therapySessionsId;
 
     private String therapyProgramId;
     private String therapyProgramName;

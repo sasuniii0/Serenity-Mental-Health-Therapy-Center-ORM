@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.TherapySessionScheduleController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.SessionController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="627.0" prefWidth="685.0" spacing="10.0">
          <children>
@@ -56,8 +56,8 @@
                         <ComboBox fx:id="CmbPatient" onAction="#CmbPatient" prefHeight="26.0" prefWidth="304.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="96.53674507141113" />
                         <TextField fx:id="IdtPatientId" />
-                        <Text fx:id="TxtDesc" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="96.53674507141113" />
-                        <TextField fx:id="TxtDesc" />
+                        <Text fx:id="txt" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="96.53674507141113" />
+                        <TextField fx:id="TxtDescription" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="242.13677597045898" />
                         <DatePicker fx:id="TxtAppoinmentDate" prefHeight="26.0" prefWidth="333.0" />
                      </children>
@@ -75,9 +75,10 @@
                               <ComboBox fx:id="CmbTherapist" onAction="#CmbTherapistOnAction" prefHeight="26.0" prefWidth="334.0" />
                            </children>
                         </HBox>
+                        <TextField fx:id="TxtTherapistId" prefHeight="18.0" prefWidth="323.0" />
                         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="96.53674507141113" />
+                              <Text fx:id="PayId" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="96.53674507141113" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="334.0" />

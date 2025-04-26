@@ -26,9 +26,9 @@
                   <Button fx:id="BtnHome" onAction="#BtnHomeOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Home" />
 
                   <Button fx:id="BtnSessionAppoinment" onAction="#BtnSessionAppoinmentOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Session Appointments" />
-                  <Button fx:id="BtnReg" onAction="#BtnRegOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Users" />
+                  <Button fx:id="BtnReg" onAction="#BtnRegOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Registration" />
 
-                  <Button fx:id="BtnPatient" onAction="#BtnPatientOnAction" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Patient Registration" />
+                  <Button fx:id="BtnPatient" onAction="#BtnPatientOnAction" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Patient Manage" />
 
                   <Button fx:id="BtnPayment" onAction="#BtnPaymentOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Payment History" />
 

@@ -31,4 +31,20 @@ public class UserController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    public void CmbRoleOnAction(ActionEvent actionEvent) {
+    }
+
+    public void BtnUpdateOnAction(ActionEvent actionEvent) {
+    }
+
+    public void BtnDeleteOnAction(ActionEvent actionEvent) {
+    }
+
+    public void BtnAddOnAction(ActionEvent actionEvent) {
+    }
+
+    public void TblUserOnAction(MouseEvent mouseEvent) {
+
+    }
 }

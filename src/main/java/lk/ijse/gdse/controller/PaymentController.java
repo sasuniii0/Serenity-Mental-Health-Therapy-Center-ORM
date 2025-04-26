@@ -1,18 +1,27 @@
 package lk.ijse.gdse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import lk.ijse.gdse.bo.BOFactory;
+import lk.ijse.gdse.bo.custom.PatientManageBO;
+import lk.ijse.gdse.bo.custom.PaymentManageBO;
+import lk.ijse.gdse.bo.custom.TherapyProgramManageBO;
+import lk.ijse.gdse.bo.custom.TherapySessionBO;
+import lk.ijse.gdse.dto.PaymentDTO;
+import lk.ijse.gdse.dto.TherapySessionDTO;
+import lk.ijse.gdse.dto.tm.PaymentTM;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PaymentController implements Initializable {
@@ -30,31 +39,31 @@ public class PaymentController implements Initializable {
     private Button BtnPrint;
 
     @FXML
-    private TableColumn<?, ?> ColAmount;
+    private TableColumn<PaymentTM, Double> ColAmount;
 
     @FXML
-    private TableColumn<?, ?> ColDate;
+    private TableColumn<PaymentTM, LocalDate> ColDate;
 
     @FXML
-    private TableColumn<?, ?> ColDesc;
+    private TableColumn<PaymentTM, String> ColDesc;
 
     @FXML
-    private TableColumn<?, ?> ColId;
+    private TableColumn<PaymentTM, String> ColId;
 
     @FXML
-    private TableColumn<?, ?> ColPatientName;
+    private TableColumn<PaymentTM, String> ColPatientName;
 
     @FXML
-    private TableColumn<?, ?> ColProgram;
+    private TableColumn<PaymentTM, String> ColProgram;
 
     @FXML
-    private TableColumn<?, ?> ColRemaining;
+    private TableColumn<PaymentTM, Double> ColRemaining;
 
     @FXML
-    private TableColumn<?, ?> ColSessionId;
+    private TableColumn<PaymentTM, String> ColSessionId;
 
     @FXML
-    private TableColumn<?, ?> ColStatus;
+    private TableColumn<PaymentTM, String> ColStatus;
 
     @FXML
     private RadioButton RadComplete;
@@ -63,7 +72,7 @@ public class PaymentController implements Initializable {
     private RadioButton RadOngoing;
 
     @FXML
-    private TableView<?> TblPayment;
+    private TableView<PaymentTM> TblPayment;
 
     @FXML
     private Text TxtDate;
@@ -89,6 +98,11 @@ public class PaymentController implements Initializable {
     @FXML
     private AnchorPane root;
 
+    PaymentManageBO paymentManageBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PAYMENT);
+    TherapySessionBO therapySessionBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.THERAPY_SESSION);
+    PatientManageBO patientManageBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PATIENT);
+    TherapyProgramManageBO therapyProgramManageBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.THERAPY_PROGRAM);
+
     @FXML
     void BtnPayOnAction(ActionEvent event) {
 
@@ -106,6 +120,77 @@ public class PaymentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ColSessionId.setCellValueFactory(new PropertyValueFactory<>("sessionId"));
+        ColPatientName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        ColProgram.setCellValueFactory(new PropertyValueFactory<>("program"));
+        ColDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
+        ColDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        ColAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        ColRemaining.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
+        ColStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
+        TxtRemainingAmount.setStyle(defaultStyle);
+
+        try {
+            refreshPage();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load payment id").show();
+        }
+
+    }
+
+    private void refreshPage() {
+        loadTableData();
+
+        BtnPay1.setDisable(true);
+        BtnPay2.setDisable(true);
+
+        TxtRemainingAmount.setText("");
+
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
+        TxtRemainingAmount.setStyle(defaultStyle);
+    }
+
+    private void loadTableData() {
+        ArrayList<PaymentDTO> paymentDTOS = (ArrayList<PaymentDTO>) paymentManageBO.getAllPayments();
+        ObservableList<PaymentTM> paymentTMS = FXCollections.observableArrayList();
+
+        for (PaymentDTO paymentDTO : paymentDTOS) {
+            TherapySessionDTO sessionDTO = therapySessionBO.getSessionById(paymentDTO.getSessionId());
+            String patientName = null;
+            String program = null;
+            String desc = null;
+
+            if (sessionDTO != null) {
+                patientName = patientManageBO.getPatientNameById(sessionDTO.getPatientId());
+                program = therapyProgramManageBO.getProgramNameById(sessionDTO.getProgramId());
+                desc = sessionDTO.getDescription();
+            }
+
+            if (patientName == null) {
+                patientName = "Unknown Patient";
+            }
+
+            PaymentTM paymentTM = new PaymentTM(
+                    paymentDTO.getId(),
+                    paymentDTO.getSessionId(),
+                    patientName,
+                    program,
+                    desc,
+                    paymentDTO.getDate(),
+                    paymentDTO.getAmount(),
+                    paymentDTO.getRemainingAmount(),
+                    paymentDTO.getStatus()
+
+            );
+            paymentTMS.add(paymentTM);
+        }
+        TblPayment.setItems(paymentTMS);
     }
 }

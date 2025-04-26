@@ -14,7 +14,7 @@ public class BOFactory {
                 = new BOFactory() : boFactory;
     }
     public enum BOTypes{
-        PATIENT, PAYMENT,THERAPIST,THERAPY_PROGRAM,USER,THERAPY_SESSION
+        PATIENT, PAYMENT,THERAPIST,THERAPY_PROGRAM,USER,THERAPY_SESSION,REGISTRATION,SCHEDULE_APPOINMENT
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +37,12 @@ public class BOFactory {
             }
             case THERAPY_SESSION -> {
                 return (T) new TherapySessionBOImpl();
+            }
+            case REGISTRATION -> {
+                return (T) new RegistrationBOImpl();
+            }
+            case SCHEDULE_APPOINMENT -> {
+                return (T) new ScheduleAppoinmentBOImpl();
             }
             default -> {
                 return null;}

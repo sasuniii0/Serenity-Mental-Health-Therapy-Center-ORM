@@ -48,7 +48,43 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void initializeDefaultUsers() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = null;
 
+        try {
+            transaction = session.beginTransaction();
+
+            // Check if any users exist
+            Query<Long> countQuery = session.createQuery("SELECT COUNT(u) FROM User u", Long.class);
+            Long userCount = countQuery.uniqueResult();
+
+            // If no users exist, create default admin
+            if (userCount == 0) {
+                String hashedPass = PasswordUtil.hashPassword("1234");
+                User admin = new User(
+                        "U-1",
+                        "Admin",
+                        "User",
+                        "admin@gmail.com",
+                        "admin",
+                        hashedPass,
+                        hashedPass, // confirmPassword (should match)
+                        User.Role.ADMIN.toString()
+                );
+                session.save(admin);
+                System.out.println("Default admin user created successfully");
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            System.err.println("Error initializing default users: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 
     @Override

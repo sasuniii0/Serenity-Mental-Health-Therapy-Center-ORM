@@ -14,4 +14,8 @@ public interface PaymentManageBO {
     String generateNextPaymentId() throws Exception;
 
     List<PaymentDTO> getPaymentsBySession(String sessionId) throws Exception;
+
+    List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId);
+
+    String getNextPaymentId();
 }

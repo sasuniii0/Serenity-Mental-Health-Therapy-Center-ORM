@@ -4,6 +4,7 @@ import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.TherapistDTO;
 import lk.ijse.gdse.dto.TherapyProgramDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface TherapistManageBO extends SuperBO {
@@ -22,4 +23,14 @@ public interface TherapistManageBO extends SuperBO {
     List<TherapyProgramDTO> getAllTherapyPrograms();
 
     TherapyProgramDTO searchTherapyProgram(String program);
+
+    String getNextTherapistId();
+
+    ArrayList<String> getTherapistNamesByProgramId(String programId);
+
+    String getTherapistIdByName(String selectedTherapistName);
+
+    String getTherapistNameById(String therapistId);
+
+    ArrayList<String> getAllTherapistNames();
 }

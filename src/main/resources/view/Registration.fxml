@@ -118,7 +118,7 @@
                   <TableColumn fx:id="ColFee" prefWidth="76.79998779296875" text="Fee" />
                   <TableColumn fx:id="ColAdvance" prefWidth="103.19989013671875" text="Advance" />
                   <TableColumn fx:id="ColPatient" prefWidth="97.5999755859375" text="Patient" />
-                  <TableColumn fx:id="ColProgram" prefWidth="76.0" text="ProgramId" />
+                  <TableColumn fx:id="ColProgramId" prefWidth="76.0" text="ProgramId" />
                   <TableColumn fx:id="ColDate" prefWidth="59.2000732421875" text="Date" />
               </columns>
             </TableView>

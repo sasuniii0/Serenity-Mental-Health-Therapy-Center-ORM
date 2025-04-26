@@ -39,81 +39,88 @@ public class LoginFormController {
     @FXML
     private AnchorPane root;
 
-    UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
+
+
+    private final UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     @FXML
     void BtnCreateNewAccountOnAction(ActionEvent event) throws IOException {
-        AnchorPane mainNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/SignupForm.fxml")));
-
-        Scene scene = new Scene(mainNode);
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("SignUp Page");
+        loadForm("/view/SignupForm.fxml", "SignUp Page");
     }
 
     @FXML
     void BtnForgotPwOnAction(ActionEvent event) throws IOException {
-        AnchorPane mainNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/ForgotPw.fxml")));
-
-        Scene scene = new Scene(mainNode);
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Forgot-password Page");
+        loadForm("/view/ForgotPw.fxml", "Forgot Password Page");
     }
 
-    /*@FXML
-    void BtnSignInOnAction(ActionEvent event) throws IOException {
-        String email= TxtUserName.getText();
-        String password=TxtPassword.getText();
+    @FXML
+    void BtnSignInOnAction(ActionEvent event) {
+        try {
+            String email = TxtUserName.getText().trim();
+            String password = TxtPassword.getText().trim();
 
-        User user = userBO.searchUserByEmail(email);
-
-        if (user != null) {
-            boolean isPassRight = PasswordUtil.verifyPassword(password, user.getPassword());
-
-            if (isPassRight) {
-                // Load main Dashboard
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
-                Parent rootNode = loader.load();
-
-                // Get the Dashboard controller
-                DashBoardController dashboardController = loader.getController();
-
-                dashboardController.setLoggedInUser(user);
-
-                // Load the correct side pane based on the user role
-                if (user.getRole().equals(User.UserRole.Admin)) {
-                    dashboardController.navigateTo("/view/AdminSidePane.fxml");
-                } else {
-                    dashboardController.navigateTo("/view/ReceptionistSidePane.fxml");
-                }
-
-                // Set scene
-                Scene scene = new Scene(rootNode);
-                Stage stage = (Stage) root.getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Wrong Password").show();
+            if (email.isEmpty() || password.isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Please enter both email and password");
+                return;
             }
-        }
-        else {
-            new Alert(Alert.AlertType.ERROR,"User Not Found").show();
-        }
-    }*/
 
-    public void navigateTo(String fxml) throws IOException {
-        try{
-            root.getChildren().clear();
-            AnchorPane anchorPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
-            root.getChildren().add(anchorPane);
-        }catch(IOException e){
+            User user = userBO.searchUserByEmail(email);
+
+            if (user == null) {
+                showAlert(Alert.AlertType.ERROR, "Authentication Failed", "User not found");
+                return;
+            }
+
+            if (!PasswordUtil.verifyPassword(password, user.getPassword())) {
+                showAlert(Alert.AlertType.ERROR, "Authentication Failed", "Wrong password");
+                return;
+            }
+
+            // Successful login - load dashboard
+            loadDashboard(user);
+
+        } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR,"Failed to load the page");
+            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during login");
         }
-
     }
+
+    private void loadDashboard(User user) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
+        Parent rootNode = loader.load();
+
+        // Pass user information to dashboard controller
+        DashBoardController dashboardController = loader.getController();
+        dashboardController.setLoggedInUser(user);
+
+        // Set up the stage
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(new Scene(rootNode));
+        stage.setTitle("Therapy Center - Dashboard");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    private void loadForm(String fxmlPath, String title) throws IOException {
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath)));
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(new Scene(pane));
+        stage.setTitle(title);
+        stage.centerOnScreen();
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    // Helper method for Enter key press (you can add this to your FXML)
+    @FXML
+    void onEnterPressed(ActionEvent event) {
+        BtnSignInOnAction(event);
+    }
+
 }

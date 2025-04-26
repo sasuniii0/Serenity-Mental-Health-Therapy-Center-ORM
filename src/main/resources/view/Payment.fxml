@@ -116,7 +116,7 @@
                   <Button fx:id="BtnPay" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Pay" />
                   <Button fx:id="BtnPrint" mnemonicParsing="false" onAction="#BtnPrintOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;" text="Print" />
                   <Button fx:id="BtnPay1" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: orange; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
-                  <Button fx:id="BtnPay2" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Reset" />
+                  <Button fx:id="BtnPay2" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
                </children>
             </HBox>
             <TableView fx:id="TblPayment" onMouseClicked="#TblPaymentOnAction" prefHeight="118.0" prefWidth="687.0">

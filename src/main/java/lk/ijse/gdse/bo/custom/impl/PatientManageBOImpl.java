@@ -30,6 +30,11 @@ public class PatientManageBOImpl implements PatientManageBO {
     }
 
     @Override
+    public String getPatientNameById(String patientId) {
+        return "";
+    }
+
+    @Override
     public boolean updatePatient(PatientDTO patientDTO) {
         return false;
     }
@@ -52,5 +57,10 @@ public class PatientManageBOImpl implements PatientManageBO {
     @Override
     public List<String> getPatientIdAndNames() {
         return List.of();
+    }
+
+    @Override
+    public String getNextPatientId() {
+        return "";
     }
 }

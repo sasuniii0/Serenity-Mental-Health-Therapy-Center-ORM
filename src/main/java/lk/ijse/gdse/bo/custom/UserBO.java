@@ -22,4 +22,6 @@ public interface UserBO extends SuperBO {
     boolean addUser(UserDTO userDTO);
 
     String generateNextUserId();
+
+    void initialize();
 }

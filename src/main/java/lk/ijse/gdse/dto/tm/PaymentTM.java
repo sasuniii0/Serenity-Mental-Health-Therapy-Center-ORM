@@ -11,10 +11,12 @@ import java.time.LocalDate;
 @Data
 public class PaymentTM {
     private String id;
-    private double amount;
-    private LocalDate date;
-    private String patientId;
+    private String sessionId;
     private String patientName;
-    private String therapyProgram;
-    private double balance;
+    private String program;
+    private String description;
+    private LocalDate date;
+    private double amount;
+    private double remainingAmount;
+    private String status;
 }

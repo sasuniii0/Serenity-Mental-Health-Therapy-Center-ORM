@@ -19,9 +19,6 @@ import java.util.ResourceBundle;
 public class TherapySessionScheduleController implements Initializable {
 
     @FXML
-    private Button BtnAvailability;
-
-    @FXML
     private Button BtnCancelAppoinment;
 
     @FXML
@@ -34,13 +31,13 @@ public class TherapySessionScheduleController implements Initializable {
     private ComboBox<?> CmbPatient;
 
     @FXML
+    private ComboBox<?> CmbStatus;
+
+    @FXML
     private ComboBox<?> CmbTherapist;
 
     @FXML
     private ComboBox<?> CmbTherapyPrograms;
-
-    @FXML
-    private TableColumn<?, ?> ColAmount;
 
     @FXML
     private TableColumn<?, ?> ColDate;
@@ -49,13 +46,25 @@ public class TherapySessionScheduleController implements Initializable {
     private TableColumn<?, ?> ColId;
 
     @FXML
+    private TableColumn<?, ?> ColPatient;
+
+    @FXML
     private TableColumn<?, ?> ColPatientId;
+
+    @FXML
+    private TableColumn<?, ?> ColProId;
+
+    @FXML
+    private TableColumn<?, ?> ColSessionDate;
 
     @FXML
     private TableColumn<?, ?> ColStatus;
 
     @FXML
     private TableColumn<?, ?> ColTherapist;
+
+    @FXML
+    private TableColumn<?, ?> ColTherapistId;
 
     @FXML
     private TableColumn<?, ?> ColTherapyProgram;
@@ -76,18 +85,22 @@ public class TherapySessionScheduleController implements Initializable {
     private Text TxtDate;
 
     @FXML
+    private TextField TxtDesc;
+
+    @FXML
     private Text TxtId;
 
     @FXML
-    private TextField TxtPatientName;
+    private TextField TxtPayDesc;
+
+    @FXML
+    private TextField TxtProId;
+
+    @FXML
+    private Text TxtRemaining;
 
     @FXML
     private AnchorPane root;
-
-    @FXML
-    void BtnAvailabilityOnAction(ActionEvent event) {
-
-    }
 
     @FXML
     void BtnCancelAppoinmentOnAction(ActionEvent event) {
@@ -106,6 +119,11 @@ public class TherapySessionScheduleController implements Initializable {
 
     @FXML
     void CmbPatient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CmbStatusOnAction(ActionEvent event) {
 
     }
 

@@ -10,16 +10,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 public class PatientTM {
-    private String id;
-    private String name;
-    private String nic;
+    private String patientId;
+    private String patientName;
     private String address;
-    private String contactNumber;
+    private String nic ;
     private String email;
-    private Date dateOfBirth;
-    private String therapyPrograms;
-    private String upfrontPayment;
+    private int mobile;
+    private String gender;
 
-    public PatientTM(String id, String name, String nic, String address, String contactNumber, String email, String dateOfBirth, String string, String string1) {
-    }
 }

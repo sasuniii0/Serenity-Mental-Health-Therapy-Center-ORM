@@ -12,46 +12,34 @@ import java.util.List;
 
 public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
 
-    TherapyProgramDAO therapyProgramDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
 
     @Override
     public List<TherapyProgramDTO> getAllPrograms() {
-        List<TherapyProgramDTO> therapyProgramDTOS = new ArrayList<>();
-        List<TherapyProgram> therapyPrograms = therapyProgramDAO.getAll();
-
-        for (TherapyProgram therapyProgram : therapyPrograms){
-            TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO(therapyProgram.getId(),therapyProgram.getName(),therapyProgram.getFee(),therapyProgram.getDuration());
-            therapyProgramDTOS.add(therapyProgramDTO);
-        }
-        return therapyProgramDTOS;
+        return List.of();
     }
 
     @Override
     public String generateNextTherapyProId() {
-        String lastId = therapyProgramDAO.getLastTherapyProId(); // returns something like "MT-003"
-
-        if (lastId != null && lastId.matches("MT-\\d+")) {
-            int lastNumber = Integer.parseInt(lastId.split("-")[1]);
-            int nextNumber = lastNumber + 1;
-            return String.format("MT-%03d", nextNumber); // adds leading zeros
-        } else {
-            return "MT-001"; // First ID
-        }
+        return "";
     }
-
 
     @Override
     public boolean addTherapyProgram(TherapyProgramDTO therapyProgram) {
-        return therapyProgramDAO.save(new TherapyProgram(therapyProgram.getId(),therapyProgram.getName(),therapyProgram.getFee(),therapyProgram.getDuration()));
+        return false;
     }
 
     @Override
     public boolean deleteTherapyProgram(String id) {
-        return therapyProgramDAO.delete(id);
+        return false;
     }
 
     @Override
     public boolean updateTherapyProgram(TherapyProgramDTO therapyProgram) {
-        return therapyProgramDAO.update(new TherapyProgram(therapyProgram.getId(),therapyProgram.getName(),therapyProgram.getFee(),therapyProgram.getDuration()));
+        return false;
+    }
+
+    @Override
+    public List<String> loadTherapyProgramsForPatient(String patientId) {
+        return List.of();
     }
 }

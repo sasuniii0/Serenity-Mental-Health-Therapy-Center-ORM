@@ -25,4 +25,9 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
     public List<TherapySession> getAll() {
         return List.of();
     }
+
+    @Override
+    public TherapySession search(String sessionId) {
+        return null;
+    }
 }

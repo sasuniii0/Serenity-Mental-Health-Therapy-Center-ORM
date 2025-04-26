@@ -4,4 +4,5 @@ import lk.ijse.gdse.dao.CrudDAO;
 import lk.ijse.gdse.entity.TherapySession;
 
 public interface TherapySessionDAO extends CrudDAO<TherapySession> {
+    TherapySession search(String sessionId);
 }

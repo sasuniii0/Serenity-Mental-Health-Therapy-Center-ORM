@@ -14,19 +14,28 @@ public class PatientDAOImpl implements PatientDAO {
     @Override
     public boolean save(Patient entity) {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            // Generate new ID only if not already set
+            if (entity.getId() == null || entity.getId().isEmpty()) {
+                entity.setId(getLastPatientId());
+            }
+
             session.persist(entity);
             transaction.commit();
-            session.close();
             return true;
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }finally {
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new RuntimeException("Failed to save patient: " + e.getMessage(), e);
+        } finally {
             session.close();
         }
     }
-
     @Override
     public boolean update(Patient entity) {
        Session session = FactoryConfiguration.getInstance().getSession();
@@ -111,4 +120,33 @@ public class PatientDAOImpl implements PatientDAO {
             session.close();
         }
     }
+
+    @Override
+    public List<String> getPatientIdAndNames() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Query query = session.createQuery("SELECT p.id, p.name FROM Patient p");
+            List<Object[]> results = query.getResultList();
+            for (Object[] result : results) {
+                String id = (String) result[0];
+                String name = (String) result[1];
+                System.out.println("ID: " + id + ", Name: " + name);
+            }
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null) transaction.rollback();
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
+    public Patient search(String patientId) {
+        return null;
+    }
+
+
 }

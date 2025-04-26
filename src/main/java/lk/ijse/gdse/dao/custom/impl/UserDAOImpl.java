@@ -14,7 +14,7 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
-    @Override
+    /*@Override
     public void initializeDefaultUsers() {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -43,8 +43,13 @@ public class UserDAOImpl implements UserDAO {
         } finally {
             session.close();
         }
-    }
+    }*/
 
+
+    @Override
+    public void initializeDefaultUsers() {
+
+    }
 
     @Override
     public User searchUserByEmail(String email) {

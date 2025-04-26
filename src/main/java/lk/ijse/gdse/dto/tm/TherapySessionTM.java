@@ -10,12 +10,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class TherapySessionTM {
-    private String id;
-    private String name;
+    private String sessionId;
     private LocalDate date;
     private String patientId;
+    private String programId;
+    private String therapistId;
+    private String patient;
+    private String program;
     private String therapist;
-    private String therapyProgram;
-    private String status;
-    private double amount;
+    private LocalDate sessionDate;
 }

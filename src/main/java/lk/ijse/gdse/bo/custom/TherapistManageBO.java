@@ -20,4 +20,6 @@ public interface TherapistManageBO extends SuperBO {
     List<TherapyProgramDTO> getAllPrograms();
 
     List<TherapyProgramDTO> getAllTherapyPrograms();
+
+    TherapyProgramDTO searchTherapyProgram(String program);
 }

@@ -6,13 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class RegistrationTM {
-    private String id;
-    private Patient patientName;
-    private TherapyProgram therapyProgramName;
-    private TherapyProgram therapyProgramFee;
-    private double upfrontPayment;
+    private String registrationId;
+    private String patientId;
+    private String programId;
+    private String patient;
+    private String program;
+    private double advancePayment;
+    private LocalDate date;
 }

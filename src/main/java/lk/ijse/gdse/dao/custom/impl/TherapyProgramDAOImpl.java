@@ -90,4 +90,21 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
 
         return lastId;
     }
+
+    @Override
+    public List<String> loadTherapyProgramsForPatient(String patientId) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Query query = session.createQuery("SELECT tp.id FROM TherapyProgram tp WHERE tp.patient_id = :patientId");
+            query.setParameter("patientId", patientId);
+            List<String> therapyPrograms = query.list();
+            transaction.commit();
+            return therapyPrograms;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+    }
 }

@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class TherapistTM {
-    private String id;
+    private String therapistId;
     private String name;
-    private String email;
-    private String contactNumber;
-    private String therapyProgramId;
-    private String therapyProgramName;
+    private String address;
+    private String nic;
+    private int mobile;
+    private String program;
+    private String programId;
 }

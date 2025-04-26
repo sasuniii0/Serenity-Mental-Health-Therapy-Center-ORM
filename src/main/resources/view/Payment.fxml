@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -56,14 +55,14 @@
                <children>
                   <HBox prefHeight="27.0" prefWidth="326.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient-Id" wrappingWidth="85.33670043945312" />
-                        <ComboBox fx:id="CmbStudentId" onAction="#CmbStudentIdOnAction" prefHeight="26.0" prefWidth="230.0" promptText="Select Patient ID" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Session-id" wrappingWidth="85.33670043945312" />
+                        <Text fx:id="TxtId" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="169.33675384521484" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="359.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program" wrappingWidth="74.1367416381836" />
-                        <ComboBox fx:id="CmbProgram" onAction="#CmbProgramOnAction" prefHeight="26.0" prefWidth="269.0" promptText="Select Program" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program" wrappingWidth="139.73673248291016" />
+                        <Text fx:id="TxtName" strokeType="OUTSIDE" strokeWidth="0.0" text="Program" wrappingWidth="99.7367217540741" />
                      </children>
                   </HBox>
                </children>
@@ -72,65 +71,65 @@
                <children>
                   <HBox prefHeight="38.0" prefWidth="342.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="85.33670043945312" />
-                        <Text fx:id="TxtName" strokeType="OUTSIDE" strokeWidth="0.0" text="example" wrappingWidth="114.13672065734863" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="program" wrappingWidth="85.33670043945312" />
+                        <Text fx:id="TxtProgram" strokeType="OUTSIDE" strokeWidth="0.0" text="example" wrappingWidth="214.1367130279541" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="38.0" prefWidth="186.0">
+                  <HBox prefHeight="38.0" prefWidth="186.0" />
+                  <HBox alignment="TOP_RIGHT" prefHeight="38.0" prefWidth="267.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duration" wrappingWidth="102.13671875" />
-                        <Text fx:id="TxtDuration" strokeType="OUTSIDE" strokeWidth="0.0" text="0 weeks" wrappingWidth="79.7366943359375" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fee" wrappingWidth="146.13671255111694" />
+                        <Text fx:id="TxtFee" strokeType="OUTSIDE" strokeWidth="0.0" text="LKR 0/=" wrappingWidth="96.53686380386353" />
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="38.0" prefWidth="161.0">
+               </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="687.0">
+               <children>
+                  <HBox prefHeight="38.0" prefWidth="342.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fee" wrappingWidth="78.93670654296875" />
-                        <Text fx:id="TxtFee" strokeType="OUTSIDE" strokeWidth="0.0" text="LKR 0/=" wrappingWidth="53.3367919921875" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="85.33670043945312" />
+                        <Text fx:id="TxtDesc" strokeType="OUTSIDE" strokeWidth="0.0" text="example" wrappingWidth="218.1367130279541" />
                      </children>
                   </HBox>
+                  <HBox prefHeight="38.0" prefWidth="186.0" />
+                  <HBox alignment="TOP_RIGHT" prefHeight="38.0" prefWidth="267.0" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
-            <HBox prefHeight="38.0" prefWidth="687.0" />
+            <HBox prefHeight="24.0" prefWidth="687.0" />
             <HBox alignment="CENTER" prefHeight="38.0" prefWidth="687.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program-fee" textAlignment="CENTER" wrappingWidth="142.70899200439453" />
-                  <TextField fx:id="TxtProgramFee" prefHeight="26.0" prefWidth="246.0" promptText="Enter program fee" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Amount" textAlignment="CENTER" wrappingWidth="142.70899200439453" />
+                  <TextField fx:id="TxtRemainingAmount" prefHeight="26.0" prefWidth="246.0" promptText="Enter program fee" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="687.0">
+            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="687.0" spacing="20.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Upfront Payment" textAlignment="CENTER" wrappingWidth="141.70391845703125" />
-                  <TextField fx:id="TxtUpfrontPayment" prefHeight="26.0" prefWidth="246.0" promptText="Enter upfront payment" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="687.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Balance" textAlignment="CENTER" wrappingWidth="141.70391845703125" />
-                  <TextField fx:id="TxtBalance" prefHeight="26.0" prefWidth="246.0" promptText="Remaining balance" editable="false" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="687.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Paying amount" textAlignment="CENTER" wrappingWidth="141.70391845703125" />
-                  <Text fx:id="TxtAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="0/=" wrappingWidth="244.5367431640625" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" textAlignment="CENTER" wrappingWidth="91.303955078125" />
+                  <RadioButton fx:id="RadOngoing" mnemonicParsing="false" text="OnGoing" />
+                  <RadioButton fx:id="RadComplete" mnemonicParsing="false" text="Completed" />
                </children>
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="48.0" prefWidth="687.0" spacing="10.0">
                <children>
-                  <Button fx:id="BtnPay" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="133.0" text="Pay" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" />
-                  <Button fx:id="BtnPrint" mnemonicParsing="false" onAction="#BtnPrintOnAction" prefHeight="26.0" prefWidth="120.0" text="Print" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;" />
+                  <Button fx:id="BtnPay" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Pay" />
+                  <Button fx:id="BtnPrint" mnemonicParsing="false" onAction="#BtnPrintOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;" text="Print" />
+                  <Button fx:id="BtnPay1" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: orange; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
+                  <Button fx:id="BtnPay2" mnemonicParsing="false" onAction="#BtnPayOnAction" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Reset" />
                </children>
             </HBox>
             <TableView fx:id="TblPayment" onMouseClicked="#TblPaymentOnAction" prefHeight="118.0" prefWidth="687.0">
                <columns>
-                  <TableColumn fx:id="ColId" prefWidth="75.0" text="Id" />
-                  <TableColumn fx:id="ColDate" prefWidth="75.0" text="Date" />
-                  <TableColumn fx:id="ColPatientId" prefWidth="75.0" text="Patient-id" />
-                  <TableColumn fx:id="ColName" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="ColProgram" prefWidth="165.60009765625" text="Program" />
-                  <TableColumn fx:id="ColUpfrontPayment" prefWidth="111.99993896484375" text="Upfront Payment" />
-                  <TableColumn fx:id="ColBalance" prefWidth="107.9999877929688" text="Balance" />
+                  <TableColumn fx:id="ColId" prefWidth="52.800018310546875" text="Id" />
+                  <TableColumn fx:id="ColSessionId" prefWidth="67.19998168945312" text="SessionId" />
+                  <TableColumn fx:id="ColPatientName" prefWidth="104.800048828125" text="PatientName" />
+                  <TableColumn fx:id="ColProgram" prefWidth="71.199951171875" text="Program" />
+                  <TableColumn fx:id="ColDesc" prefWidth="117.60003662109375" text="Description" />
+                  <TableColumn fx:id="ColDate" prefWidth="62.4000244140625" text="Date" />
+                  <TableColumn fx:id="ColAmount" prefWidth="72.0" text="Amount" />
+                  <TableColumn fx:id="ColRemaining" prefWidth="66.39990234375" text="Remaining" />
+                  <TableColumn fx:id="ColStatus" prefWidth="68.79997558593755" text="Status" />
                </columns>
             </TableView>
          </children>

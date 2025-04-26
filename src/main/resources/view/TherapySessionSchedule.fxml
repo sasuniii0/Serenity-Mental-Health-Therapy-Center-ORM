@@ -56,26 +56,41 @@
                         <ComboBox fx:id="CmbPatient" onAction="#CmbPatient" prefHeight="26.0" prefWidth="304.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="96.53674507141113" />
                         <TextField fx:id="IdtPatientId" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="96.53674507141113" />
-                        <TextField fx:id="TxtPatientName" />
+                        <Text fx:id="TxtDesc" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="96.53674507141113" />
+                        <TextField fx:id="TxtDesc" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="242.13677597045898" />
+                        <DatePicker fx:id="TxtAppoinmentDate" prefHeight="26.0" prefWidth="333.0" />
                      </children>
                   </VBox>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <VBox alignment="CENTER" prefHeight="183.0" prefWidth="323.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Programs" wrappingWidth="242.13671493530273" />
-                        <ComboBox fx:id="CmbTherapyPrograms" onAction="#CmbTherapyProgramsOnAction" prefHeight="26.0" prefWidth="243.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="242.13677597045898" />
-                        <DatePicker fx:id="TxtAppoinmentDate" prefHeight="26.0" prefWidth="242.0" />
-                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="334.0">
-                           <children>
-                              <Button fx:id="BtnAvailability" mnemonicParsing="false" onAction="#BtnAvailabilityOnAction" prefHeight="26.0" prefWidth="110.0" text="Check Availability" />
-                           </children>
-                        </HBox>
+                        <ComboBox fx:id="CmbTherapyPrograms" onAction="#CmbTherapyProgramsOnAction" prefHeight="26.0" prefWidth="327.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Program Id" wrappingWidth="245.33666610717773" />
+                        <TextField fx:id="TxtProId" prefHeight="26.0" prefWidth="235.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapist" wrappingWidth="240.5367476940155" />
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapist" wrappingWidth="93.33673095703125" />
-                              <ComboBox fx:id="CmbTherapist" onAction="#CmbTherapistOnAction" prefHeight="26.0" prefWidth="238.0" />
+                              <ComboBox fx:id="CmbTherapist" onAction="#CmbTherapistOnAction" prefHeight="26.0" prefWidth="334.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="96.53674507141113" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="334.0" />
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
+                           <children>
+                              <TextField fx:id="TxtAmount" prefHeight="26.0" prefWidth="102.0" promptText="Amount" />
+                              <TextField fx:id="TxtPayDesc" prefHeight="26.0" prefWidth="102.0" promptText="description" />
+                           </children>
+                        </HBox>
+                        <ComboBox fx:id="CmbStatus" onAction="#CmbStatusOnAction" prefWidth="150.0" promptText="status" />
+                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
+                           <children>
+                              <Text fx:id="TxtRemaining" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Amount" wrappingWidth="96.53674507141113" />
                            </children>
                         </HBox>
                      </children>
@@ -84,26 +99,23 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="686.0" spacing="15.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Amount" wrappingWidth="96.53674507141113" />
-                        <TextField fx:id="TxtAmount" prefHeight="26.0" prefWidth="102.0" />
-                     </children>
-                  </HBox>
-                  <Button fx:id="BtnMakeAppoinment" mnemonicParsing="false" onAction="#BtnMakeAppoinmentOnAction" prefHeight="26.0" prefWidth="127.0" text="Make Appoinment" />
-                  <Button fx:id="BtnRescheduleAppoinment" mnemonicParsing="false" onAction="#BtnRescheduleAppoinmentOnAction" prefHeight="26.0" prefWidth="150.0" text="Reschedule Appoinment" />
-                  <Button fx:id="BtnCancelAppoinment" mnemonicParsing="false" onAction="#BtnCancelAppoinmentOnAction" prefHeight="26.0" prefWidth="142.0" text="Cancel Appoinment" />
+                  <Button fx:id="BtnMakeAppoinment" mnemonicParsing="false" onAction="#BtnMakeAppoinmentOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #4A90E2;" text="Make Appoinment" />
+                  <Button fx:id="BtnRescheduleAppoinment" mnemonicParsing="false" onAction="#BtnRescheduleAppoinmentOnAction" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4CAF50;" text="Reschedule Appoinment" />
+                  <Button fx:id="BtnCancelAppoinment" mnemonicParsing="false" onAction="#BtnCancelAppoinmentOnAction" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #F44336;" text="Cancel Appoinment" />
                </children>
             </HBox>
             <TableView fx:id="TblSessionAppoinmnets" onMouseClicked="#TblSessionAppoinmnetsOnAction" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="ColId" prefWidth="75.0" text="Id" />
-                <TableColumn fx:id="ColPatientId" prefWidth="101.60003662109375" text="Patient Id" />
-                  <TableColumn fx:id="ColTherapyProgram" prefWidth="119.199951171875" text="Therapy Program" />
-                  <TableColumn fx:id="ColDate" prefWidth="88.800048828125" text="Date" />
-                  <TableColumn fx:id="ColTherapist" prefWidth="77.60003662109375" text="Therapist" />
-                  <TableColumn fx:id="ColStatus" prefWidth="135.99993896484375" text="Status" />
-                  <TableColumn fx:id="ColAmount" prefWidth="75.0" text="Amount" />
+                <TableColumn fx:id="ColId" prefWidth="45.60000705718994" text="Id" />
+                <TableColumn fx:id="ColPatientId" prefWidth="63.999996185302734" text="Patient Id" />
+                  <TableColumn fx:id="ColTherapyProgram" prefWidth="89.5999755859375" text="program" />
+                  <TableColumn fx:id="ColDate" prefWidth="61.59999084472656" text="Date" />
+                  <TableColumn fx:id="ColTherapist" prefWidth="69.5999755859375" text="Therapist" />
+                  <TableColumn fx:id="ColStatus" prefWidth="54.4000244140625" text="Status" />
+                  <TableColumn fx:id="ColProId" prefWidth="78.39996337890625" text="ProId" />
+                  <TableColumn fx:id="ColTherapistId" prefWidth="71.1998291015625" text="TherapistId" />
+                  <TableColumn fx:id="ColPatient" prefWidth="53.5999755859375" text="Patient" />
+                  <TableColumn fx:id="ColSessionDate" prefWidth="99.2000732421875" text="Session Date" />
               </columns>
             </TableView>
          </children>

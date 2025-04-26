@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -50,11 +49,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="100.53674697875977" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="100.53674697875977" />
-                     </children>
-                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox prefHeight="216.0" prefWidth="686.0">
@@ -91,10 +86,10 @@
                               <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="215.0" promptText="Enter email address" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="30.0" prefWidth="330.0">
+                        <HBox prefHeight="30.0" prefWidth="330.0" spacing="20.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth" wrappingWidth="106.93670272827148" />
-                              <DatePicker fx:id="TxtDateOfBirth" prefHeight="26.0" prefWidth="216.0" promptText="Select date of birth" />
+                              <RadioButton fx:id="RadMale" mnemonicParsing="false" text="Male" />
+                              <RadioButton fx:id="RadFemale" mnemonicParsing="false" text="Female" />
                            </children>
                         </HBox>
                      </children>
@@ -102,24 +97,7 @@
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <VBox prefHeight="135.0" prefWidth="299.0" spacing="10.0">
                      <children>
-                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Therapy Program" wrappingWidth="106.93670272827148" />
-                              <ComboBox fx:id="CmbTherapyProgram" onAction="#CmbTherapyProgramOnAction" prefHeight="26.0" prefWidth="168.0" promptText="Select therapy program" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program fee" wrappingWidth="106.93670272827148" />
-                              <TextField fx:id="TxtProgramFee" prefHeight="26.0" prefWidth="167.0" promptText="Enter program fee" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Upfront Payment" wrappingWidth="106.93670272827148" />
-                              <TextField fx:id="TxtUpfrontPayment" prefHeight="26.0" prefWidth="167.0" promptText="Enter upfront payment" />
-                           </children>
-                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0" />
                         <HBox alignment="CENTER" prefHeight="65.0" prefWidth="299.0" spacing="20.0">
                            <children>
                               <Button fx:id="BtnRegisterPatient" mnemonicParsing="false" onAction="#BtnRegisterPatientOnAction" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Register Patient" />
@@ -152,14 +130,12 @@
             <TableView fx:id="TblPatient" onMouseClicked="#TblPatientOnAction" prefHeight="114.0" prefWidth="686.0">
                <columns>
                   <TableColumn fx:id="ColId" prefWidth="37.59994602203369" text="Id" />
-                  <TableColumn fx:id="ColName" prefWidth="66.39995956420898" text="Name" />
-                  <TableColumn fx:id="ColNic" prefWidth="60.800048828125" text="NIC" />
-                  <TableColumn fx:id="ColContactNumber" prefWidth="108.00001525878906" text="Contact-Number" />
-                  <TableColumn fx:id="ColAddress" prefWidth="75.20001220703125" text="Address" />
-                  <TableColumn fx:id="ColEmail" prefWidth="63.99993896484375" text="Email" />
-                  <TableColumn fx:id="ColDateOfBirth" prefWidth="79.2000732421875" text="Date of Birth" />
-                  <TableColumn fx:id="ColTherapyProgram" prefWidth="106.39990234375" text="Therapy Program" />
-                  <TableColumn fx:id="ColUpfrontPayment" prefWidth="100.0001220703125" text="UpFront Payment" />
+                  <TableColumn fx:id="ColName" prefWidth="92.79998397827148" text="Name" />
+                  <TableColumn fx:id="ColNic" prefWidth="91.20001220703125" text="NIC" />
+                  <TableColumn fx:id="ColContactNumber" prefWidth="113.59999084472656" text="Contact-Number" />
+                  <TableColumn fx:id="ColAddress" prefWidth="106.39996337890625" text="Address" />
+                  <TableColumn fx:id="ColEmail" prefWidth="136.0" text="Email" />
+                  <TableColumn fx:id="ColGender" prefWidth="110.4000244140625" text="Gender" />
                </columns>
             </TableView>
          </children>

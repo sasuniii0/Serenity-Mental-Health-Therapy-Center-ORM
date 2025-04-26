@@ -19,4 +19,9 @@ public interface PatientManageBO extends SuperBO {
     boolean deletePatient(String id);
 
     List<PatientDTO> getAllPatient();
+
+    String generatePatientId();
+
+    List<String> getPatientIdAndNames();
+
 }

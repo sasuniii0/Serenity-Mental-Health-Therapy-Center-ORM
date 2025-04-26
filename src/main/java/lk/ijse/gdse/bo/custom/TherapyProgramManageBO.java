@@ -16,4 +16,6 @@ public interface TherapyProgramManageBO extends SuperBO {
     boolean deleteTherapyProgram(String id);
 
     boolean updateTherapyProgram(TherapyProgramDTO therapyProgram);
+
+    List<String> loadTherapyProgramsForPatient(String patientId);
 }

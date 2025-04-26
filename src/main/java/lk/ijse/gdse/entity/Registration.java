@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @AllArgsConstructor
 @Table (name = "registration")
@@ -13,7 +15,12 @@ import lombok.NoArgsConstructor;
 public class Registration {
     @Id
     private String id;
-    private double upfrontPayment;
+    private LocalDate date;
+    private double advancePayment;
+
+
+    /*private String patientId;
+    private String programId;*/
 
     @ManyToOne
     @JoinColumn(name = "patient_id")

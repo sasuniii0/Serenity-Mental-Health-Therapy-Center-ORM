@@ -17,17 +17,7 @@ import java.util.List;
 @Data
 public class TherapyProgramDTO {
     private String id;
-    private String name;
-    private double fee;
+    private String programName;
     private String duration;
-
-    private String therapistsId;
-    private String registrations;
-
-    public TherapyProgramDTO(String id, String name, double fee, String duration) {
-        this.id = id;
-        this.name = name;
-        this.fee = fee;
-        this.duration = duration;
-    }
+    private double fee;
 }

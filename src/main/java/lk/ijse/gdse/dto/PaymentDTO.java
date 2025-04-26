@@ -8,11 +8,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class PaymentDTO {
     private String id;
+    private LocalDate date;
     private double amount;
-    private String date;
+    private double remainingAmount;
+    private String status;
+    private String sessionId;
 }
+
+

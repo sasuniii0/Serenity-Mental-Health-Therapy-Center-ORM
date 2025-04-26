@@ -1,7 +1,5 @@
 package lk.ijse.gdse.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,11 +8,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import lk.ijse.gdse.dto.tm.RegistrationTM;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,10 +18,7 @@ import java.util.ResourceBundle;
 public class RegistrationController implements Initializable {
 
     @FXML
-    private Button BtnAdd;
-
-    @FXML
-    private Button BtnConfirm;
+    private Button BtnDelete;
 
     @FXML
     private Button BtnPayment;
@@ -34,13 +27,25 @@ public class RegistrationController implements Initializable {
     private Button BtnRegister;
 
     @FXML
+    private Button BtnReset;
+
+    @FXML
+    private Button BtnUpdate;
+
+    @FXML
     private Button BtnViewAll;
+
+    @FXML
+    private ComboBox<?> CmbPatient;
 
     @FXML
     private ComboBox<?> CmbTherapyPrograms;
 
     @FXML
     private TableColumn<?, ?> ColAdvance;
+
+    @FXML
+    private TableColumn<?, ?> ColDate;
 
     @FXML
     private TableColumn<?, ?> ColFee;
@@ -50,6 +55,9 @@ public class RegistrationController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> ColPatient;
+
+    @FXML
+    private TableColumn<?, ?> ColPatientId;
 
     @FXML
     private TableColumn<?, ?> ColProgram;
@@ -64,33 +72,19 @@ public class RegistrationController implements Initializable {
     private TextField TxtBalance;
 
     @FXML
-    private Text TxtDuration;
-
-    @FXML
-    private TextField TxtEmail;
-
-    @FXML
-    private Text TxtFee;
-
-    @FXML
     private TextField TxtIdName;
+
+    @FXML
+    private Text TxtProId;
 
     @FXML
     private Text TxtRegId;
 
     @FXML
-    private TextField TxtUpfrontPayment;
-
-    @FXML
     private AnchorPane root;
 
     @FXML
-    void BtnAddOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void BtnConfirmOnAction(ActionEvent event) {
+    void BtnDeleteOnAction(ActionEvent event) {
 
     }
 
@@ -105,7 +99,22 @@ public class RegistrationController implements Initializable {
     }
 
     @FXML
+    void BtnResetOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void BtnUpdateOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
     void BtnViewAllOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CmbPatientOnAction(ActionEvent event) {
 
     }
 
@@ -121,19 +130,6 @@ public class RegistrationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCellValueFactory();
-        loadAllPatients();
-    }
 
-    private void loadAllPatients() {
-        ObservableList<RegistrationTM> obList = FXCollections.observableArrayList();
-    }
-
-    private void setCellValueFactory() {
-        ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        ColPatient.setCellValueFactory(new PropertyValueFactory<>("patientName"));
-        ColProgram.setCellValueFactory(new PropertyValueFactory<>("therapyProgramName"));
-        ColFee.setCellValueFactory(new PropertyValueFactory<>("therapyProgramFee"));
-        ColAdvance.setCellValueFactory(new PropertyValueFactory<>("upfrontPayment"));
     }
 }

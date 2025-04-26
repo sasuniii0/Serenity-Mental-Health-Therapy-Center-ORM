@@ -63,7 +63,7 @@ public class LoginFormController {
         stage.setTitle("Forgot-password Page");
     }
 
-    @FXML
+    /*@FXML
     void BtnSignInOnAction(ActionEvent event) throws IOException {
         String email= TxtUserName.getText();
         String password=TxtPassword.getText();
@@ -103,7 +103,7 @@ public class LoginFormController {
         else {
             new Alert(Alert.AlertType.ERROR,"User Not Found").show();
         }
-    }
+    }*/
 
     public void navigateTo(String fxml) throws IOException {
         try{

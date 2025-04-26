@@ -55,8 +55,8 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="89.33670043945312" />
-                        <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="204.0" promptText="example@gmail.com" style="-fx-background-radius: 5;" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="89.33670043945312" />
+                        <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="204.0" promptText="xxxxxxxxxxx" style="-fx-background-radius: 5;" />
                      </children>
                   </HBox>
                </children>
@@ -69,7 +69,11 @@
                         <TextField fx:id="TxtPhone" prefHeight="26.0" prefWidth="204.0" promptText="0xxxxxxxxx" style="-fx-background-radius: 5;" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="314.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="89.33670043945312" />
+                        <TextField fx:id="TxtAddress" prefHeight="26.0" prefWidth="204.0" promptText="example" style="-fx-background-radius: 5;" />
+                     </children></HBox>
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -109,8 +113,9 @@
                   <TableColumn fx:id="ColName" prefWidth="75.0" text="Name" />
                   <TableColumn fx:id="ColEmail" prefWidth="92.79998779296875" text="Email" />
                   <TableColumn fx:id="ColPhone" prefWidth="79.20001220703125" text="Phone" />
-                  <TableColumn fx:id="ColProgramId" prefWidth="132.00006103515625" text="ProgramId" />
-                  <TableColumn fx:id="ColTherapyProgarm" prefWidth="232.7999267578125" text="Therapy Program" />
+                  <TableColumn fx:id="ColAddress" prefWidth="76.800048828125" text="Address" />
+                  <TableColumn fx:id="ColTherapyProgarm" prefWidth="187.19992065429688" text="Therapy Program" />
+                  <TableColumn fx:id="ColProId" prefWidth="97.59995117187498" text="ProId" />
                </columns>
             </TableView>
          </children>

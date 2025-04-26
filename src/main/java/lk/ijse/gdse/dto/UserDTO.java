@@ -9,20 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class UserDTO {
-    private String id;  // Custom ID (Auto-generated)
-
-    private String email;
-    private String password;
+    private String id;
     private String firstName;
     private String lastName;
+    private String email;
+    private String username;
+    private String password;
+    private String confirmPassword;
     private String role;
-
-    public UserDTO(String id, String email, String password, String firstName, String lastName, User.UserRole role) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.role = role.toString();
-    }
 }

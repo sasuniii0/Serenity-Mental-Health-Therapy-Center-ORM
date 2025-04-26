@@ -15,32 +15,8 @@ import java.util.List;
 public class TherapyProgram {
     @Id
     private String id;
-    private String name;
-    private double fee;
+
+    private String programName;
     private String duration;
-
-    @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Therapist> therapists;
-
-    @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Registration> registrations;
-
-    @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<TherapySession> therapySessions;
-
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    public TherapyProgram(String id, String name, double fee, String duration) {
-        this.id = id;
-        this.name = name;
-        this.fee = fee;
-        this.duration = duration;
-    }
-
-    public TherapyProgram(String therapyProgramId, String therapyProgramName) {
-        this.id = therapyProgramId;
-        this.name = therapyProgramName;
-    }
+    private double fee;
 }

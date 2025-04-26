@@ -17,12 +17,10 @@ import java.util.List;
 public class PatientDTO {
     private String id;
     private String name;
-    private String nic;
     private String address;
-    private String contactNumber;
     private String email;
-    private Date dateOfBirth;
-    private String therapyPrograms;
-    private Double upfrontPayment;
+    private int mobileNumber;
+    private String nic;
+    private String gender;
 
 }

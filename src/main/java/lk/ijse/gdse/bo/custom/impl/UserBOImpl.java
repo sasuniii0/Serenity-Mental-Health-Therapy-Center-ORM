@@ -4,6 +4,7 @@ import lk.ijse.gdse.bo.custom.UserBO;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.UserDAO;
 import lk.ijse.gdse.dto.UserDTO;
+import lk.ijse.gdse.dto.tm.UserTM;
 import lk.ijse.gdse.entity.User;
 import lk.ijse.gdse.util.PasswordUtil;
 
@@ -31,17 +32,22 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean updateUser(UserDTO userDTO) {
-        return false;
+        return userDAO.update(new User(userDTO.getId(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getRole()));
     }
 
     @Override
     public List<UserDTO> getAllUser() {
-        return List.of();
+        List<User> users = userDAO.getAll();
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (User user : users) {
+            userDTOS.add(new UserDTO(user.getId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail(), user.getFirstName(), user.getLastName()));
+        }
+        return userDTOS;
     }
 
     @Override
     public boolean deleteUser(String email) {
-        return false;
+        return userDAO.delete(email);
     }
 
     @Override
@@ -51,13 +57,26 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public String generateNextUserId() {
-        return "";
+        return userDAO.generateNextUserId();
     }
 
     @Override
     public void initialize() {
         createDefaultAdmin();
     }
+
+    @Override
+    public boolean saveUser(UserDTO userDTO) {
+        return userDAO.save(new User(userDTO.getId(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getRole()));
+
+    }
+
+    @Override
+    public UserTM getAllUsers() {
+        return userDAO.getAllUsers();
+    }
+
+
 
     PasswordUtil passwordUtil;
 

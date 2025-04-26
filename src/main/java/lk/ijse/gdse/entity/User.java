@@ -21,6 +21,16 @@ public class User {
     private String confirmPassword;
     private String role;
 
+    public User(String id, String firstName, String lastName, String email, String username, String password, String role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
     public enum Role {
         ADMIN,
         RECEPTIONIST,

@@ -3,12 +3,13 @@ package lk.ijse.gdse.dao.custom.impl;
 import javafx.scene.control.Alert;
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.UserDAO;
+import lk.ijse.gdse.dto.UserDTO;
+import lk.ijse.gdse.dto.tm.UserTM;
 import lk.ijse.gdse.entity.User;
 import lk.ijse.gdse.util.PasswordUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -150,6 +151,44 @@ public class UserDAOImpl implements UserDAO {
         }
 
         return lastId;
+    }
+
+    @Override
+    public String generateNextUserId() {
+        String lastId = getLastUserId();
+        if (lastId != null) {
+            int lastNum = Integer.parseInt(lastId.substring(1));
+            return String.format("U%03d", lastNum + 1);
+        }
+        return "U001";
+    }
+
+    @Override
+    public UserTM getAllUsers() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            Query query = session.createQuery("FROM User");
+            List<User> users = query.list();
+            return new UserTM(users);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public UserDTO getAllUser() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            Query query = session.createQuery("FROM User");
+            List<User> users = query.list();
+            return new UserDTO(users);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
     }
 
 

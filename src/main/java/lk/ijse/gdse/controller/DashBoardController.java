@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.gdse.entity.User;
 
 import java.io.IOException;
@@ -109,12 +113,42 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void BtnHomeOnAction(ActionEvent event) {
+        Parent rootNode = null;
+        try {
+            rootNode = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/dashboard_form.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        // Get the current stage
+        Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+
+        // Set the new scene
+        stage.setScene(new Scene(rootNode));
+        stage.setTitle("Dashboard");
+        stage.centerOnScreen();
     }
 
     @FXML
-    void BtnLogOutOnAction(ActionEvent event) {
+    void BtnLogOutOnAction(ActionEvent event) throws IOException {
+        // Show confirmation dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure you want to logout?");
 
+        // Handle user's choice
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            // Load the login view
+            Parent rootNode = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
+
+            // Get the current stage
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            // Set the new scene
+            stage.setScene(new Scene(rootNode));
+            stage.setTitle("Login");
+            stage.centerOnScreen();
+        }
     }
 
     @FXML

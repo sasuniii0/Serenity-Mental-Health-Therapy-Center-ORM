@@ -2,13 +2,12 @@ package lk.ijse.gdse.dao.custom.impl;
 
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.PaymentDAO;
-import lk.ijse.gdse.dto.PaymentDTO;
+import lk.ijse.gdse.entity.Patient;
 import lk.ijse.gdse.entity.Payment;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentDAOImpl implements PaymentDAO {

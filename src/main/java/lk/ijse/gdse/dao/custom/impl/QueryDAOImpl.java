@@ -75,7 +75,7 @@ public class QueryDAOImpl implements QueryDAO {
         Map<String, Integer> patientSessionCounts = new HashMap<>();
 
         try {
-            List<Object[]> results = session.createQuery("SELECT p.id, COUNT(ts.id) FROM Patient p LEFT JOIN p.id ts GROUP BY p.id").getResultList();
+            List<Object[]> results = session.createQuery("SELECT p.id, COUNT(ts.id) FROM Patient p LEFT JOIN TherapySession ts ON p.id GROUP BY p.id").getResultList();
             for (Object[] result : results) {
                 String patientId = (String) result[0];
                 Integer sessionCount = (Integer) result[1];
@@ -92,7 +92,7 @@ public class QueryDAOImpl implements QueryDAO {
     @Override
     public Map<String, Integer> getProgramEnrollmentCounts() {
         Session session = factoryConfiguration.getSession();
-        String hql = "SELECT p.id, COUNT(r.id) FROM TherapyProgram p LEFT JOIN p.id r GROUP BY p.id";
+        String hql = "SELECT p.id, COUNT(r.id) FROM TherapyProgram p LEFT JOIN Registration r ON p.id  GROUP BY p.id";
         Query<Object[]> query = session.createQuery(hql);
         List<Object[]> results = query.getResultList();
         Map<String, Integer> enrollmentCounts = new HashMap<>();
@@ -110,7 +110,7 @@ public class QueryDAOImpl implements QueryDAO {
         Map<String, Integer> therapistSessionCounts = new HashMap<>();
 
         try {
-            List<Object[]> results = session.createQuery("SELECT th.id, COUNT(ts.id) FROM Therapist th LEFT JOIN th.id ts GROUP BY th.id").getResultList();
+            List<Object[]> results = session.createQuery("SELECT th.id, COUNT(ts.id) FROM Therapist th LEFT JOIN TherapySession ts on th.id GROUP BY th.id").getResultList();
             for (Object[] result : results) {
                 String therapistId = (String) result[0];
                 Integer sessionCount = (Integer) result[1];

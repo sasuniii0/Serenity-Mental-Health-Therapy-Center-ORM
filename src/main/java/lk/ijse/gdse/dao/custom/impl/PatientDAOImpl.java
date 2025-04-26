@@ -7,7 +7,6 @@ import lk.ijse.gdse.exception.DuplicateEntryException;
 import lk.ijse.gdse.exception.NotFoundException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
@@ -85,10 +84,14 @@ public class PatientDAOImpl implements PatientDAO {
     @Override
     public List<Patient> getAll() {
         Session session = factoryConfiguration.getSession();
-        Query<Patient> query = session.createQuery("from Patient", Patient.class);
-        return query.list();
+        List<Patient> patients;
+        try{
+            patients = session.createQuery("FROM Patient", Patient.class).getResultList();
+        }finally {
+            session.close();
+        }
+        return patients;
     }
-
 
     @Override
     public String getLastPatientId() {

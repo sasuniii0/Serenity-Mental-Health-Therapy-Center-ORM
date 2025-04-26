@@ -2,6 +2,7 @@ package lk.ijse.gdse.dao.custom.impl;
 
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.RegistrationDAO;
+import lk.ijse.gdse.entity.Patient;
 import lk.ijse.gdse.entity.Registration;
 import lk.ijse.gdse.exception.DuplicateEntryException;
 import lk.ijse.gdse.exception.NotFoundException;

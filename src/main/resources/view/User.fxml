@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.UserController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.UserController">
    <children>
       <VBox layoutX="40.0" layoutY="40.0" prefHeight="570.0" prefWidth="632.0" spacing="15.0">
-         <!-- Soft Header -->
-         <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="632.0" style="-fx-background-color: #F5F7FA; -fx-background-radius: 12;">
+         <!-- Header -->
+         <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="632.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
             <children>
-               <Label style="-fx-font-weight: bold;" text="User Management" textFill="#2c3e50">
+               <Label style="-fx-font-weight: bold;" text="User Management" textFill="#333333">
                   <font>
                      <Font name="System Bold" size="22.0" />
                   </font>
@@ -30,70 +30,73 @@
             </children>
          </HBox>
 
-         <!-- User Info Row -->
+         <!-- ID and Date Row -->
          <HBox prefHeight="40.0" prefWidth="632.0" spacing="20.0">
             <children>
                <HBox spacing="10.0">
-                  <Label style="-fx-text-fill: #7f8c8d;" text="User ID:" />
-                  <Label fx:id="txtId" style="-fx-text-fill: #2980b9;" text="U-1" />
+                  <Label style="-fx-text-fill: #666666;" text="User ID:" />
+                  <Label fx:id="txtId" style="-fx-text-fill: #0066cc;" text="U-1" />
                </HBox>
                <HBox spacing="10.0">
-                  <Label style="-fx-text-fill: #7f8c8d;" text="Date:" />
-                  <Label fx:id="txtDate" style="-fx-text-fill: #2980b9;" text="2025/03/24" />
+                  <Label style="-fx-text-fill: #666666;" text="Date:" />
+                  <Label fx:id="txtDate" style="-fx-text-fill: #0066cc;" text="2025/03/24" />
                </HBox>
             </children>
          </HBox>
 
-         <!-- Form Container -->
-         <VBox spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+         <!-- Form -->
+         <VBox spacing="15.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 5;">
             <padding>
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <!-- Email Input -->
+               <!-- Email -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefHeight="18.0" prefWidth="100.0" style="-fx-text-fill: #34495e;" text="Email" />
-                  <TextField fx:id="TxtEmail" prefHeight="42.0" prefWidth="475.0" promptText="Enter email address" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
+                  <Label prefWidth="100.0" style="-fx-text-fill: #333333;" text="Email" />
+                  <TextField fx:id="TxtEmail" prefHeight="34.0" prefWidth="169.0" promptText="Enter email" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
+                  <Label prefWidth="100.0" style="-fx-text-fill: #333333;" text="UserName" />
+                  <TextField fx:id="TxtUserName" prefHeight="34.0" prefWidth="169.0" promptText="Enter username" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                </HBox>
 
-               <!-- Name Inputs -->
+               <!-- Name -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="First Name" />
-                  <TextField fx:id="TxtFirstName" prefHeight="40.0" prefWidth="190.0" promptText="First name" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
-                  <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="Last Name" />
-                  <TextField fx:id="TxtLastName" prefHeight="40.0" prefWidth="190.0" promptText="Last name" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
+                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="First Name" />
+                  <TextField fx:id="TxtFirstName" prefHeight="35.0" prefWidth="190.0" promptText="First name" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
+                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Last Name" />
+                  <TextField fx:id="TxtLastName" prefHeight="35.0" prefWidth="190.0" promptText="Last name" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                </HBox>
 
-               <!-- Password Inputs -->
+               <!-- Password -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="Password" />
-                  <PasswordField fx:id="TxtPassword" prefHeight="40.0" prefWidth="190.0" promptText="Enter password" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
-                  <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="Confirm Password" />
-                  <PasswordField fx:id="TxtReEnterPassword" prefHeight="40.0" prefWidth="190.0" promptText="Confirm password" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-border-width: 1px;" />
+                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Password" />
+                  <PasswordField fx:id="TxtPassword" prefHeight="35.0" prefWidth="190.0" promptText="Enter password" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
+                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Confirm Password" />
+                  <PasswordField fx:id="TxtReEnterPassword" prefHeight="35.0" prefWidth="190.0" promptText="Confirm password" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                </HBox>
 
-               <!-- Role and Actions -->
+               <!-- Role and Buttons -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #34495e;" text="Role" />
-                  <ComboBox fx:id="CmbRole" onAction="#CmbRoleOnAction" prefHeight="40.0" prefWidth="250.0" promptText="Select user role" style="-fx-background-radius: 8; -fx-border-radius: 8;" />
+                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Role" />
+                  <ComboBox fx:id="CmbRole" onAction="#CmbRoleOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Select role" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                   <HBox spacing="10.0">
-                     <Button fx:id="BtnAdd" onAction="#BtnAddOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 8;" text="Add" />
-                     <Button fx:id="BtnUpdate" onAction="#BtnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 8;" text="Update" />
-                     <Button fx:id="BtnDelete" onAction="#BtnDeleteOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Delete" />
+                     <Button fx:id="BtnAdd" onAction="#BtnAddOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 4;" text="Add" />
+                     <Button fx:id="BtnUpdate" onAction="#BtnUpdateOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 4;" text="Update" />
+                     <Button fx:id="BtnDelete" onAction="#BtnDeleteOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 4;" text="Delete" />
                   </HBox>
                </HBox>
             </children>
          </VBox>
 
-         <!-- User Table -->
-         <TableView fx:id="TblUsers" onMouseClicked="#TblUserOnAction" prefHeight="200.0" prefWidth="632.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+         <!-- Table -->
+         <TableView fx:id="TblUsers" onMouseClicked="#TblUserOnAction" prefHeight="200.0" prefWidth="632.0" style="-fx-border-color: #e0e0e0; -fx-border-width: 1;">
             <columns>
-               <TableColumn fx:id="ColId" prefWidth="66.39996337890625" text="ID" />
-               <TableColumn fx:id="ColEmail" prefWidth="114.4000244140625" text="Email" />
-               <TableColumn fx:id="ColPw" prefWidth="120.0" text="Password" />
-               <TableColumn fx:id="ColFirstName" prefWidth="128.79998779296875" text="First Name" />
-               <TableColumn fx:id="ColLastName" prefWidth="112.79998779296875" text="Last Name" />
-               <TableColumn fx:id="ColRole" prefWidth="88.0" text="Role" />
+               <TableColumn fx:id="ColId" prefWidth="66.0" text="ID" />
+               <TableColumn fx:id="ColEmail" prefWidth="80.79998779296875" text="Email" />
+               <TableColumn fx:id="ColPw" prefWidth="108.800048828125" text="Password" />
+               <TableColumn fx:id="ColFirstName" prefWidth="117.60003662109375" text="First Name" />
+               <TableColumn fx:id="ColLastName" prefWidth="100.0" text="Last Name" />
+               <TableColumn fx:id="ColRole" prefWidth="75.199951171875" text="Role" />
+               <TableColumn fx:id="ColUserName" prefWidth="75.199951171875" text="UserName" />
             </columns>
          </TableView>
       </VBox>

@@ -2,12 +2,11 @@ package lk.ijse.gdse.dao.custom.impl;
 
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.TherapistDAO;
+import lk.ijse.gdse.entity.Patient;
 import lk.ijse.gdse.entity.Therapist;
 import lk.ijse.gdse.entity.TherapyProgram;
 import lk.ijse.gdse.exception.DuplicateEntryException;
 import lk.ijse.gdse.exception.NotFoundException;
-import lk.ijse.gdse.util.PasswordUtil;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;

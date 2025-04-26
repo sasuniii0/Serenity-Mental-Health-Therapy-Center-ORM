@@ -3,15 +3,14 @@ package lk.ijse.gdse.dao.custom.impl;
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.TherapySessionDAO;
 import lk.ijse.gdse.dto.TherapySessionDTO;
+import lk.ijse.gdse.entity.Patient;
 import lk.ijse.gdse.entity.TherapySession;
 import lk.ijse.gdse.exception.NotFoundException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TherapySessionDAOImpl implements TherapySessionDAO {
 

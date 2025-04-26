@@ -1,6 +1,7 @@
 package lk.ijse.gdse.bo.custom.impl;
 
 import lk.ijse.gdse.bo.custom.PaymentManageBO;
+import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.*;
 import lk.ijse.gdse.dto.PaymentDTO;
@@ -28,6 +29,7 @@ public class PaymentManageBOImpl implements PaymentManageBO {
 
     PaymentDAO paymentDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PAYMENT);
     QueryDAO queryDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY); //QueryDAO
+
 
     @Override
     public boolean savePayment(PaymentDTO paymentDTO, String patientId, String program) throws Exception {
@@ -79,14 +81,11 @@ public class PaymentManageBOImpl implements PaymentManageBO {
         return paymentDAO.getNextPaymentId();
     }
 
-    private SessionFactory sessionFactory;
-
-
 
     @Override
     public Map<String, Double> getMonthlyRevenue() {
         Map<String, Double> monthlyRevenue = new LinkedHashMap<>();
-        Session session = sessionFactory.openSession();
+        Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = null;
 
         try {
@@ -98,7 +97,7 @@ public class PaymentManageBOImpl implements PaymentManageBO {
                     "FROM Payment p " +
                     "WHERE p.date >= FUNCTION('DATE_SUB', CURRENT_DATE(), 12, 'MONTH') " +
                     "GROUP BY FUNCTION('DATE_FORMAT', p.date, '%Y-%m') " +
-                    "ORDER BY month DESC";
+                    "ORDER BY date DESC";
 
             Query<Object[]> query = session.createQuery(hql, Object[].class);
             List<Object[]> results = query.getResultList();

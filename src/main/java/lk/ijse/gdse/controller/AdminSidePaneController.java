@@ -94,9 +94,9 @@ public class AdminSidePaneController implements Initializable {
 
     @FXML
     void BtnPatientTherapyHistoryOnAction(ActionEvent event) {
-        try {
+        /*try {
             // Generate patient therapy history report
-            Map<String, Integer> therapyCounts = sessionBO.getPatientSessionCounts();
+            //Map<String, Integer> therapyCounts = sessionBO.getPatientSessionCounts();
             String reportContent = "Patient Therapy History\n\n";
 
             for (Map.Entry<String, Integer> entry : therapyCounts.entrySet()) {
@@ -115,7 +115,7 @@ public class AdminSidePaneController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to generate therapy history").show();
-        }
+        }*/
     }
 
     @FXML
@@ -187,7 +187,7 @@ public class AdminSidePaneController implements Initializable {
 
     @FXML
     void PaneTherapistOnAction(MouseEvent event) {
-        try {
+        /*try {
             // Generate therapist performance report
             Map<String, Integer> therapistSessions = therapistBO.getTherapistSessionCounts();
             String reportContent = "Therapist Performance\n\n";
@@ -207,7 +207,7 @@ public class AdminSidePaneController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to generate therapist report").show();
-        }
+        }*/
     }
 
     @FXML
@@ -249,14 +249,14 @@ public class AdminSidePaneController implements Initializable {
         GraphTherapySession.getData().add(therapySeries);
     }
     private void refreshAllCharts() {
-        try {
-            updateFinancialChart(paymentBO.getMonthlyRevenue());
-            updateTherapyHistoryChart(sessionBO.getPatientSessionCounts());
-            updateProgramChart(programBO.getProgramEnrollmentCounts());
-            updateTherapistChart(therapistBO.getTherapistSessionCounts());
+       /* try {
+          //  updateFinancialChart(paymentBO.getMonthlyRevenue());
+           // updateTherapyHistoryChart(sessionBO.getPatientSessionCounts());
+            //updateProgramChart(programBO.getProgramEnrollmentCounts());
+           // updateTherapistChart(therapistBO.getTherapistSessionCounts());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private void updateFinancialChart(Map<String, Double> financialData) {

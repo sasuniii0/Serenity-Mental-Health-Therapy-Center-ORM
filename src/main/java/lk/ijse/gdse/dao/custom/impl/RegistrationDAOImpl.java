@@ -110,13 +110,23 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 
     @Override
     public double getAdvancePaymentByPatientAndProgram(String patientId, String programId) {
-        Session session = factoryConfiguration.getSession();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            String hql = "SELECT r.advancePayment FROM Registration r " +
+                    "WHERE r.patient.id = :patientId " +
+                    "AND r.therapyProgram.id = :programId " +
+                    "ORDER BY r.date DESC";
 
-        String hql = "SELECT r.advancePayment FROM Registration r " +
-                "WHERE r.patient.id = :patientId AND r.therapyProgram.id = :programId";
-        Query<Double> query = session.createQuery(hql, Double.class);
-        query.setParameter("patientId", patientId);
-        query.setParameter("programId", programId);
-        return query.uniqueResult();
+            Query<Double> query = session.createQuery(hql, Double.class)
+                    .setParameter("patientId", patientId)
+                    .setParameter("programId", programId)
+                    .setMaxResults(1);
+
+            List<Double> results = query.getResultList();
+            return results.isEmpty() ? 0.0 : results.get(0);
+        } finally {
+            session.close();
+        }
     }
+
 }

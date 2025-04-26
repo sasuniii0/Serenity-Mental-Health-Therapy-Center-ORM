@@ -120,7 +120,7 @@
                   <Button fx:id="BtnSearch" mnemonicParsing="false" onAction="#BtnSearchOnAction" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Search" />
                   <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="344.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="History" wrappingWidth="77.33672714233398" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="View All " wrappingWidth="77.33672714233398" />
                         <Button fx:id="BtnHistory" mnemonicParsing="false" onAction="#BtnHistoryOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;" text="View" />
                      </children>
                   </HBox>
@@ -129,8 +129,8 @@
             <HBox prefHeight="19.0" prefWidth="686.0" spacing="10.0" />
             <TableView fx:id="TblPatient" onMouseClicked="#TblPatientOnAction" prefHeight="114.0" prefWidth="686.0">
                <columns>
-                  <TableColumn fx:id="ColId" prefWidth="37.59994602203369" text="Id" />
-                  <TableColumn fx:id="ColName" prefWidth="92.79998397827148" text="Name" />
+                  <TableColumn fx:id="ColId" prefWidth="53.600003242492676" text="Id" />
+                  <TableColumn fx:id="ColName" prefWidth="76.79998779296875" text="Name" />
                   <TableColumn fx:id="ColNic" prefWidth="91.20001220703125" text="NIC" />
                   <TableColumn fx:id="ColContactNumber" prefWidth="113.59999084472656" text="Contact-Number" />
                   <TableColumn fx:id="ColAddress" prefWidth="106.39996337890625" text="Address" />

@@ -31,4 +31,6 @@ public interface TherapyProgramManageBO extends SuperBO {
     List<String> getRegisteredProgramsByPatientId(String patientId);
 
     double getProgramFeeById(String programId);
+
+    ArrayList<String> getProgramNames();
 }

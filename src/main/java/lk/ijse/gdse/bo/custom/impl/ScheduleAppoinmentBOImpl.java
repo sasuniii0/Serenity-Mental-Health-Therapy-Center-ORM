@@ -4,10 +4,7 @@ import lk.ijse.gdse.bo.custom.ScheduleAppoinmentBO;
 import lk.ijse.gdse.bo.custom.TherapistManageBO;
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.DAOFactory;
-import lk.ijse.gdse.dao.custom.PatientDAO;
-import lk.ijse.gdse.dao.custom.PaymentDAO;
-import lk.ijse.gdse.dao.custom.TherapyProgramDAO;
-import lk.ijse.gdse.dao.custom.TherapySessionDAO;
+import lk.ijse.gdse.dao.custom.*;
 import lk.ijse.gdse.dto.PaymentDTO;
 import lk.ijse.gdse.dto.TherapySessionDTO;
 import lk.ijse.gdse.entity.*;
@@ -22,7 +19,7 @@ public class ScheduleAppoinmentBOImpl implements ScheduleAppoinmentBO {
     PaymentDAO paymentDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PAYMENT);
     TherapyProgramDAO therapyProgramDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
     PatientDAO patientDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
-    TherapistManageBO therapistManageBO = (TherapistManageBO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
+    TherapistDAO therapistDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
 
     @Override
     public boolean saveSessionAndPayment(TherapySessionDTO therapySessionDTO, PaymentDTO paymentDTO) {
@@ -64,7 +61,7 @@ public class ScheduleAppoinmentBOImpl implements ScheduleAppoinmentBO {
 
             String therapistId = therapySessionDTO.getTherapistId();
 
-            Optional<Therapist> optionalTherapist = therapistManageBO.findByPK(therapistId);
+            Optional<Therapist> optionalTherapist = therapistDAO.findByPK(therapistId);
             if(optionalTherapist.isEmpty()){
                 transaction.rollback();
                 return false;

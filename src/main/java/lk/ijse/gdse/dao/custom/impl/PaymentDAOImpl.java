@@ -141,27 +141,32 @@ public class PaymentDAOImpl implements PaymentDAO {
 
     @Override
     public String getNextPaymentId() {
-        Session session = factoryConfiguration.getSession();
-        String nextId = null;
+        Session session = FactoryConfiguration.getInstance().getSession();
 
         try {
-            nextId = session
-                    .createQuery("SELECT py.id FROM Payment py ORDER BY py.id DESC", String.class)
-                    .setMaxResults(1)
-                    .uniqueResult();
-        } finally {
-            session.close();
-        }
+            // Query to get the last payment ID
+            String hql = "SELECT p.id FROM Payment p ORDER BY p.id DESC";
+            Query<String> query = session.createQuery(hql, String.class)
+                    .setMaxResults(1);
 
-        if (nextId != null) {
-            int newId = Integer.parseInt(nextId.substring(1)) + 1;
-            return String.format("P%03d", newId);
-        } else {
-            return "P001";
+            String lastId = query.uniqueResult();
+
+            if (lastId != null) {
+                // Extract numeric part and increment
+                String numericPart = lastId.replaceAll("\\D+", "");
+                if (!numericPart.isEmpty()) {
+                    int nextNum = Integer.parseInt(numericPart) + 1;
+                    return String.format("P%03d", nextNum); // Format as P001, P002, etc.
+                }
+            }
+            return "P001"; // Default first ID
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "P001"; // Fallback if error occurs
         }
     }
 
-    @Override
+    /*@Override
     public List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId) {
         Session session = factoryConfiguration.getSession();
         List<PaymentDTO> paymentDTOList = new ArrayList<>();
@@ -197,7 +202,7 @@ public class PaymentDAOImpl implements PaymentDAO {
             session.close();
         }
         return paymentDTOList;
-    }
+    }*/
 
     @Override
     public boolean savePayment(Session session, Payment payment) {

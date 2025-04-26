@@ -16,7 +16,7 @@ import java.util.List;
 public class RegistrationBOImpl implements RegistrationBO {
 
     RegistrationDAO registrationDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.REGISTRATION);
-    TherapyProgramDAO therapyProgramDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
+    TherapyProgramDAO therapyProgramDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
     PatientDAO patientDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
     @Override
     public boolean deleteRegistration(String regId) {

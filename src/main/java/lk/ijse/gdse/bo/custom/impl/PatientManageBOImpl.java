@@ -3,6 +3,7 @@ package lk.ijse.gdse.bo.custom.impl;
 import lk.ijse.gdse.bo.custom.PatientManageBO;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.PatientDAO;
+import lk.ijse.gdse.dao.custom.QueryDAO;
 import lk.ijse.gdse.dto.PatientDTO;
 import lk.ijse.gdse.entity.Patient;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class PatientManageBOImpl implements PatientManageBO {
 
     PatientDAO patientDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
+    QueryDAO queryDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
 
     @Override
     public String generateNextPatientId() {
@@ -65,6 +67,11 @@ public class PatientManageBOImpl implements PatientManageBO {
     @Override
     public ArrayList<String> getAllPatientNames() {
         return patientDAO.getAllPatientNames();
+    }
+
+    @Override
+    public List<Object[]> getAllEnrollments() {
+        return queryDAO.getAllEnrollments();
     }
 
     @Override

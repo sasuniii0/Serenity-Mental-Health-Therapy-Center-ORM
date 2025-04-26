@@ -89,6 +89,9 @@ public class RegistrationController implements Initializable {
     private Text TxtProId;
 
     @FXML
+    private Text TxtFee;
+
+    @FXML
     private Text TxtRegId;
 
     @FXML
@@ -130,6 +133,7 @@ public class RegistrationController implements Initializable {
 
         String programName = (String) CmbTherapyPrograms.getValue();
         String programId = TxtProId.getText();
+        String programFee = TxtFee.getText();
 
         String patientName = (String) CmbPatient.getValue();
         String patientId = TxtIdName.getText();
@@ -188,6 +192,7 @@ public class RegistrationController implements Initializable {
 
         String programName = (String) CmbTherapyPrograms.getValue();
         String programId = TxtProId.getText();
+        String programFee = TxtFee.getText();
 
         String patientName = (String) CmbPatient.getValue();
         String patientId = TxtIdName.getText();
@@ -258,6 +263,8 @@ public class RegistrationController implements Initializable {
             if(selectedProgramName != null) {
                 String programId = therapyProgramManageBO.getProgramIdByName(selectedProgramName);
                 TxtProId.setText(programId);
+                String programFee = String.valueOf(therapyProgramManageBO.getProgramFeeById(programId));
+                TxtFee.setText(programFee);
             }
         }catch(Exception e){
             e.printStackTrace();

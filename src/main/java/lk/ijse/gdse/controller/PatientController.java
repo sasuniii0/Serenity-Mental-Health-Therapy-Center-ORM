@@ -1,5 +1,6 @@
 package lk.ijse.gdse.controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,10 +17,7 @@ import lk.ijse.gdse.dto.PatientDTO;
 import lk.ijse.gdse.dto.tm.PatientTM;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PatientController implements Initializable {
 
@@ -165,9 +163,64 @@ public class PatientController implements Initializable {
         String nextPatientId = patientBO.getNextPatientId();
         TxtId.setText(nextPatientId);
     }
+
     @FXML
     void BtnHistoryOnAction(ActionEvent event) {
+        try {
+            // Create TableView to display results
+            TableView<List<String>> tableView = new TableView<>();
 
+            // Create columns
+            TableColumn<List<String>, String> patientCol = new TableColumn<>("Patient");
+            patientCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(0)));
+
+            TableColumn<List<String>, String> programCol = new TableColumn<>("Program");
+            programCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(1)));
+
+            TableColumn<List<String>, String> dateCol = new TableColumn<>("Enrollment Date");
+            dateCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(2)));
+
+            tableView.getColumns().addAll(patientCol, programCol, dateCol);
+
+            // Get all enrollment data
+            List<Object[]> enrollments = patientBO.getAllEnrollments();
+
+            // Convert to ObservableList
+            ObservableList<List<String>> data = FXCollections.observableArrayList();
+            for (Object[] row : enrollments) {
+                data.add(Arrays.asList(
+                        row[0].toString(),  // patient name
+                        row[1].toString(), // program name
+                        row[2].toString()   // enrollment date
+                ));
+            }
+
+            tableView.setItems(data);
+
+            // Create dialog
+            Dialog<Void> dialog = new Dialog<>();
+            dialog.setTitle("All Patient Enrollments");
+            dialog.setHeaderText("Complete Enrollment History");
+
+            // Add close button
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+
+            // Make table scrollable
+            ScrollPane scrollPane = new ScrollPane(tableView);
+            scrollPane.setFitToWidth(true);
+            scrollPane.setFitToHeight(true);
+            dialog.getDialogPane().setContent(scrollPane);
+
+            // Set dialog size
+            dialog.getDialogPane().setPrefSize(600, 400);
+
+            // Show dialog
+            dialog.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to load enrollment history: " + e.getMessage()).show();
+        }
     }
 
     private void searchPatient () {

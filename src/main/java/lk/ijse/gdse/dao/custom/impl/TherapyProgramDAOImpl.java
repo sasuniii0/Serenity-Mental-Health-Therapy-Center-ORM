@@ -12,6 +12,8 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TherapyProgramDAOImpl implements TherapyProgramDAO {
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
@@ -105,21 +107,19 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
 
     @Override
     public List<String> loadTherapyProgramsForPatient(String patientId) {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = factoryConfiguration.getSession();
         try {
-            Query query = session.createQuery("SELECT tp.id FROM TherapyProgram tp join TherapySession ts on tp.id=ts.patient WHERE tp= :patientId");
-            query.setParameter("patientId", patientId);
-            List<String> therapyPrograms = query.list();
-            transaction.commit();
-            return therapyPrograms;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            String hql = "SELECT DISTINCT tp.id FROM TherapyProgram tp " +
+                    "JOIN tp.therapySessions ts " +
+                    "WHERE ts.patient.id = :patientId";
+
+            return session.createQuery(hql, String.class)
+                    .setParameter("patientId", patientId)
+                    .getResultList();
         } finally {
             session.close();
         }
     }
-
     @Override
     public TherapyProgram getProgramId(String programId) {
         Session session = factoryConfiguration.getSession();
@@ -167,24 +167,20 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
     @Override
     public ArrayList<String> getAllProgramNames() {
         Session session = factoryConfiguration.getSession();
-        ArrayList<String> programNames = new ArrayList<>();
-        Transaction transaction = null;
-
         try {
-            transaction = session.beginTransaction();
-            List<String> names = session.createQuery("select p.programName from TherapyProgram p", String.class).getResultList();
+            // No transaction needed for read-only operation
+            List<String> names = session.createQuery(
+                            "SELECT p.programName FROM TherapyProgram p", String.class)
+                    .getResultList();
 
-            programNames.addAll(names);
-
-            transaction.commit();
+            return new ArrayList<>(names);
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
+            // Log the error for debugging
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Failed to get program names", e);
+            throw new RuntimeException("Failed to load program names", e);
         } finally {
             session.close();
         }
-        return programNames;
     }
 
     @Override

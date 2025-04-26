@@ -66,7 +66,7 @@ public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
 
     @Override
     public List<String> loadTherapyProgramsForPatient(String patientId) {
-        return List.of();
+        return therapyProgramDAO.loadTherapyProgramsForPatient(patientId);
     }
 
     @Override
@@ -83,7 +83,11 @@ public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
 
     @Override
     public ArrayList<String> getAllProgramsNames() {
-        return therapyProgramDAO.getAllProgramNames();
+        try {
+            return therapyProgramDAO.getAllProgramNames();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get program names", e);
+        }
     }
 
     @Override
@@ -99,5 +103,10 @@ public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
     @Override
     public double getProgramFeeById(String programId) {
         return therapyProgramDAO.getProgramFeeById(programId);
+    }
+
+    @Override
+    public ArrayList<String> getProgramNames() {
+        return therapyProgramDAO.getAllProgramNames();
     }
 }

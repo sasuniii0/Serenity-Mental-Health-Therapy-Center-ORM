@@ -99,7 +99,15 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="687.0">
                <children>
-                  <HBox prefHeight="26.0" prefWidth="312.0" />
+                  <HBox prefHeight="26.0" prefWidth="312.0">
+                     <children>
+                        <HBox prefHeight="26.0" prefWidth="315.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program fee" wrappingWidth="102.13671875" />
+                              <Text fx:id="TxtFee" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="102.13671875" />
+                           </children>
+                        </HBox>
+                     </children></HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="354.0" spacing="10.0">
                      <children>
                         <Button fx:id="BtnRegister" mnemonicParsing="false" onAction="#BtnRegisterOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Register" textAlignment="CENTER" />
@@ -115,11 +123,10 @@
                 <TableColumn fx:id="ColId" prefWidth="75.0" text="Id" />
                 <TableColumn fx:id="ColPatientId" prefWidth="79.20001220703125" text="PatientId" />
                   <TableColumn fx:id="ColProgram" prefWidth="116.00001525878906" text="Program" />
-                  <TableColumn fx:id="ColFee" prefWidth="76.79998779296875" text="Fee" />
                   <TableColumn fx:id="ColAdvance" prefWidth="103.19989013671875" text="Advance" />
                   <TableColumn fx:id="ColPatient" prefWidth="97.5999755859375" text="Patient" />
                   <TableColumn fx:id="ColProgramId" prefWidth="76.0" text="ProgramId" />
-                  <TableColumn fx:id="ColDate" prefWidth="59.2000732421875" text="Date" />
+                  <TableColumn fx:id="ColDate" prefWidth="134.4000244140625" text="Date" />
               </columns>
             </TableView>
             <HBox alignment="TOP_RIGHT" prefHeight="35.0" prefWidth="687.0" />

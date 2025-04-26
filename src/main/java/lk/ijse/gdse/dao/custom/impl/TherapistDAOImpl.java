@@ -14,6 +14,7 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TherapistDAOImpl implements TherapistDAO {
 
@@ -259,5 +260,12 @@ public class TherapistDAOImpl implements TherapistDAO {
             session.close();
         }
         return therapistId;
+    }
+
+    @Override
+    public Optional<Therapist> findByPK(String therapistId) {
+        Session session = factoryConfiguration.getSession();
+        Therapist therapist = session.get(Therapist.class, therapistId);
+        return Optional.ofNullable(therapist);
     }
 }

@@ -8,6 +8,7 @@ import lk.ijse.gdse.dto.TherapistDTO;
 import lk.ijse.gdse.dto.TherapyProgramDTO;
 import lk.ijse.gdse.entity.Therapist;
 import lk.ijse.gdse.entity.TherapyProgram;
+import lk.ijse.gdse.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,22 +41,29 @@ public class TherapistManageBOImpl implements TherapistManageBO {
 
     @Override
     public boolean addTherapist(TherapistDTO therapistDTO) {
-        TherapyProgram therapyProgram = therapyProgramDAO.getProgramId(therapistDTO.getProgramId());
+        try {
+            // Get the associated program
+            TherapyProgram therapyProgram = therapyProgramDAO.getProgramId(therapistDTO.getProgramId());
+            if(therapyProgram == null) {
+                throw new NotFoundException("Program not found for ID: " + therapistDTO.getProgramId());
+            }
 
-        if(therapyProgram == null) {
-            throw new RuntimeException("Program not found for ID: " + therapistDTO.getProgramId());
+            // Convert DTO to entity
+            Therapist therapist = new Therapist(
+                    therapistDTO.getId(),
+                    therapistDTO.getName(),
+                    therapistDTO.getAddress(),
+                    therapistDTO.getMobileNumber(),
+                    therapistDTO.getNic(),
+                    therapyProgram
+            );
+
+            // Save using the correct DAO
+            return therapistManageDAO.save(therapist);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to save therapist: " + e.getMessage(), e);
         }
-        Therapist therapist = new Therapist(
-                therapistDTO.getId(),
-                therapistDTO.getName(),
-                therapistDTO.getAddress(),
-                therapistDTO.getMobileNumber(),
-                therapistDTO.getNic(),
-                therapyProgram
-        );
-        return therapyProgramDAO.save(therapist.getTherapyProgram());
     }
-
     @Override
     public String generateNextTherapistId() {
         return "";

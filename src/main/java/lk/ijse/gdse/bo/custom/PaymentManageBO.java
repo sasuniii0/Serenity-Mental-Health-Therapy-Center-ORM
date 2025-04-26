@@ -1,10 +1,11 @@
 package lk.ijse.gdse.bo.custom;
 
+import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.PaymentDTO;
 
 import java.util.List;
 
-public interface PaymentManageBO {
+public interface PaymentManageBO extends SuperBO {
     boolean savePayment(PaymentDTO paymentDTO, String patientId, String program) throws Exception;
 
     List<PaymentDTO> getAllPayments();

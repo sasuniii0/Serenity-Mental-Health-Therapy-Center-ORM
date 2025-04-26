@@ -15,7 +15,9 @@ public interface PaymentDAO extends CrudDAO<Payment> {
 
     String getNextPaymentId();
 
+/*
     List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId);
+*/
 
     boolean savePayment(Session session, Payment payment);
 }

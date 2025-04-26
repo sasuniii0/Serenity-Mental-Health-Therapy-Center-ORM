@@ -196,6 +196,23 @@ public class SessionController implements Initializable {
         double remainingAmount = -1;
         remainingAmount = Double.parseDouble(remaining);
 
+        if (TxtRemaining.getText().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please select patient and program first").show();
+            return;
+        }
+
+        try {
+            double remainingBalance = Double.parseDouble(TxtRemaining.getText());
+            if (remainingBalance < 0) {
+                new Alert(Alert.AlertType.ERROR, "Invalid remaining amount").show();
+                return;
+            }
+            // ... rest of your method ...
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid remaining amount format").show();
+            return;
+        }
+
         if (hasErrors) {
             new Alert(Alert.AlertType.ERROR, errorMessage.toString()).show();
             return;
@@ -344,33 +361,28 @@ public class SessionController implements Initializable {
         String patientId = IdtPatientId.getText();
         String programId = TxtProId.getText();
 
-        if(!patientId.isEmpty() && !programId.isEmpty()) {
+        if(patientId == null || patientId.isEmpty() || programId == null || programId.isEmpty()) {
+            TxtRemaining.setText("");
+            return;
+        }
 
-            try{
-                double programFee = therapyProgramManageBO.getProgramFeeById(programId);
-                double advancePayment = registrationBO.getAdvancePaymentByPatientAndProgram(patientId, programId);
+        try {
+            double programFee = therapyProgramManageBO.getProgramFeeById(programId);
+            double advancePayment = registrationBO.getAdvancePaymentByPatientAndProgram(patientId, programId);
 
-                List<PaymentDTO> previousPayments = paymentManageBO.getPaymentsByPatientAndProgram(patientId,programId);
-                double remainingAmount;
+            List<PaymentDTO> previousPayments = paymentManageBO.getPaymentsByPatientAndProgram(patientId, programId);
 
-                double totalPreviousPayments = previousPayments.stream()
-                        .mapToDouble(PaymentDTO::getAmount)
-                        .sum();
+            double totalPreviousPayments = previousPayments.stream()
+                    .mapToDouble(PaymentDTO::getAmount)
+                    .sum();
 
-                /*if(previousPayments.isEmpty()){
-                    double advancePayment = registrationBO.getAdvancePaymentByPatientAndProgram(patientId,programId);
-                    remainingAmount = programFee - advancePayment;
-                }else{
-                    PaymentDTO lastPayment = previousPayments.get(previousPayments.size() - 1);
-                    remainingAmount = lastPayment.getRemainingAmount();
-                }*/
-                remainingAmount = programFee - (advancePayment + totalPreviousPayments);
+            double remainingAmount = programFee - (advancePayment + totalPreviousPayments);
+            TxtRemaining.setText(String.format("%.2f", remainingAmount));
 
-                TxtRemaining.setText(String.format("%.2f", remainingAmount));
-            } catch (Exception e) {
-                e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, "Fail to calculate remaining amount").show();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to calculate remaining amount: " + e.getMessage()).show();
+            TxtRemaining.setText("Error");
         }
     }
 
@@ -529,8 +541,17 @@ public class SessionController implements Initializable {
     }
 
     private void loadNextPaymentId() {
-        String nextPaymentId = paymentManageBO.getNextPaymentId();
-        TxtId.setText(nextPaymentId);
+        try {
+            String nextPaymentId = paymentManageBO.getNextPaymentId();
+            if (nextPaymentId == null || nextPaymentId.isEmpty()) {
+                nextPaymentId = "P001"; // Default value
+            }
+            PayId.setText(nextPaymentId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            PayId.setText("P001"); // Fallback value
+            new Alert(Alert.AlertType.ERROR, "Failed to generate payment ID").show();
+        }
     }
 
     private void loadTableData() {
@@ -575,7 +596,15 @@ public class SessionController implements Initializable {
     }
 
     private void loadProgramNames() {
-        ArrayList<String> programNames = therapyProgramManageBO.getAllProgramsNames();
-        CmbTherapyPrograms.setItems(FXCollections.observableArrayList(programNames));
+        try {
+            ArrayList<String> programNames = therapyProgramManageBO.getProgramNames();
+            if (programNames.isEmpty()) {
+                System.out.println("No program names found in database");
+            }
+            CmbTherapyPrograms.setItems(FXCollections.observableArrayList(programNames));
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to load programs: " + e.getMessage()).show();
+            e.printStackTrace();
+        }
     }
 }

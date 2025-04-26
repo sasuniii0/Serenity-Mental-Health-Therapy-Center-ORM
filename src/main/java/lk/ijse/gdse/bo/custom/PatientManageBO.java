@@ -32,4 +32,6 @@ public interface PatientManageBO extends SuperBO {
     String getPatientIdByName(String selectedPatientName);
 
     ArrayList<String> getAllPatientNames();
+
+    List<Object[]> getAllEnrollments();
 }

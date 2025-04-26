@@ -6,6 +6,7 @@ import lk.ijse.gdse.entity.TherapyProgram;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public interface TherapistDAO extends CrudDAO<Therapist> {
     String getLastTherapistId();
@@ -23,4 +24,6 @@ public interface TherapistDAO extends CrudDAO<Therapist> {
     ArrayList<String> getTherapistNameByProgramId(String programId);
 
     String getTherapistIdByName(String selectedTherapistName);
+
+    Optional<Therapist> findByPK(String therapistId);
 }

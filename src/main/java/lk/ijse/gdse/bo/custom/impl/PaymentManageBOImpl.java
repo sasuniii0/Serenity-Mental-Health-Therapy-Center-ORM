@@ -2,10 +2,7 @@ package lk.ijse.gdse.bo.custom.impl;
 
 import lk.ijse.gdse.bo.custom.PaymentManageBO;
 import lk.ijse.gdse.dao.DAOFactory;
-import lk.ijse.gdse.dao.custom.PatientDAO;
-import lk.ijse.gdse.dao.custom.PaymentDAO;
-import lk.ijse.gdse.dao.custom.TherapyProgramDAO;
-import lk.ijse.gdse.dao.custom.TherapySessionDAO;
+import lk.ijse.gdse.dao.custom.*;
 import lk.ijse.gdse.dto.PaymentDTO;
 import lk.ijse.gdse.entity.Patient;
 import lk.ijse.gdse.entity.Payment;
@@ -18,6 +15,7 @@ import java.util.List;
 public class PaymentManageBOImpl implements PaymentManageBO {
 
     PaymentDAO paymentDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PAYMENT);
+    QueryDAO queryDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY); //QueryDAO
 
 
     @Override
@@ -61,7 +59,7 @@ public class PaymentManageBOImpl implements PaymentManageBO {
 
     @Override
     public List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId) {
-        return paymentDAO.getPaymentsByPatientAndProgram(patientId,programId);
+        return queryDAO.getPaymentsByPatientAndProgram(patientId,programId);
 
     }
 

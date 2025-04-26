@@ -329,6 +329,8 @@ public class TherapistManageController implements Initializable {
         TxtPhone.setStyle(defaultStyle);
         TxtEmail.setStyle(defaultStyle);
         CmbTherapyProgram.setStyle(defaultStyle);
+
+        loadProgramNames();
     }
 
     private void loadProgramNames() {

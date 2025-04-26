@@ -18,7 +18,7 @@
       </AnchorPane>
       <ImageView fitHeight="650.0" fitWidth="218.0">
          <image>
-            <Image url="@../assets/dash.jpg" />
+            <Image url="@../assets/dash.jpg"/>
          </image>
       </ImageView>
       <VBox opacity="0.61" prefHeight="650.0" prefWidth="218.0" style="-fx-background-color: #F5F7FA; -fx-border-color: #E1E4E8; -fx-border-width: 0 1 0 0;">

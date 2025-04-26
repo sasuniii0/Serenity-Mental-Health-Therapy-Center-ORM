@@ -15,10 +15,10 @@
 
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.LoginFormController">
    <children>
-
+      
       <ImageView fitHeight="658.0" fitWidth="900.0">
          <image>
-            <Image url="@../assets/back.jpg" />
+            <Image url="@../../../../../../The%20Serenity%20Mental%20Health%20Therapy%20Center/src/main/resources/assets/colin-watts-YqGbyWwgTBI-unsplash.jpg" />
          </image>
       </ImageView>
       <AnchorPane layoutX="115.0" layoutY="87.0" opacity="0.81" prefHeight="476.0" prefWidth="669.0" style="-fx-background-color: #4A90E2; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">

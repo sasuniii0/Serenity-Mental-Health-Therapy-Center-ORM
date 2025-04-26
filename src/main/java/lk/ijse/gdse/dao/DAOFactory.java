@@ -12,7 +12,7 @@ public class DAOFactory {
                 ? daoFactory = new DAOFactory() : daoFactory;
     }
     public enum DAOTypes{
-        PATIENT,THERAPIST,THERAPY_PROGRAM,THERAPY_SESSION,PAYMENT,USER,QUERY
+        PATIENT,THERAPIST,THERAPY_PROGRAM,THERAPY_SESSION,PAYMENT,USER,QUERY,REGISTRATION
     }
     @SuppressWarnings("unchecked")
     public <T extends SuperDAO >T getDAO(DAOTypes daoTypes){
@@ -37,6 +37,9 @@ public class DAOFactory {
             }
             case QUERY -> {
                 return (T) new QueryDAOImpl();
+            }
+            case REGISTRATION -> {
+                return (T) new RegistrationDAOImpl();
             }
             default -> {
                 return null;

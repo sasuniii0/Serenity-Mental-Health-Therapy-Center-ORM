@@ -7,7 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TherapyProgramDAOImpl implements TherapyProgramDAO {
     @Override
@@ -106,5 +108,45 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public TherapyProgram getProgramId(String programId) {
+        return null;
+    }
+
+    @Override
+    public Optional<TherapyProgram> findByPK(String programId) {
+        return Optional.empty();
+    }
+
+    @Override
+    public String getNextId() {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> getAllProgramNames() {
+        return null;
+    }
+
+    @Override
+    public String getProgramIdByName(String selectedProgramName) {
+        return "";
+    }
+
+    @Override
+    public String getProgramNameById(String programId) {
+        return "";
+    }
+
+    @Override
+    public List<String> getRegisteredProgramsByPatientId(String patientId) {
+        return List.of();
+    }
+
+    @Override
+    public double getProgramFeeById(String programId) {
+        return 0;
     }
 }

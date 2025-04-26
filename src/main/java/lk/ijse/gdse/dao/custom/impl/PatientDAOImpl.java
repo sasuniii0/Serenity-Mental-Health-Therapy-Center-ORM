@@ -8,7 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class PatientDAOImpl implements PatientDAO {
     @Override
@@ -146,6 +148,36 @@ public class PatientDAOImpl implements PatientDAO {
     @Override
     public Patient search(String patientId) {
         return null;
+    }
+
+    @Override
+    public String getNextId() {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> getAllPatientNames() {
+        return null;
+    }
+
+    @Override
+    public String getPatientNameById(String patientId) {
+        return "";
+    }
+
+    @Override
+    public String getPatientIdByName(String selectedPatientName) {
+        return "";
+    }
+
+    @Override
+    public Patient getPatientId(String patientId) {
+        return null;
+    }
+
+    @Override
+    public Optional<Patient> findByPK(String patientId) {
+        return Optional.empty();
     }
 
 

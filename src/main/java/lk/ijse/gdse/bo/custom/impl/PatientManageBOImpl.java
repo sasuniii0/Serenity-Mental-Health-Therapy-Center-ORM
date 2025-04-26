@@ -13,6 +13,7 @@ import java.util.List;
 
 public class PatientManageBOImpl implements PatientManageBO {
 
+    PatientDAO patientDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
 
     @Override
     public String generateNextPatientId() {
@@ -21,32 +22,87 @@ public class PatientManageBOImpl implements PatientManageBO {
 
     @Override
     public boolean addPatient(PatientDTO patientDTO) {
-        return false;
+        return patientDAO.save(new Patient(
+                patientDTO.getId(),
+                patientDTO.getName(),
+                patientDTO.getAddress(),
+                patientDTO.getEmail(),
+                patientDTO.getMobileNumber(),
+                patientDTO.getNic(),
+                patientDTO.getGender()
+        ));
     }
 
     @Override
-    public List<Patient> searchPatient(String searchText) {
-        return List.of();
+    public List<PatientDTO> searchPatient(String searchText) {
+        List<Patient> patients = (List<Patient>) patientDAO.search(searchText);
+        ArrayList<PatientDTO> patientDTOs = new ArrayList<>();
+
+        for (Patient patient : patients) {
+            patientDTOs.add(new PatientDTO(
+                    patient.getId(),
+                    patient.getName(),
+                    patient.getAddress(),
+                    patient.getEmail(),
+                    patient.getMobileNumber(),
+                    patient.getNic(),
+                    patient.getGender()
+            ));
+        }
+        return patientDTOs;
     }
 
     @Override
     public String getPatientNameById(String patientId) {
-        return "";
+        return patientDAO.getPatientNameById(patientId);
+    }
+
+    @Override
+    public String getPatientIdByName(String selectedPatientName) {
+        return patientDAO.getPatientIdByName(selectedPatientName);
+    }
+
+    @Override
+    public ArrayList<String> getAllPatientNames() {
+        return patientDAO.getAllPatientNames();
     }
 
     @Override
     public boolean updatePatient(PatientDTO patientDTO) {
-        return false;
+        return patientDAO.update(new Patient(
+                patientDTO.getId(),
+                patientDTO.getName(),
+                patientDTO.getAddress(),
+                patientDTO.getEmail(),
+                patientDTO.getMobileNumber(),
+                patientDTO.getNic(),
+                patientDTO.getGender()
+        ));
     }
 
     @Override
     public boolean deletePatient(String id) {
-        return false;
+        return patientDAO.delete(id);
     }
 
     @Override
     public List<PatientDTO> getAllPatient() {
-        return List.of();
+        List<Patient> patients = patientDAO.getAll();
+        ArrayList<PatientDTO> patientDTOs = new ArrayList<>();
+
+        for (Patient patient : patients) {
+            patientDTOs.add(new PatientDTO(
+                    patient.getId(),
+                    patient.getName(),
+                    patient.getAddress(),
+                    patient.getEmail(),
+                    patient.getMobileNumber(),
+                    patient.getNic(),
+                    patient.getGender()
+            ));
+        }
+        return patientDTOs;
+
     }
 
     @Override
@@ -61,6 +117,6 @@ public class PatientManageBOImpl implements PatientManageBO {
 
     @Override
     public String getNextPatientId() {
-        return "";
+        return patientDAO.getNextId();
     }
 }

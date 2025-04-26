@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TherapistDAOImpl implements TherapistDAO {
@@ -129,5 +130,30 @@ public class TherapistDAOImpl implements TherapistDAO {
         }finally {
             session.close();
         }
+    }
+
+    @Override
+    public String getNextId() {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> getAllTherapistNames() {
+        return null;
+    }
+
+    @Override
+    public String getTherapistNameById(String therapistId) {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> getTherapistNameByProgramId(String programId) {
+        return null;
+    }
+
+    @Override
+    public String getTherapistIdByName(String selectedTherapistName) {
+        return "";
     }
 }

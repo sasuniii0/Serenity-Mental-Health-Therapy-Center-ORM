@@ -12,10 +12,24 @@ import java.util.List;
 
 public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
 
+    TherapyProgramDAO therapyProgramDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
+
 
     @Override
     public List<TherapyProgramDTO> getAllPrograms() {
-        return List.of();
+        List<TherapyProgram> programs = therapyProgramDAO.getAll();
+        ArrayList<TherapyProgramDTO> programDTOS = new ArrayList<>();
+
+        for (TherapyProgram program : programs) {
+            programDTOS.add(new TherapyProgramDTO(
+                    program.getId(),
+                    program.getProgramName(),
+                    program.getDuration(),
+                    program.getFee()
+
+            ));
+        }
+        return programDTOS;
     }
 
     @Override
@@ -25,21 +39,65 @@ public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
 
     @Override
     public boolean addTherapyProgram(TherapyProgramDTO therapyProgram) {
-        return false;
+        return therapyProgramDAO.save(new TherapyProgram(
+                therapyProgram.getId(),
+                therapyProgram.getProgramName(),
+                therapyProgram.getDuration(),
+                therapyProgram.getFee()
+
+        ));
     }
 
     @Override
     public boolean deleteTherapyProgram(String id) {
-        return false;
+        return therapyProgramDAO.delete(id);
     }
 
     @Override
     public boolean updateTherapyProgram(TherapyProgramDTO therapyProgram) {
-        return false;
+        return therapyProgramDAO.update(new TherapyProgram(
+                therapyProgram.getId(),
+                therapyProgram.getProgramName(),
+                therapyProgram.getDuration(),
+                therapyProgram.getFee()
+
+        ));
     }
 
     @Override
     public List<String> loadTherapyProgramsForPatient(String patientId) {
         return List.of();
+    }
+
+    @Override
+    public String getProgramNameById(String programId) {
+        return therapyProgramDAO.getProgramNameById(programId);
+
+    }
+
+    @Override
+    public String getProgramIdByName(String selectedProgramName) {
+        return therapyProgramDAO.getProgramIdByName(selectedProgramName);
+
+    }
+
+    @Override
+    public ArrayList<String> getAllProgramsNames() {
+        return therapyProgramDAO.getAllProgramNames();
+    }
+
+    @Override
+    public String getNextProgramId() {
+        return therapyProgramDAO.getNextId();
+    }
+
+    @Override
+    public List<String> getRegisteredProgramsByPatientId(String patientId) {
+        return therapyProgramDAO.getRegisteredProgramsByPatientId(patientId);
+    }
+
+    @Override
+    public double getProgramFeeById(String programId) {
+        return therapyProgramDAO.getProgramFeeById(programId);
     }
 }

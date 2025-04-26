@@ -17,6 +17,8 @@ import java.util.List;
 
 public class PaymentManageBOImpl implements PaymentManageBO {
 
+    PaymentDAO paymentDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PAYMENT);
+
 
     @Override
     public boolean savePayment(PaymentDTO paymentDTO, String patientId, String program) throws Exception {
@@ -25,7 +27,21 @@ public class PaymentManageBOImpl implements PaymentManageBO {
 
     @Override
     public List<PaymentDTO> getAllPayments() {
-        return List.of();
+        List<Payment> payments = paymentDAO.getAll();
+        ArrayList<PaymentDTO> paymentDTOS = new ArrayList<>();
+
+        for (Payment payment : payments) {
+
+            paymentDTOS.add(new PaymentDTO(
+                    payment.getId(),
+                    payment.getDate(),
+                    payment.getAmount(),
+                    payment.getRemainingAmount(),
+                    payment.getStatus(),
+                    payment.getTherapySession().getId()
+            ));
+        }
+        return paymentDTOS;
     }
 
     @Override
@@ -41,5 +57,16 @@ public class PaymentManageBOImpl implements PaymentManageBO {
     @Override
     public List<PaymentDTO> getPaymentsBySession(String sessionId) throws Exception {
         return List.of();
+    }
+
+    @Override
+    public List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId) {
+        return paymentDAO.getPaymentsByPatientAndProgram(patientId,programId);
+
+    }
+
+    @Override
+    public String getNextPaymentId() {
+        return paymentDAO.getNextPaymentId();
     }
 }

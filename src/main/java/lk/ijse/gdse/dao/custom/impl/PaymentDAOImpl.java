@@ -2,6 +2,7 @@ package lk.ijse.gdse.dao.custom.impl;
 
 import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.PaymentDAO;
+import lk.ijse.gdse.dto.PaymentDTO;
 import lk.ijse.gdse.entity.Payment;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -132,5 +133,20 @@ public class PaymentDAOImpl implements PaymentDAO {
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public String getNextPaymentId() {
+        return "";
+    }
+
+    @Override
+    public List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId) {
+        return List.of();
+    }
+
+    @Override
+    public boolean savePayment(Session session, Payment payment) {
+        return false;
     }
 }

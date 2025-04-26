@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -9,7 +11,17 @@
 
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="930.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.DashBoardController">
    <children>
-      <VBox prefHeight="650.0" prefWidth="218.0" style="-fx-background-color: #F5F7FA; -fx-border-color: #E1E4E8; -fx-border-width: 0 1 0 0;">
+      <AnchorPane xmlns="http://javafx.com/javafx/8"
+                  xmlns:fx="http://javafx.com/fxml/1"
+                  stylesheets="@../styles/style.css">
+         <!-- Your UI components -->
+      </AnchorPane>
+      <ImageView fitHeight="650.0" fitWidth="218.0">
+         <image>
+            <Image url="@../assets/dash.jpg" />
+         </image>
+      </ImageView>
+      <VBox opacity="0.61" prefHeight="650.0" prefWidth="218.0" style="-fx-background-color: #F5F7FA; -fx-border-color: #E1E4E8; -fx-border-width: 0 1 0 0;">
          <children>
             <HBox alignment="CENTER" prefHeight="94.0" prefWidth="218.0">
                <children>
@@ -23,26 +35,29 @@
 
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="218.0" spacing="10">
                <children>
-                  <Button fx:id="BtnHome" onAction="#BtnHomeOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Home" />
+                  <Button fx:id="BtnHome" onAction="#BtnHomeOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Home">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
 
-                  <Button fx:id="BtnSessionAppoinment" onAction="#BtnSessionAppoinmentOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Session Appointments" />
-                  <Button fx:id="BtnReg" onAction="#BtnRegOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Registration" />
+                  <Button fx:id="BtnSessionAppoinment" onAction="#BtnSessionAppoinmentOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Session Appointments" />
+                  <Button fx:id="BtnReg" onAction="#BtnRegOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Registration" />
 
-                  <Button fx:id="BtnPatient" onAction="#BtnPatientOnAction" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Patient Manage" />
+                  <Button fx:id="BtnPatient" onAction="#BtnPatientOnAction" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Patient Manage" />
 
-                  <Button fx:id="BtnPayment" onAction="#BtnPaymentOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Payment History" />
+                  <Button fx:id="BtnPayment" onAction="#BtnPaymentOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Payment History" />
 
-                  <Button fx:id="BtnTherapist" onAction="#BtnTherapistOnAction" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Therapist Management" />
+                  <Button fx:id="BtnTherapist" onAction="#BtnTherapistOnAction" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Therapist Management" />
 
-                  <Button fx:id="BtnTherapyPrograms" onAction="#BtnTherapyProgramsOnAction" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Therapy Programs" />
+                  <Button fx:id="BtnTherapyPrograms" onAction="#BtnTherapyProgramsOnAction" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Therapy Programs" />
 
-                  <Button fx:id="BtnUser" onAction="#BtnUserOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #2C3E50; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Users" />
+                  <Button fx:id="BtnUser" onAction="#BtnUserOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black; -fx-border-color: #3498DB; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Users" />
                </children>
             </VBox>
 
             <HBox alignment="CENTER" prefHeight="174.0" prefWidth="218.0">
                <children>
-                  <Button fx:id="BtnLogOut" onAction="#BtnLogOutOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #E74C3C; -fx-border-color: #E74C3C; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Logout" />
+                  <Button fx:id="BtnLogOut" onAction="#BtnLogOutOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: red; -fx-border-color: #E74C3C; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" text="Logout" />
                </children>
             </HBox>
          </children>

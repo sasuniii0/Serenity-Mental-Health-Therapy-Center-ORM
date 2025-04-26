@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TherapySessionDAOImpl implements TherapySessionDAO {
 
@@ -110,4 +112,24 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
     public TherapySessionDTO getSessionById(String sessionId) {
         return null;
     }
+
+    /*@Override
+    public Map<String, Integer> getPatientSessionCounts() {
+        Session session = factoryConfiguration.getSession();
+        Map<String, Integer> patientSessionCounts = new HashMap<>();
+
+        try {
+            List<Object[]> results = session.createQuery("SELECT p.id, COUNT(ts.id) FROM Patient p LEFT JOIN p.id ts GROUP BY p.id").getResultList();
+            for (Object[] result : results) {
+                String patientId = (String) result[0];
+                Integer sessionCount = (Integer) result[1];
+                patientSessionCounts.put(patientId, sessionCount);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+        return patientSessionCounts;
+    }*/
 }

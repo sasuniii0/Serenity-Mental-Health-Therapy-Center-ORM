@@ -4,6 +4,7 @@ import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.PaymentDTO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PaymentManageBO extends SuperBO {
     boolean savePayment(PaymentDTO paymentDTO, String patientId, String program) throws Exception;
@@ -19,4 +20,8 @@ public interface PaymentManageBO extends SuperBO {
     List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId);
 
     String getNextPaymentId();
+
+    Map<String, Double> getMonthlyRevenue();
+
+    List<Object[]> getPendingPayments();
 }

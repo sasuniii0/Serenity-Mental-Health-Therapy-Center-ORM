@@ -4,6 +4,7 @@ import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.TherapySessionDTO;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface TherapySessionBO extends SuperBO {
     ArrayList<TherapySessionDTO> getAllTherapySessions();
@@ -17,4 +18,10 @@ public interface TherapySessionBO extends SuperBO {
     String getNextSessionId();
 
     ArrayList<TherapySessionDTO> getAllSessions();
+
+    Map<String, Integer> getPatientSessionCounts();
+
+/*
+    Map<String, Integer> getPatientSessionCounts();
+*/
 }

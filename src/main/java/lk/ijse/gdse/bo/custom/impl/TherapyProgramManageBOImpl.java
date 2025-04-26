@@ -2,6 +2,7 @@ package lk.ijse.gdse.bo.custom.impl;
 
 import lk.ijse.gdse.bo.custom.TherapyProgramManageBO;
 import lk.ijse.gdse.dao.DAOFactory;
+import lk.ijse.gdse.dao.custom.QueryDAO;
 import lk.ijse.gdse.dao.custom.TherapyProgramDAO;
 import lk.ijse.gdse.dto.TherapyProgramDTO;
 import lk.ijse.gdse.entity.TherapyProgram;
@@ -9,11 +10,12 @@ import lk.ijse.gdse.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
 
     TherapyProgramDAO therapyProgramDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
-
+    QueryDAO queryDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
 
     @Override
     public List<TherapyProgramDTO> getAllPrograms() {
@@ -108,5 +110,10 @@ public class TherapyProgramManageBOImpl implements TherapyProgramManageBO {
     @Override
     public ArrayList<String> getProgramNames() {
         return therapyProgramDAO.getAllProgramNames();
+    }
+
+    @Override
+    public Map<String, Integer> getProgramEnrollmentCounts() {
+        return queryDAO.getProgramEnrollmentCounts();
     }
 }

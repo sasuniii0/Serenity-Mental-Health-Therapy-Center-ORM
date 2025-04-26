@@ -2,15 +2,13 @@ package lk.ijse.gdse.bo.custom.impl;
 
 import lk.ijse.gdse.bo.custom.TherapySessionBO;
 import lk.ijse.gdse.dao.DAOFactory;
-import lk.ijse.gdse.dao.custom.PatientDAO;
-import lk.ijse.gdse.dao.custom.TherapistDAO;
-import lk.ijse.gdse.dao.custom.TherapyProgramDAO;
-import lk.ijse.gdse.dao.custom.TherapySessionDAO;
+import lk.ijse.gdse.dao.custom.*;
 import lk.ijse.gdse.dto.TherapySessionDTO;
 import lk.ijse.gdse.entity.TherapySession;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TherapySessionBOImpl implements TherapySessionBO {
 
@@ -18,6 +16,7 @@ public class TherapySessionBOImpl implements TherapySessionBO {
     TherapyProgramDAO therapyProgramDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
     PatientDAO patientDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
     TherapistDAO therapistDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
+    QueryDAO queryDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY); //QueryDAO
 
     @Override
     public ArrayList<TherapySessionDTO> getAllTherapySessions() {
@@ -75,5 +74,10 @@ public class TherapySessionBOImpl implements TherapySessionBO {
             ));
         }
         return therapySessionDTOS;
+    }
+
+    @Override
+    public Map<String, Integer> getPatientSessionCounts() {
+        return queryDAO.getPatientSessionCounts();
     }
 }

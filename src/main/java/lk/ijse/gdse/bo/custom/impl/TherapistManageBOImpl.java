@@ -2,6 +2,7 @@ package lk.ijse.gdse.bo.custom.impl;
 
 import lk.ijse.gdse.bo.custom.TherapistManageBO;
 import lk.ijse.gdse.dao.DAOFactory;
+import lk.ijse.gdse.dao.custom.QueryDAO;
 import lk.ijse.gdse.dao.custom.TherapistDAO;
 import lk.ijse.gdse.dao.custom.TherapyProgramDAO;
 import lk.ijse.gdse.dto.TherapistDTO;
@@ -12,13 +13,14 @@ import lk.ijse.gdse.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class TherapistManageBOImpl implements TherapistManageBO {
 
     TherapistDAO therapistManageDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
     TherapyProgramDAO therapyProgramDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPY_PROGRAM);
-
+    QueryDAO queryDAO =  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
 
     @Override
     public List<TherapistDTO> getAllTherapist() {
@@ -137,5 +139,10 @@ public class TherapistManageBOImpl implements TherapistManageBO {
     @Override
     public Optional<Therapist> findByPK(String therapistId) {
         return Optional.empty();
+    }
+
+    @Override
+    public Map<String, Integer> getTherapistSessionCounts() {
+        return queryDAO.getTherapistSessionCounts();
     }
 }

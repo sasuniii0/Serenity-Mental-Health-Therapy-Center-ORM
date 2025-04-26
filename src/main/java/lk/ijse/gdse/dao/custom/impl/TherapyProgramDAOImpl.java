@@ -9,9 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -261,4 +259,19 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         query.setParameter("programId", programId);
         return query.uniqueResult();
     }
+
+   /* @Override
+    public Map<String, Integer> getProgramEnrollmentCounts() {
+        Session session = factoryConfiguration.getSession();
+        String hql = "SELECT p.id, COUNT(r.id) FROM TherapyProgram p LEFT JOIN p.id r GROUP BY p.id";
+        Query<Object[]> query = session.createQuery(hql);
+        List<Object[]> results = query.getResultList();
+        Map<String, Integer> enrollmentCounts = new HashMap<>();
+        for (Object[] result : results) {
+            String programId = (String) result[0];
+            Integer enrollmentCount = (Integer) result[1];
+            enrollmentCounts.put(programId, enrollmentCount);
+        }
+        return enrollmentCounts;
+    }*/
 }

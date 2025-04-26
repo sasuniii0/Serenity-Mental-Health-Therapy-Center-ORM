@@ -213,4 +213,9 @@ public class PaymentDAOImpl implements PaymentDAO {
             return false;
         }
     }
+
+    @Override
+    public List<Object[]> getPendingPayments() {
+        return List.of();
+    }
 }

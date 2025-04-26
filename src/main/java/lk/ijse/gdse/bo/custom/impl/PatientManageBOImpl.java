@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PatientManageBOImpl implements PatientManageBO {
 
@@ -72,6 +73,16 @@ public class PatientManageBOImpl implements PatientManageBO {
     @Override
     public List<Object[]> getAllEnrollments() {
         return queryDAO.getAllEnrollments();
+    }
+
+    @Override
+    public long getTotalPatientCount() {
+        return patientDAO.getTotalPatientCount();
+    }
+
+    @Override
+    public Map<String, Long> getPatientCountByGender() {
+        return Map.of();
     }
 
     @Override

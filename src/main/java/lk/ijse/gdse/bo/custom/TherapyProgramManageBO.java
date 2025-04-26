@@ -6,6 +6,7 @@ import lk.ijse.gdse.dto.tm.TherapyProgramTM;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public interface TherapyProgramManageBO extends SuperBO {
     List<TherapyProgramDTO> getAllPrograms();
@@ -33,4 +34,6 @@ public interface TherapyProgramManageBO extends SuperBO {
     double getProgramFeeById(String programId);
 
     ArrayList<String> getProgramNames();
+
+    Map<String, Integer> getProgramEnrollmentCounts();
 }

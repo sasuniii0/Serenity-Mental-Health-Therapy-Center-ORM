@@ -12,9 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class TherapistDAOImpl implements TherapistDAO {
 
@@ -268,4 +266,24 @@ public class TherapistDAOImpl implements TherapistDAO {
         Therapist therapist = session.get(Therapist.class, therapistId);
         return Optional.ofNullable(therapist);
     }
+
+    /*@Override
+    public Map<String, Integer> getTherapistSessionCounts() {
+        Session session = factoryConfiguration.getSession();
+        Map<String, Integer> therapistSessionCounts = new HashMap<>();
+
+        try {
+            List<Object[]> results = session.createQuery("SELECT th.id, COUNT(ts.id) FROM Therapist th LEFT JOIN th.id ts GROUP BY th.id").getResultList();
+            for (Object[] result : results) {
+                String therapistId = (String) result[0];
+                Integer sessionCount = (Integer) result[1];
+                therapistSessionCounts.put(therapistId, sessionCount);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+        return therapistSessionCounts;
+    }*/
 }

@@ -6,6 +6,7 @@ import lk.ijse.gdse.entity.TherapyProgram;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface TherapistDAO extends CrudDAO<Therapist> {
@@ -26,4 +27,8 @@ public interface TherapistDAO extends CrudDAO<Therapist> {
     String getTherapistIdByName(String selectedTherapistName);
 
     Optional<Therapist> findByPK(String therapistId);
+
+/*
+    Map<String, Integer> getTherapistSessionCounts();
+*/
 }

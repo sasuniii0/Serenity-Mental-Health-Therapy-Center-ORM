@@ -20,4 +20,6 @@ public interface PaymentDAO extends CrudDAO<Payment> {
 */
 
     boolean savePayment(Session session, Payment payment);
+
+    List<Object[]> getPendingPayments();
 }

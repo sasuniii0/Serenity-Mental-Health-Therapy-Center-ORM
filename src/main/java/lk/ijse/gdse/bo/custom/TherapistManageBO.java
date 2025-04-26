@@ -7,6 +7,7 @@ import lk.ijse.gdse.entity.Therapist;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface TherapistManageBO extends SuperBO {
@@ -37,4 +38,6 @@ public interface TherapistManageBO extends SuperBO {
     ArrayList<String> getAllTherapistNames();
 
     Optional<Therapist> findByPK(String therapistId);
+
+    Map<String, Integer> getTherapistSessionCounts();
 }

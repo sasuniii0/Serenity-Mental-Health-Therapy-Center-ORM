@@ -5,6 +5,7 @@ import lk.ijse.gdse.entity.TherapyProgram;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface TherapyProgramDAO extends CrudDAO<TherapyProgram> {
@@ -27,4 +28,8 @@ public interface TherapyProgramDAO extends CrudDAO<TherapyProgram> {
     List<String> getRegisteredProgramsByPatientId(String patientId);
 
     double getProgramFeeById(String programId);
+
+/*
+    Map<String, Integer> getProgramEnrollmentCounts();
+*/
 }

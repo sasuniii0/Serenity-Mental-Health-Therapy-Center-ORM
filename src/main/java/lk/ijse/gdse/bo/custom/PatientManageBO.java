@@ -6,6 +6,7 @@ import lk.ijse.gdse.entity.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public interface PatientManageBO extends SuperBO {
 
@@ -34,4 +35,8 @@ public interface PatientManageBO extends SuperBO {
     ArrayList<String> getAllPatientNames();
 
     List<Object[]> getAllEnrollments();
+
+    long getTotalPatientCount();
+
+    Map<String, Long> getPatientCountByGender();
 }

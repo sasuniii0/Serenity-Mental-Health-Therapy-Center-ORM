@@ -8,7 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class QueryDAOImpl implements QueryDAO {
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
@@ -65,5 +67,60 @@ public class QueryDAOImpl implements QueryDAO {
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public Map<String, Integer> getPatientSessionCounts() {
+        Session session = factoryConfiguration.getSession();
+        Map<String, Integer> patientSessionCounts = new HashMap<>();
+
+        try {
+            List<Object[]> results = session.createQuery("SELECT p.id, COUNT(ts.id) FROM Patient p LEFT JOIN p.id ts GROUP BY p.id").getResultList();
+            for (Object[] result : results) {
+                String patientId = (String) result[0];
+                Integer sessionCount = (Integer) result[1];
+                patientSessionCounts.put(patientId, sessionCount);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+        return patientSessionCounts;
+    }
+
+    @Override
+    public Map<String, Integer> getProgramEnrollmentCounts() {
+        Session session = factoryConfiguration.getSession();
+        String hql = "SELECT p.id, COUNT(r.id) FROM TherapyProgram p LEFT JOIN p.id r GROUP BY p.id";
+        Query<Object[]> query = session.createQuery(hql);
+        List<Object[]> results = query.getResultList();
+        Map<String, Integer> enrollmentCounts = new HashMap<>();
+        for (Object[] result : results) {
+            String programId = (String) result[0];
+            Integer enrollmentCount = (Integer) result[1];
+            enrollmentCounts.put(programId, enrollmentCount);
+        }
+        return enrollmentCounts;
+    }
+
+    @Override
+    public Map<String, Integer> getTherapistSessionCounts() {
+        Session session = factoryConfiguration.getSession();
+        Map<String, Integer> therapistSessionCounts = new HashMap<>();
+
+        try {
+            List<Object[]> results = session.createQuery("SELECT th.id, COUNT(ts.id) FROM Therapist th LEFT JOIN th.id ts GROUP BY th.id").getResultList();
+            for (Object[] result : results) {
+                String therapistId = (String) result[0];
+                Integer sessionCount = (Integer) result[1];
+                therapistSessionCounts.put(therapistId, sessionCount);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            session.close();
+        }
+        return therapistSessionCounts;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class FactoryConfiguration {
     private static FactoryConfiguration factoryConfiguration;
-    private SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
 
    private FactoryConfiguration(){
 
@@ -40,7 +40,7 @@ public class FactoryConfiguration {
        return (factoryConfiguration == null)
                ? factoryConfiguration = new FactoryConfiguration() : factoryConfiguration;
    }
-   public Session getSession(){
+   public static Session getSession(){
        return sessionFactory.openSession();
    }
 }

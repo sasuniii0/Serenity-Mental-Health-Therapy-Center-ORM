@@ -1,13 +1,21 @@
 package lk.ijse.gdse.dao.custom.impl;
 
+import lk.ijse.gdse.config.FactoryConfiguration;
 import lk.ijse.gdse.dao.custom.TherapySessionDAO;
 import lk.ijse.gdse.dto.TherapySessionDTO;
 import lk.ijse.gdse.entity.TherapySession;
+import lk.ijse.gdse.exception.NotFoundException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
 public class TherapySessionDAOImpl implements TherapySessionDAO {
+
+    private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
+
+
     @Override
     public boolean save(TherapySession entity) {
         return false;
@@ -15,17 +23,50 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
 
     @Override
     public boolean update(TherapySession entity) {
-        return false;
+        Session session = factoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try{
+            session.merge(entity);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            if(session != null){
+                session.close();
+            }
+        }
     }
 
     @Override
     public boolean delete(String id) {
-        return false;
+        Session session = factoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+        try{
+            TherapySession therapySession = session.get(TherapySession.class,id);
+            if(therapySession == null){
+                throw new NotFoundException("Session not found");
+            }
+            session.remove(therapySession);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            if(session != null){
+                session.close();
+            }
+        }
     }
 
     @Override
     public List<TherapySession> getAll() {
-        return List.of();
+        Session session = factoryConfiguration.getSession();
+        Query<TherapySession> query = session.createQuery("from TherapySession ", TherapySession.class);
+        return query.list();
     }
 
     @Override
@@ -35,12 +76,34 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
 
     @Override
     public boolean saveSessionWithPayment(Session session, TherapySession therapySession) {
-        return false;
+        try {
+            session.merge(therapySession);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public String getNextId() {
-        return "";
+        Session session = factoryConfiguration.getSession();
+        String nextId = null;
+
+        try {
+            nextId = session
+                    .createQuery("SELECT ts.id FROM TherapySession ts ORDER BY ts.id DESC", String.class)
+                    .setMaxResults(1)
+                    .uniqueResult();
+        } finally {
+            session.close();
+        }
+
+        if (nextId != null) {
+            int newId = Integer.parseInt(nextId.substring(1)) + 1;
+            return String.format("S%03d", newId);
+        } else {
+            return "S001";
+        }
     }
 
     @Override

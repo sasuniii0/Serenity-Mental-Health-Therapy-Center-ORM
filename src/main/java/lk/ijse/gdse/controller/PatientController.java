@@ -45,7 +45,7 @@ public class PatientController implements Initializable {
     private TableColumn<PatientTM, String> ColAddress;
 
     @FXML
-    private TableColumn<PatientTM, String> ColContactNumber;
+    private TableColumn<PatientTM, Integer> ColContactNumber;
 
     @FXML
     private TableColumn<PatientTM, String> ColEmail;

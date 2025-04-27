@@ -113,9 +113,59 @@ public class PaymentController implements Initializable {
 
     }
 
+    private PaymentTM selectedPayment = null;
+
+
     @FXML
     void TblPaymentOnAction(MouseEvent event) {
+        if (event.getClickCount() == 1) {
+            selectedPayment = TblPayment.getSelectionModel().getSelectedItem();
+            if (selectedPayment != null) {
+                updateFormWithSelectedPayment();
+                enablePaymentControls();
+            } else {
+                clearForm();
+                disablePaymentControls();
+            }
+        }
+    }
 
+    private void updateFormWithSelectedPayment() {
+        TxtId.setText(selectedPayment.getId());
+        TxtName.setText(selectedPayment.getPatientName());
+        TxtProgram.setText(selectedPayment.getProgram());
+        TxtDesc.setText(selectedPayment.getDescription());
+        TxtDate.setText(selectedPayment.getDate().toString());
+        TxtFee.setText(String.format("%.2f", selectedPayment.getAmount()));
+        TxtRemainingAmount.setText(String.format("%.2f", selectedPayment.getRemainingAmount()));
+
+        if ("COMPLETE".equalsIgnoreCase(selectedPayment.getStatus())) {
+            RadComplete.setSelected(true);
+        } else {
+            RadOngoing.setSelected(true);
+        }
+    }
+
+    private void clearForm() {
+        TxtId.setText("");
+        TxtName.setText("");
+        TxtProgram.setText("");
+        TxtDesc.setText("");
+        TxtDate.setText("");
+        TxtFee.setText("");
+        TxtRemainingAmount.setText("");
+    }
+
+    private void enablePaymentControls() {
+        BtnPay1.setDisable(false);
+        BtnPay2.setDisable(false);
+        TxtRemainingAmount.setDisable(false);
+    }
+
+    private void disablePaymentControls() {
+        BtnPay1.setDisable(true);
+        BtnPay2.setDisable(true);
+        TxtRemainingAmount.setDisable(true);
     }
 
     @Override
@@ -136,12 +186,24 @@ public class PaymentController implements Initializable {
 
         try {
             refreshPage();
+            initializeStyles();
+            setupRadioButtons();
 
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Fail to load payment id").show();
         }
 
+    }
+    private void initializeStyles() {
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        TxtRemainingAmount.setStyle(defaultStyle);
+    }
+
+    private void setupRadioButtons() {
+        ToggleGroup statusGroup = new ToggleGroup();
+        RadComplete.setToggleGroup(statusGroup);
+        RadOngoing.setToggleGroup(statusGroup);
     }
 
     private void refreshPage() {

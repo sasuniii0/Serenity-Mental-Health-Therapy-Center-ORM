@@ -157,10 +157,10 @@ public class UserDAOImpl implements UserDAO {
     public String generateNextUserId() {
         String lastId = getLastUserId();
         if (lastId != null) {
-            int lastNum = Integer.parseInt(lastId.substring(1));
-            return String.format("U%03d", lastNum + 1);
+            int lastNum = Integer.parseInt(lastId.substring(2)); // Changed from substring(1) to substring(2)
+            return String.format("U-%d", lastNum + 1);
         }
-        return "U001";
+        return "U-1";
     }
 
     @Override
@@ -198,29 +198,25 @@ public class UserDAOImpl implements UserDAO {
         Transaction transaction = null;
 
         try {
-            // Hash the password before saving
             String hashedPassword = PasswordUtil.hashPassword(entity.getPassword());
             entity.setPassword(hashedPassword);
 
-            // Open session and transaction
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            // Persist the user entity
             session.persist(entity);
 
-            // Commit the transaction
             transaction.commit();
             return true;
         } catch (HibernateException e) {
             if (transaction != null) {
-                transaction.rollback();  // Rollback the transaction in case of failure
+                transaction.rollback();
             }
-            e.printStackTrace();  // Log the exception for debugging
+            e.printStackTrace();
             return false;
         } finally {
             if (session != null) {
-                session.close();  // Ensure the session is closed
+                session.close();
             }
         }
     }
@@ -232,29 +228,25 @@ public class UserDAOImpl implements UserDAO {
         Transaction transaction = null;
 
         try {
-            // Hash the password before saving
             String hashedPassword = PasswordUtil.hashPassword(entity.getPassword());
             entity.setPassword(hashedPassword);
 
-            // Open session and transaction
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            // Persist the user entity
             session.merge(entity);
 
-            // Commit the transaction
             transaction.commit();
             return true;
         } catch (HibernateException e) {
             if (transaction != null) {
-                transaction.rollback();  // Rollback the transaction in case of failure
+                transaction.rollback();
             }
-            e.printStackTrace();  // Log the exception for debugging
+            e.printStackTrace();
             return false;
         } finally {
             if (session != null) {
-                session.close();  // Ensure the session is closed
+                session.close();
             }
         }
     }

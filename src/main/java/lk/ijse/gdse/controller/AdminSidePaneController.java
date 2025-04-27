@@ -69,7 +69,6 @@ public class AdminSidePaneController implements Initializable {
     @FXML
     void BtnFinacialReportOnAction(ActionEvent event) {
         try {
-            // Generate financial summary report
             Map<String, Double> financialData = paymentBO.getMonthlyRevenue();
             String reportContent = "Monthly Financial Report\n\n";
 
@@ -80,10 +79,8 @@ public class AdminSidePaneController implements Initializable {
             double total = financialData.values().stream().mapToDouble(Double::doubleValue).sum();
             reportContent += String.format("\nTotal Revenue: Rs.%.2f", total);
 
-            // Show report in dialog
             showReportDialog("Financial Report", reportContent);
 
-            // Update chart
             updateFinancialChart(financialData);
 
         } catch (Exception e) {
@@ -121,7 +118,6 @@ public class AdminSidePaneController implements Initializable {
     @FXML
     void BtnTrackPaymentsOnAction(ActionEvent event) {
         try {
-            // Generate payment tracking report
             List<Object[]> pendingPayments = paymentBO.getPendingPayments();
             String reportContent = "Pending Payments Report\n\n";
 
@@ -132,7 +128,6 @@ public class AdminSidePaneController implements Initializable {
                         payment[2].toString());
             }
 
-            // Show report in dialog
             showReportDialog("Pending Payments", reportContent);
 
         } catch (Exception e) {
@@ -144,7 +139,6 @@ public class AdminSidePaneController implements Initializable {
     @FXML
     void PanePatientOnAction(MouseEvent event) {
         try {
-            // Generate patient statistics report
             long totalPatients = patientBO.getTotalPatientCount();
             Map<String, Long> patientsByGender = patientBO.getPatientCountByGender();
 
@@ -153,7 +147,6 @@ public class AdminSidePaneController implements Initializable {
                 reportContent += String.format("%s: %d\n", entry.getKey(), entry.getValue());
             }
 
-            // Show report in dialog
             showReportDialog("Patient Statistics", reportContent);
 
         } catch (Exception e) {
@@ -165,7 +158,6 @@ public class AdminSidePaneController implements Initializable {
     @FXML
     void PaneProgramOnAction(MouseEvent event) {
         try {
-            // Generate program statistics report
             Map<String, Integer> programEnrollments = programBO.getProgramEnrollmentCounts();
             String reportContent = "Therapy Program Statistics\n\n";
 
@@ -173,10 +165,8 @@ public class AdminSidePaneController implements Initializable {
                 reportContent += String.format("%s: %d enrollments\n", entry.getKey(), entry.getValue());
             }
 
-            // Show report in dialog
             showReportDialog("Program Statistics", reportContent);
 
-            // Update chart
             updateProgramChart(programEnrollments);
 
         } catch (Exception e) {
@@ -213,8 +203,7 @@ public class AdminSidePaneController implements Initializable {
     @FXML
     void PaneUserOnAction(MouseEvent event) {
         try {
-            // Generate user activity report
-            Map<String, String> recentLogins = getRecentUserLogins(); // Implement this in your BO
+            Map<String, String> recentLogins = getRecentUserLogins();
             String reportContent = "User Activity Report\n\n";
 
             for (Map.Entry<String, String> entry : recentLogins.entrySet()) {
@@ -222,7 +211,6 @@ public class AdminSidePaneController implements Initializable {
                         entry.getKey(), entry.getValue());
             }
 
-            // Show report in dialog
             showReportDialog("User Activity", reportContent);
 
         } catch (Exception e) {
@@ -238,12 +226,10 @@ public class AdminSidePaneController implements Initializable {
         refreshAllCharts();
     }
     private void initializeCharts() {
-        // Financial Chart
         XYChart.Series<String, Number> financialSeries = new XYChart.Series<>();
         financialSeries.setName("Monthly Revenue");
         GraphTherapyPerform.getData().add(financialSeries);
 
-        // Therapy History Chart
         XYChart.Series<String, Number> therapySeries = new XYChart.Series<>();
         therapySeries.setName("Sessions");
         GraphTherapySession.getData().add(therapySeries);
@@ -285,11 +271,9 @@ public class AdminSidePaneController implements Initializable {
                 });
     }
     private void updateProgramChart(Map<String, Integer> programEnrollments) {
-        // Implement similar to other chart updates
     }
 
     private void updateTherapistChart(Map<String, Integer> therapistSessions) {
-        // Implement similar to other chart updates
     }
 
     private void showReportDialog(String title, String content) {
@@ -305,8 +289,6 @@ public class AdminSidePaneController implements Initializable {
     }
 
     private Map<String, String> getRecentUserLogins() {
-        // Implement this method to return recent user logins
-        // Example: {"admin": "2023-10-15", "reception": "2023-10-14"}
         return new HashMap<>();
     }
 }

@@ -18,6 +18,7 @@ import lk.ijse.gdse.entity.User;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserController implements Initializable {
@@ -168,6 +169,7 @@ public class UserController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION, "User updated successfully").show();
                 clearFields();
                 loadTableData();
+
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Failed to update user: " + e.getMessage()).show();
@@ -270,17 +272,50 @@ public class UserController implements Initializable {
     }
     @FXML
     void TblUserOnAction(MouseEvent event) {
-        UserTM selectedUser = TblUsers.getSelectionModel().getSelectedItem();
-        if (selectedUser != null) {
+        try {
+            UserTM selectedUser = TblUsers.getSelectionModel().getSelectedItem();
+
+            if (selectedUser == null) {
+                return;
+            }
+
+            if (event.getClickCount() != 1) {
+                return;
+            }
+
             txtId.setText(selectedUser.getId());
             TxtFirstName.setText(selectedUser.getFirstName());
             TxtLastName.setText(selectedUser.getLastName());
             TxtEmail.setText(selectedUser.getEmail());
             TxtUserName.setText(selectedUser.getUserName());
-            TxtPassword.setText(selectedUser.getPassword());
-            TxtReEnterPassword.setText(selectedUser.getPassword());
-            CmbRole.setValue(User.Role.valueOf(selectedUser.getRole()));
+
+            String password = selectedUser.getPassword();
+            TxtPassword.setText(password);
+            TxtReEnterPassword.setText(password);
+
+            try {
+                User.Role role = User.Role.valueOf(selectedUser.getRole());
+                CmbRole.setValue(role);
+            } catch (IllegalArgumentException e) {
+                CmbRole.setValue(null);
+                Logger.getLogger(getClass().getName())
+                        .log(Level.WARNING, "Invalid role value: " + selectedUser.getRole(), e);
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName())
+                    .log(Level.SEVERE, "Error handling user selection", e);
+            showAlert(Alert.AlertType.ERROR, "Error",
+                    "Failed to load user data: " + e.getMessage());
         }
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 

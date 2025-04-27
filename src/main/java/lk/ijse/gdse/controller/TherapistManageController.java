@@ -172,6 +172,8 @@ public class TherapistManageController implements Initializable {
         boolean isSaved = therapistManageBO.addTherapist(new TherapistDTO(id , programId , name , address , phone , nic ));
         if (isSaved) {
             refreshPage();
+            loadNextTherapistId();
+            loadTableData();
             new Alert(Alert.AlertType.INFORMATION, "Therapist saved successfully!").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Failed to save therapist!").show();
@@ -190,6 +192,8 @@ public class TherapistManageController implements Initializable {
             boolean isDeleted = therapistManageBO.deleteTherapist(therapistId);
             if(isDeleted) {
                 refreshPage();
+                loadTableData();
+                loadNextTherapistId();
                 new Alert(Alert.AlertType.INFORMATION, "Therapist deleted Successfully").show();
             }else{
                 new Alert(Alert.AlertType.ERROR, "Failed to delete therapist").show();
@@ -199,7 +203,7 @@ public class TherapistManageController implements Initializable {
 
     @FXML
     void BtnResetOnAction(ActionEvent event) {
-
+        refreshPage();
     }
 
     @FXML
@@ -331,6 +335,8 @@ public class TherapistManageController implements Initializable {
         CmbTherapyProgram.setStyle(defaultStyle);
 
         loadProgramNames();
+        loadNextTherapistId();
+        loadTableData();
     }
 
     private void loadProgramNames() {

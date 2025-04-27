@@ -29,6 +29,8 @@ public interface TherapyProgramDAO extends CrudDAO<TherapyProgram> {
 
     double getProgramFeeById(String programId);
 
+    TherapyProgram findById(String programId);
+
 /*
     Map<String, Integer> getProgramEnrollmentCounts();
 */

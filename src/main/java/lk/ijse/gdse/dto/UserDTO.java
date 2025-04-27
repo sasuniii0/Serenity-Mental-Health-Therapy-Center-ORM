@@ -51,4 +51,15 @@ public class UserDTO {
             this.role = String.valueOf(user.getRole());
         }
     }
+
+    public UserDTO(String id, String firstName, String lName, String email, String username, String hashedPassword, String confirmPassword, User.Role role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lName;
+        this.email = email;
+        this.username = username;
+        this.password = hashedPassword;
+        this.confirmPassword = confirmPassword;
+        this.role = String.valueOf(role);
+    }
 }

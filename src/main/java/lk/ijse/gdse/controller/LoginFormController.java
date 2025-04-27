@@ -76,7 +76,6 @@ public class LoginFormController {
                 return;
             }
 
-            // Successful login - load dashboard
             loadDashboard(user);
 
         } catch (Exception e) {
@@ -89,11 +88,9 @@ public class LoginFormController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
         Parent rootNode = loader.load();
 
-        // Pass user information to dashboard controller
         DashBoardController dashboardController = loader.getController();
         dashboardController.setLoggedInUser(user);
 
-        // Set up the stage
         Stage stage = (Stage) root.getScene().getWindow();
         stage.setScene(new Scene(rootNode));
         stage.setTitle("Therapy Center - Dashboard");
@@ -117,7 +114,6 @@ public class LoginFormController {
         alert.showAndWait();
     }
 
-    // Helper method for Enter key press (you can add this to your FXML)
     @FXML
     void onEnterPressed(ActionEvent event) {
         BtnSignInOnAction(event);

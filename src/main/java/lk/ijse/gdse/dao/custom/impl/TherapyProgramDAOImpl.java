@@ -261,6 +261,12 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         return query.uniqueResult();
     }
 
+    @Override
+    public TherapyProgram findById(String programId) {
+        Session session = factoryConfiguration.getSession();
+        return session.get(TherapyProgram.class, programId);
+    }
+
    /* @Override
     public Map<String, Integer> getProgramEnrollmentCounts() {
         Session session = factoryConfiguration.getSession();

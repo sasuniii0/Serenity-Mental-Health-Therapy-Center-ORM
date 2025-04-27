@@ -239,10 +239,23 @@ public class TherapyProgramManageController implements Initializable {
         TxtDuration.setStyle(defaultStyle);
         TxtFee.setStyle(defaultStyle);
 
+        loadAllPrograms();
         TxtDate.getText();
     }
 
     private void loadAllPrograms() {
+        ArrayList<TherapyProgramDTO> programDTOS = (ArrayList<TherapyProgramDTO>) therapyProgramManageBO.getAllPrograms();
+        ObservableList<TherapyProgramTM> programTMS = FXCollections.observableArrayList();
+
+        for(TherapyProgramDTO programDTO : programDTOS){
+            TherapyProgramTM programTM = new TherapyProgramTM(
+                    programDTO.getId(),
+                    programDTO.getProgramName(),
+                    programDTO.getDuration(),
+                    programDTO.getFee() );
+            programTMS.add(programTM);
+        }
+        TblPrograms.setItems(programTMS);
 
     }
     private void refreshPage() {

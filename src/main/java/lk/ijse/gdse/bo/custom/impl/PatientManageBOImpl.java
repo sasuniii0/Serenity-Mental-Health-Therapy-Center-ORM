@@ -12,6 +12,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PatientManageBOImpl implements PatientManageBO {
 
@@ -37,22 +39,37 @@ public class PatientManageBOImpl implements PatientManageBO {
     }
 
     @Override
-    public List<PatientDTO> searchPatient(String searchText) {
-        List<Patient> patients = (List<Patient>) patientDAO.search(searchText);
-        ArrayList<PatientDTO> patientDTOs = new ArrayList<>();
+    public List<PatientDTO> searchPatient(String searchText) throws Exception {
+        try {
+            if (searchText == null || searchText.trim().isEmpty()) {
+                throw new IllegalArgumentException("Search text cannot be empty");
+            }
 
-        for (Patient patient : patients) {
-            patientDTOs.add(new PatientDTO(
-                    patient.getId(),
-                    patient.getName(),
-                    patient.getAddress(),
-                    patient.getEmail(),
-                    patient.getMobileNumber(),
-                    patient.getNic(),
-                    patient.getGender()
-            ));
+            List<Patient> patients = (List<Patient>) patientDAO.search(searchText);
+            List<PatientDTO> patientDTOs = new ArrayList<>();
+
+            for (Patient patient : patients) {
+                patientDTOs.add(convertToDTO(patient));
+            }
+
+            return patientDTOs;
+        } catch (Exception e) {
+            // Log the error
+            Logger.getLogger(PatientDAO.class.getName()).log(Level.SEVERE, "Error searching patients", e);
+            throw new Exception("Failed to search patients: " + e.getMessage(), e);
         }
-        return patientDTOs;
+    }
+
+    private PatientDTO convertToDTO(Patient patient) {
+        return new PatientDTO(
+                patient.getId(),
+                patient.getName(),
+                patient.getAddress(),
+                patient.getEmail(),
+                patient.getMobileNumber(),
+                patient.getNic(),
+                patient.getGender()
+        );
     }
 
     @Override

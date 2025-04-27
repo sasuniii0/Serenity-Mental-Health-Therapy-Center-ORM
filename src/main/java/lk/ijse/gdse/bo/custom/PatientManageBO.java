@@ -26,7 +26,7 @@ public interface PatientManageBO extends SuperBO {
 
     String getNextPatientId();
 
-    List<PatientDTO> searchPatient(String searchText);
+    List<PatientDTO> searchPatient(String searchText) throws Exception;
 
     String getPatientNameById(String patientId);
 

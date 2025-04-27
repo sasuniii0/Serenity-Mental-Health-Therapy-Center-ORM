@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TherapistManageBOImpl implements TherapistManageBO {
 
@@ -24,47 +26,49 @@ public class TherapistManageBOImpl implements TherapistManageBO {
 
     @Override
     public List<TherapistDTO> getAllTherapist() {
-        List<Therapist> therapists = therapistManageDAO.getAll();
-        ArrayList<TherapistDTO> therapistDTOS = new ArrayList<>();
+        try {
+            List<Therapist> therapists = therapistManageDAO.getAll();
+            List<TherapistDTO> therapistDTOS = new ArrayList<>();
 
-        for (Therapist therapist : therapists) {
-            therapistDTOS.add(new TherapistDTO(
-                    therapist.getId(),
-                    therapist.getTherapyProgram().getId(),
-                    therapist.getName(),
-                    therapist.getAddress(),
-                    therapist.getMobileNumber(),
-                    therapist.getNic()
+            for (Therapist therapist : therapists) {
+                // Handle possible null program
+                String programId = (therapist.getTherapyProgram() != null)
+                        ? therapist.getTherapyProgram().getId()
+                        : null;
 
-            ));
+                therapistDTOS.add(new TherapistDTO(
+                        therapist.getId(),
+                        programId,
+                        therapist.getName(),
+                        therapist.getAddress(),
+                        therapist.getMobileNumber(),
+                        therapist.getNic()
+                ));
+            }
+            return therapistDTOS;
+        } catch (Exception e) {
+            // Log the error
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Error converting to DTOs", e);
+            throw new RuntimeException("Failed to convert therapists to DTOs", e);
         }
-        return therapistDTOS;
     }
 
     @Override
     public boolean addTherapist(TherapistDTO therapistDTO) {
-        try {
-            // Get the associated program
-            TherapyProgram therapyProgram = therapyProgramDAO.getProgramId(therapistDTO.getProgramId());
-            if(therapyProgram == null) {
-                throw new NotFoundException("Program not found for ID: " + therapistDTO.getProgramId());
-            }
+        TherapyProgram therapyProgram = therapyProgramDAO.getProgramId(therapistDTO.getProgramId());
 
-            // Convert DTO to entity
-            Therapist therapist = new Therapist(
-                    therapistDTO.getId(),
-                    therapistDTO.getName(),
-                    therapistDTO.getAddress(),
-                    therapistDTO.getMobileNumber(),
-                    therapistDTO.getNic(),
-                    therapyProgram
-            );
-
-            // Save using the correct DAO
-            return therapistManageDAO.save(therapist);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to save therapist: " + e.getMessage(), e);
+        if(therapyProgram == null) {
+            throw new RuntimeException("Program not found for ID: " + therapistDTO.getProgramId());
         }
+        Therapist therapist = new Therapist(
+                therapistDTO.getId(),
+                therapistDTO.getName(),
+                therapistDTO.getAddress(),
+                therapistDTO.getMobileNumber(),
+                therapistDTO.getNic(),
+                therapyProgram
+        );
+        return therapistManageDAO.save(therapist);
     }
     @Override
     public String generateNextTherapistId() {

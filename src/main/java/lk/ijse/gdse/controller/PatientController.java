@@ -167,10 +167,8 @@ public class PatientController implements Initializable {
     @FXML
     void BtnHistoryOnAction(ActionEvent event) {
         try {
-            // Create TableView to display results
             TableView<List<String>> tableView = new TableView<>();
 
-            // Create columns
             TableColumn<List<String>, String> patientCol = new TableColumn<>("Patient");
             patientCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(0)));
 
@@ -182,39 +180,32 @@ public class PatientController implements Initializable {
 
             tableView.getColumns().addAll(patientCol, programCol, dateCol);
 
-            // Get all enrollment data
             List<Object[]> enrollments = patientBO.getAllEnrollments();
 
-            // Convert to ObservableList
             ObservableList<List<String>> data = FXCollections.observableArrayList();
             for (Object[] row : enrollments) {
                 data.add(Arrays.asList(
-                        row[0].toString(),  // patient name
-                        row[1].toString(), // program name
-                        row[2].toString()   // enrollment date
+                        row[0].toString(),
+                        row[1].toString(),
+                        row[2].toString()
                 ));
             }
 
             tableView.setItems(data);
 
-            // Create dialog
             Dialog<Void> dialog = new Dialog<>();
             dialog.setTitle("All Patient Enrollments");
             dialog.setHeaderText("Complete Enrollment History");
 
-            // Add close button
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
 
-            // Make table scrollable
             ScrollPane scrollPane = new ScrollPane(tableView);
             scrollPane.setFitToWidth(true);
             scrollPane.setFitToHeight(true);
             dialog.getDialogPane().setContent(scrollPane);
 
-            // Set dialog size
             dialog.getDialogPane().setPrefSize(600, 400);
 
-            // Show dialog
             dialog.showAndWait();
 
         } catch (Exception e) {
@@ -223,15 +214,9 @@ public class PatientController implements Initializable {
         }
     }
 
-    private void searchPatient () {
+    private void searchPatient () throws Exception {
         String searchText = TxtSearch.getText().trim();
 
-        patientBO.searchPatient(searchText);
-
-        if(searchText.isEmpty()){
-            loadTableData();
-            return;
-        }
         List<PatientDTO> patientDTOS = patientBO.searchPatient(searchText);
         ObservableList<PatientTM> patientTMS = FXCollections.observableArrayList();
 

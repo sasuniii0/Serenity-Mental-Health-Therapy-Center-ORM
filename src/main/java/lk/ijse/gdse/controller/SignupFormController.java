@@ -63,7 +63,7 @@ public class SignupFormController implements Initializable {
     void lnkLoginOnAction(MouseEvent event) {
         Parent rootNode = null;
         try {
-            rootNode = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/login_form.fxml")));
+            rootNode = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/LoginForm.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -83,7 +83,7 @@ public class SignupFormController implements Initializable {
         String email = txtEmail.getText().trim();
         String firstName = TxtFirstName.getText().trim();
         String lName = TxtLastName.getText().trim();
-        User.Role role = (User.Role) cmbRole.getValue();
+        User.Role role = cmbRole.getValue();
 
         String namePattern = "^[A-Za-z ]+$";
         String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -159,9 +159,11 @@ public class SignupFormController implements Initializable {
         }
         String hashedPassword = org.mindrot.jbcrypt.BCrypt.hashpw(password, org.mindrot.jbcrypt.BCrypt.gensalt());
 
-        boolean isSaved = userBO.saveUser(new UserDTO(String.valueOf(id),firstName,lName,email,username,hashedPassword,role));
+        boolean isSaved = userBO.saveUser(new UserDTO(String.valueOf(id),firstName,lName,email,username,hashedPassword,confirmPassword,role));
         if (isSaved) {
             refreshPage();
+            loadNextUserId();
+
             new Alert(Alert.AlertType.INFORMATION, "User signup successfully!").show();
             navigateTo("/view/LoginForm.fxml");
         } else {

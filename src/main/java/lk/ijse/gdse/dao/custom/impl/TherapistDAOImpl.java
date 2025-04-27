@@ -12,6 +12,8 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TherapistDAOImpl implements TherapistDAO {
 
@@ -84,18 +86,20 @@ public class TherapistDAOImpl implements TherapistDAO {
 
     @Override
     public List<Therapist> getAll() {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        try{
-            Query query = session.createQuery("FROM Therapist");
-            List<Therapist> therapists = query.list();
-            transaction.commit();
-            return therapists;
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }finally {
-            session.close();
+        Session session = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            // No transaction needed for read-only operations in some Hibernate versions
+            return session.createQuery("FROM Therapist", Therapist.class)
+                    .getResultList();
+        } catch (Exception e) {
+            // Log the error properly
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Error fetching therapists", e);
+            throw new RuntimeException("Failed to retrieve therapists", e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
 
@@ -152,22 +156,20 @@ public class TherapistDAOImpl implements TherapistDAO {
     @Override
     public String getNextId() {
         Session session = factoryConfiguration.getSession();
-        String nextId = null;
-
         try {
-            nextId = session
-                    .createQuery("SELECT t.id FROM Therapist t ORDER BY t.id DESC", String.class)
-                    .setMaxResults(1)
+            // Get the highest existing ID (e.g., "T-5")
+            String maxId = session.createQuery("SELECT max(t.id) FROM Therapist t", String.class)
                     .uniqueResult();
+
+            if (maxId != null) {
+                // Extract the number part after "T-"
+                int lastNum = Integer.parseInt(maxId.substring(2)); // Skip "T-"
+                return String.format("T-%d", lastNum + 1); // Increment by 1
+            } else {
+                return "T-1"; // Default first ID
+            }
         } finally {
             session.close();
-        }
-
-        if (nextId != null) {
-            int newId = Integer.parseInt(nextId.substring(1)) + 1;
-            return String.format("T%03d", newId);
-        } else {
-            return "T001";
         }
     }
 

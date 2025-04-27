@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,7 +17,10 @@ import lk.ijse.gdse.entity.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DashBoardController implements Initializable {
 
@@ -58,7 +62,7 @@ public class DashBoardController implements Initializable {
     public void setLoggedInUser(User user) {
         if (loggedInUser == null) {
             loggedInUser = new User();
-            loggedInUser.setRole("admin"); // Default to admin view
+            loggedInUser.setRole("admin");
         }
 
         initializeRoleBasedUI();
@@ -66,7 +70,6 @@ public class DashBoardController implements Initializable {
 
     private void initializeRoleBasedUI() {
         if (loggedInUser != null) {
-            // Load the appropriate side pane based on user role
             if (loggedInUser.getRole().equalsIgnoreCase("admin")) {
                 loadSidePane("/view/AdminSidePane.fxml");
                 setupAdminUI();
@@ -75,7 +78,6 @@ public class DashBoardController implements Initializable {
                 setupReceptionistUI();
             }
         } else {
-            // Default to admin view if no user is set (for testing)
             loadSidePane("/view/AdminSidePane.fxml");
         }
     }
@@ -91,20 +93,15 @@ public class DashBoardController implements Initializable {
     }
 
     private void setupAdminUI() {
-        // Enable all buttons for admin
         BtnUser.setDisable(false);
         BtnTherapist.setDisable(false);
         BtnTherapyPrograms.setDisable(false);
-        // ... enable other admin-only features
     }
 
     private void setupReceptionistUI() {
-        // Disable admin-only features for receptionist
         BtnUser.setDisable(true);
         BtnTherapist.setDisable(true);
-        // ... disable other admin-only buttons
 
-        // Enable receptionist-specific features
         BtnPatient.setDisable(false);
         BtnReg.setDisable(false);
         BtnSessionAppoinment.setDisable(false);
@@ -120,37 +117,61 @@ public class DashBoardController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // Get the current stage
         Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
 
-        // Set the new scene
         stage.setScene(new Scene(rootNode));
         stage.setTitle("Dashboard");
         stage.centerOnScreen();
     }
 
     @FXML
-    void BtnLogOutOnAction(ActionEvent event) throws IOException {
-        // Show confirmation dialog
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout Confirmation");
-        alert.setHeaderText("Are you sure you want to logout?");
+    void BtnLogOutOnAction(ActionEvent event) {
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Logout Confirmation");
+            alert.setHeaderText("Are you sure you want to logout?");
+            alert.setContentText("Any unsaved changes will be lost.");
 
-        // Handle user's choice
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            // Load the login view
-            Parent rootNode = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
+            Optional<ButtonType> result = alert.showAndWait();
 
-            // Get the current stage
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                URL loginViewUrl = getClass().getResource("/view/LoginForm.fxml");
+                if (loginViewUrl == null) {
+                    throw new IOException("Login view FXML file not found");
+                }
 
-            // Set the new scene
-            stage.setScene(new Scene(rootNode));
-            stage.setTitle("Login");
-            stage.centerOnScreen();
+                Parent rootNode = FXMLLoader.load(loginViewUrl);
+
+                Node source = (Node) event.getSource();
+                Stage stage = (Stage) source.getScene().getWindow();
+
+                Scene scene = new Scene(rootNode);
+                stage.setScene(scene);
+                stage.setTitle("Login");
+                stage.centerOnScreen();
+
+                clearSessionData();
+            }
+        } catch (IOException e) {
+            showErrorAlert("Failed to load login screen", e.getMessage());
+            Logger.getLogger(DashBoardController.class.getName()).log(Level.SEVERE, "Logout error", e);
+        } catch (Exception e) {
+            showErrorAlert("Logout failed", "An unexpected error occurred");
+            Logger.getLogger(DashBoardController.class.getName()).log(Level.SEVERE, "Unexpected logout error", e);
         }
     }
 
+    private void clearSessionData() {
+
+    }
+
+    private void showErrorAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     @FXML
     void BtnPatientOnAction(ActionEvent event) {
         navigateTo("/view/Patient.fxml");

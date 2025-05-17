@@ -233,7 +233,7 @@ public class TherapyProgramManageController implements Initializable {
         ColDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         ColFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtName.setStyle(defaultStyle);
         TxtDuration.setStyle(defaultStyle);
@@ -270,7 +270,7 @@ public class TherapyProgramManageController implements Initializable {
         TxtDuration.setText("");
         TxtFee.setText("");
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtName.setStyle(defaultStyle);
         TxtDuration.setStyle(defaultStyle);

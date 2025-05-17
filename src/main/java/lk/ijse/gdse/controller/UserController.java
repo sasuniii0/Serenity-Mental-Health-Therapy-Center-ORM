@@ -226,6 +226,8 @@ public class UserController implements Initializable {
                 CmbRole.getValue() == null) {
             return false;
         }
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
 
         if (!TxtPassword.getText().equals(TxtReEnterPassword.getText())) {
             new Alert(Alert.AlertType.WARNING, "Passwords do not match").show();
@@ -245,6 +247,16 @@ public class UserController implements Initializable {
         CmbRole.getSelectionModel().clearSelection();
         loadTableData();
         loadTableData();
+
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
+        TxtFirstName.setStyle(defaultStyle);
+        TxtLastName.setStyle(defaultStyle);
+        TxtEmail.setStyle(defaultStyle);
+        TxtUserName.setStyle(defaultStyle);
+        TxtPassword.setStyle(defaultStyle);
+        TxtReEnterPassword.setStyle(defaultStyle);
+
 
     }
 
@@ -322,30 +334,43 @@ public class UserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        TblUsers.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                txtId.setText(newValue.getId());
-                TxtFirstName.setText(newValue.getFirstName());
-                TxtLastName.setText(newValue.getLastName());
-                TxtEmail.setText(newValue.getEmail());
-                TxtUserName.setText(newValue.getUserName());
-                TxtPassword.setText(newValue.getPassword());
-                TxtReEnterPassword.setText(newValue.getPassword());
-                CmbRole.setValue(User.Role.valueOf(newValue.getRole()));
-            }
-        });
         ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        ColFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        ColLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         ColUserName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        ColEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         ColPw.setCellValueFactory(new PropertyValueFactory<>("password"));
         ColRole.setCellValueFactory(new PropertyValueFactory<>("role"));
+        ColEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        ColFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        ColLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+
+        // Set up table selection listener
+        TblUsers.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                setFieldsFromUserTM(newValue);
+            }
+        });
 
         loadRoles();
         generateNextId();
         loadTableData();
     }
+    private void setFieldsFromUserTM(UserTM userTM) {
+        txtId.setText(userTM.getId());
+        TxtUserName.setText(userTM.getUserName());
+        TxtPassword.setText(userTM.getPassword());
+        TxtReEnterPassword.setText(userTM.getPassword());
+        TxtEmail.setText(userTM.getEmail());
+        TxtFirstName.setText(userTM.getFirstName());
+        TxtLastName.setText(userTM.getLastName());
+
+        try {
+            CmbRole.setValue(User.Role.valueOf(userTM.getRole()));
+        } catch (IllegalArgumentException e) {
+            CmbRole.setValue(null);
+            Logger.getLogger(getClass().getName())
+                    .log(Level.WARNING, "Invalid role value: " + userTM.getRole(), e);
+        }
+    }
+
     private void loadRoles(){
         CmbRole.getItems().setAll(User.Role.ADMIN, User.Role.RECEPTIONIST);
     }

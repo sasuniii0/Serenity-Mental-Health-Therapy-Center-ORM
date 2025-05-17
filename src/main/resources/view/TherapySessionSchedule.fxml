@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.SessionController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.SessionController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="627.0" prefWidth="685.0" spacing="10.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="686.0">
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="686.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Therapy Session Appoinments">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Therapy Session Appoinments">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -30,14 +30,14 @@
                <children>
                   <HBox prefHeight="30.0" prefWidth="332.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Session-Id" wrappingWidth="109.33673095703125" />
-                        <Text fx:id="TxtId" strokeType="OUTSIDE" strokeWidth="0.0" text="S-1" wrappingWidth="109.33673095703125" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Session-Id" wrappingWidth="109.33673095703125" />
+                        <Text fx:id="TxtId" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="S-1" wrappingWidth="109.33673095703125" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="332.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="109.33673095703125" />
-                        <Text fx:id="TxtDate" strokeType="OUTSIDE" strokeWidth="0.0" text="2025/03/24" wrappingWidth="109.33673095703125" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="109.33673095703125" />
+                        <Text fx:id="TxtDate" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2025/03/24" wrappingWidth="109.33673095703125" />
                      </children>
                   </HBox>
                </children>
@@ -45,31 +45,31 @@
             <Separator prefWidth="200.0" />
             <HBox prefHeight="22.0" prefWidth="686.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="117.33673095703125" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="117.33673095703125" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="191.0" prefWidth="686.0" spacing="10.0">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="183.0" prefWidth="302.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patients" wrappingWidth="96.53674507141113" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patients" wrappingWidth="96.53674507141113" />
                         <ComboBox fx:id="CmbPatient" onAction="#CmbPatient" prefHeight="26.0" prefWidth="304.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="96.53674507141113" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="96.53674507141113" />
                         <TextField fx:id="IdtPatientId" />
-                        <Text fx:id="txt" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="96.53674507141113" />
+                        <Text fx:id="txt" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="96.53674507141113" />
                         <TextField fx:id="TxtDescription" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="242.13677597045898" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="242.13677597045898" />
                         <DatePicker fx:id="TxtAppoinmentDate" prefHeight="26.0" prefWidth="333.0" />
                      </children>
                   </VBox>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <VBox alignment="CENTER" prefHeight="183.0" prefWidth="323.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Programs" wrappingWidth="242.13671493530273" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Programs" wrappingWidth="242.13671493530273" />
                         <ComboBox fx:id="CmbTherapyPrograms" onAction="#CmbTherapyProgramsOnAction" prefHeight="26.0" prefWidth="327.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Program Id" wrappingWidth="245.33666610717773" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Therapy Program Id" wrappingWidth="245.33666610717773" />
                         <TextField fx:id="TxtProId" prefHeight="26.0" prefWidth="235.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapist" wrappingWidth="240.5367476940155" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Therapist" wrappingWidth="240.5367476940155" />
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <ComboBox fx:id="CmbTherapist" onAction="#CmbTherapistOnAction" prefHeight="26.0" prefWidth="334.0" />
@@ -78,7 +78,7 @@
                         <TextField fx:id="TxtTherapistId" prefHeight="18.0" prefWidth="323.0" />
                         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
                            <children>
-                              <Text fx:id="PayId" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="96.53674507141113" />
+                              <Text fx:id="PayId" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" wrappingWidth="96.53674507141113" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="334.0" />
@@ -91,7 +91,7 @@
                         <ComboBox fx:id="CmbStatus" onAction="#CmbStatusOnAction" prefWidth="150.0" promptText="status" />
                         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="228.0">
                            <children>
-                              <Text fx:id="TxtRemaining" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Amount" wrappingWidth="96.53674507141113" />
+                              <Text fx:id="TxtRemaining" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Amount" wrappingWidth="96.53674507141113" />
                            </children>
                         </HBox>
                      </children>
@@ -100,9 +100,9 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="686.0" spacing="15.0">
                <children>
-                  <Button fx:id="BtnMakeAppoinment" mnemonicParsing="false" onAction="#BtnMakeAppoinmentOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #4A90E2;" text="Make Appoinment" />
-                  <Button fx:id="BtnRescheduleAppoinment" mnemonicParsing="false" onAction="#BtnRescheduleAppoinmentOnAction" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4CAF50;" text="Reschedule Appoinment" />
-                  <Button fx:id="BtnCancelAppoinment" mnemonicParsing="false" onAction="#BtnCancelAppoinmentOnAction" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #F44336;" text="Cancel Appoinment" />
+                  <Button fx:id="BtnMakeAppoinment" mnemonicParsing="false" onAction="#BtnMakeAppoinmentOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #4A90E2;" text="Make Appoinment" textFill="WHITE" />
+                  <Button fx:id="BtnRescheduleAppoinment" mnemonicParsing="false" onAction="#BtnRescheduleAppoinmentOnAction" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4CAF50;" text="Reschedule Appoinment" textFill="WHITE" />
+                  <Button fx:id="BtnCancelAppoinment" mnemonicParsing="false" onAction="#BtnCancelAppoinmentOnAction" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #F44336;" text="Cancel Appoinment" textFill="WHITE" />
                </children>
             </HBox>
             <TableView fx:id="TblSessionAppoinmnets" onMouseClicked="#TblSessionAppoinmnetsOnAction" prefHeight="200.0" prefWidth="200.0">

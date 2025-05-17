@@ -10,6 +10,7 @@ import lk.ijse.gdse.util.PasswordUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UserBOImpl implements UserBO {
 
@@ -76,6 +77,10 @@ public class UserBOImpl implements UserBO {
         return userDAO.getAllUsers();
     }
 
+    @Override
+    public Map<String, String> getRecentUserLogins() {
+        return Map.of();
+    }
 
 
     PasswordUtil passwordUtil;

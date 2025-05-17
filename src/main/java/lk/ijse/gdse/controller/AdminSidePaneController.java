@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import lk.ijse.gdse.bo.BOFactory;
 import lk.ijse.gdse.bo.custom.*;
 
@@ -222,8 +225,37 @@ public class AdminSidePaneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeCharts();
-
         refreshAllCharts();
+        showWelcomeMessage();
+    }
+
+    private void showWelcomeMessage() {
+        Alert welcomeAlert = new Alert(Alert.AlertType.INFORMATION);
+        welcomeAlert.setTitle("Welcome to Serenity Mental Health");
+        welcomeAlert.setHeaderText("Serenity Mental Health Care System");
+        welcomeAlert.setContentText("""
+        Welcome to the Serenity Mental Health Administration Dashboard
+        
+        At Serenity, we provide compassionate care and support 
+        for all your mental health needs.
+        
+        "Calm mind brings inner strength and self-confidence"
+        
+        Please contact support if you need any assistance.
+        """);
+
+        String defaultStyles = "-fx-background-color: #e6f7ff; -fx-text-fill: #000000; -fx-font-size: 14px;";
+
+        Stage stage = (Stage) welcomeAlert.getDialogPane().getScene().getWindow();
+
+        welcomeAlert.getDialogPane().setStyle("-fx-background-color: #010205;");
+        welcomeAlert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        welcomeAlert.getDialogPane().setMinWidth(Region.USE_PREF_SIZE);
+        welcomeAlert.getDialogPane().setStyle(defaultStyles);
+
+        stage.centerOnScreen();
+
+        welcomeAlert.showAndWait();
     }
     private void initializeCharts() {
         XYChart.Series<String, Number> financialSeries = new XYChart.Series<>();

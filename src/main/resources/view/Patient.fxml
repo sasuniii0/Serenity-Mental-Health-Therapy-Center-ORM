@@ -12,13 +12,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PatientController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PatientController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="622.0" prefWidth="686.0" spacing="10.0">
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="686.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Registration" textAlignment="CENTER" wrappingWidth="296.5366973876953">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Registration" textAlignment="CENTER" wrappingWidth="296.5366973876953">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>
@@ -29,14 +29,14 @@
                <children>
                   <HBox prefHeight="30.0" prefWidth="330.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient-Id" wrappingWidth="106.93670272827148" />
-                        <Text fx:id="TxtId" strokeType="OUTSIDE" strokeWidth="0.0" text="P-1" wrappingWidth="106.93670272827148" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient-Id" wrappingWidth="106.93670272827148" />
+                        <Text fx:id="TxtId" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="P-1" wrappingWidth="106.93670272827148" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="330.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="106.93670272827148" />
-                        <Text fx:id="TxtDate" strokeType="OUTSIDE" strokeWidth="0.0" text="2025/03/23" wrappingWidth="106.93670272827148" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="106.93670272827148" />
+                        <Text fx:id="TxtDate" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2025/03/23" wrappingWidth="106.93670272827148" />
                      </children>
                   </HBox>
                </children>
@@ -46,7 +46,7 @@
                <children>
                   <HBox prefHeight="34.0" prefWidth="386.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="100.53674697875977" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="100.53674697875977" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" />
@@ -58,38 +58,38 @@
                      <children>
                         <HBox prefHeight="30.0" prefWidth="330.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.93670272827148" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.93670272827148" />
                               <TextField fx:id="TxtName" prefHeight="26.0" prefWidth="211.0" promptText="Enter patient name" />
                            </children>
                         </HBox>
                         <HBox prefHeight="30.0" prefWidth="330.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="107.73662939667702" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" wrappingWidth="107.73662939667702" />
                               <TextField fx:id="TxtNic" prefHeight="26.0" prefWidth="210.0" promptText="Enter NIC number" />
                            </children>
                         </HBox>
                         <HBox prefHeight="30.0" prefWidth="330.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact-Number" wrappingWidth="106.93670272827148" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact-Number" wrappingWidth="106.93670272827148" />
                               <TextField fx:id="TxtContactNumber" prefHeight="26.0" prefWidth="211.0" promptText="Enter contact number" />
                            </children>
                         </HBox>
                         <HBox prefHeight="34.0" prefWidth="329.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="108.5366780757904" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="108.5366780757904" />
                               <TextField fx:id="TxtAddress" prefHeight="26.0" prefWidth="211.0" promptText="Enter patient address" />
                            </children>
                         </HBox>
                         <HBox prefHeight="30.0" prefWidth="330.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="106.93670272827148" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="106.93670272827148" />
                               <TextField fx:id="TxtEmail" prefHeight="26.0" prefWidth="215.0" promptText="Enter email address" />
                            </children>
                         </HBox>
                         <HBox prefHeight="30.0" prefWidth="330.0" spacing="20.0">
                            <children>
-                              <RadioButton fx:id="RadMale" mnemonicParsing="false" text="Male" />
-                              <RadioButton fx:id="RadFemale" mnemonicParsing="false" text="Female" />
+                              <RadioButton fx:id="RadMale" mnemonicParsing="false" text="Male" textFill="WHITE" />
+                              <RadioButton fx:id="RadFemale" mnemonicParsing="false" text="Female" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -105,7 +105,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="65.0" prefWidth="299.0" spacing="20.0">
                            <children>
-                              <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 5;" text="Reset" />
+                              <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: purple; -fx-background-radius: 5;" text="Reset" textFill="WHITE" />
                               <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Update" />
                               <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="71.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;" text="Delete" />
                            </children>
@@ -120,7 +120,7 @@
                   <Button fx:id="BtnSearch" mnemonicParsing="false" onAction="#BtnSearchOnAction" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-background-radius: 5;" text="Search" />
                   <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="344.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="View All " wrappingWidth="77.33672714233398" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="View All " wrappingWidth="77.33672714233398" />
                         <Button fx:id="BtnHistory" mnemonicParsing="false" onAction="#BtnHistoryOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;" text="View" />
                      </children>
                   </HBox>

@@ -18,41 +18,41 @@
       
       <ImageView fitHeight="658.0" fitWidth="900.0">
             <image>
-               <Image url="@../assets/back.jpg"/>
+               <Image url="@../assets/back.jpg" />
             </image>
       </ImageView>
       <AnchorPane layoutX="115.0" layoutY="87.0" opacity="0.81" prefHeight="476.0" prefWidth="669.0" style="-fx-background-color: #4A90E2; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
          <children>
-            <Pane prefHeight="476.0" prefWidth="398.0" style="-fx-background-color: white; -fx-background-radius: 0 25 25 0;">
+            <Pane prefHeight="476.0" prefWidth="409.0" style="-fx-background-color: black; -fx-background-radius: 0;">
                <children>
-                  <VBox alignment="CENTER" prefHeight="476.0" prefWidth="398.0" spacing="15.0">
+                  <VBox alignment="CENTER" layoutX="-3.0" prefHeight="485.0" prefWidth="414.0" spacing="15.0" style="-fx-background-color: black;">
                      <padding>
                         <Insets left="30.0" right="30.0" />
                      </padding>
                      <children>
-                        <Text text="Sign In" textAlignment="CENTER" wrappingWidth="353.336669921875">
+                        <Text fill="WHITE" style="-fx-font-weight: bold;" text="Sign In" textAlignment="CENTER" wrappingWidth="353.336669921875">
                            <font>
                               <Font size="33.0" />
                            </font>
                         </Text>
-
-                        <Text opacity="0.7" text="Sign in to your account" />
-
+      
+                        <Text fill="WHITE" opacity="0.7" style="-fx-font-weight: bold;" text="Sign in to your account" />
+      
                         <TextField fx:id="TxtUserName" prefHeight="40.0" prefWidth="354.0" promptText="Username" style="-fx-background-radius: 25;                                           -fx-border-radius: 25;                                           -fx-border-color: #4A90E2;                                           -fx-border-width: 1.5;                                           -fx-padding: 10;" />
-
+      
                         <PasswordField fx:id="TxtPassword" prefHeight="40.0" prefWidth="354.0" promptText="Password" style="-fx-background-radius: 25;                                               -fx-border-radius: 25;                                               -fx-border-color: #4A90E2;                                               -fx-border-width: 1.5;                                               -fx-padding: 10;" />
-
+      
                         <HBox alignment="TOP_RIGHT" prefWidth="354.0">
                            <children>
                               <Button fx:id="BtnForgotPw" onAction="#BtnForgotPwOnAction" style="-fx-background-color: transparent;                                              -fx-text-fill: #4A90E2;" text="Forgot password?" />
                            </children>
                         </HBox>
-
+      
                         <Button fx:id="BtnSignIn" onAction="#BtnSignInOnAction" prefHeight="40.0" prefWidth="354.0" style="-fx-background-color: #4A90E2;                                        -fx-text-fill: white;                                        -fx-background-radius: 25;                                        -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.3), 5, 0, 0, 2);" text="Sign In" />
-
-                        <Text opacity="0.7" text="or" textAlignment="CENTER" />
-
-                        <Button fx:id="BtnCreateNewAccount" onAction="#BtnCreateNewAccountOnAction" prefHeight="40.0" prefWidth="354.0" style="-fx-background-color: white;                                        -fx-text-fill: #4A90E2;                                        -fx-background-radius: 25;                                        -fx-border-color: #4A90E2;                                        -fx-border-width: 2;" text="Create New Account" />
+      
+                        <Text fill="WHITE" opacity="0.7" text="or" textAlignment="CENTER" />
+      
+                        <Button fx:id="BtnCreateNewAccount" onAction="#BtnCreateNewAccountOnAction" prefHeight="40.0" prefWidth="354.0" style="-fx-background-color: black; -fx-text-fill: #4A90E2; -fx-background-radius: 25; -fx-border-color: #4A90E2; -fx-border-width: 2;" text="Create New Account" />
                      </children>
                   </VBox>
                </children>
@@ -60,6 +60,11 @@
             <Text layoutX="447.0" layoutY="230.0" text="Welcome back!" wrappingWidth="180.5367431640625">
                <font>
                   <Font size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="447.0" layoutY="113.0" style="-fx-font-weight: bold;" text="The Serenity" wrappingWidth="180.5367431640625">
+               <font>
+                  <Font size="46.0" />
                </font>
             </Text>
          </children>

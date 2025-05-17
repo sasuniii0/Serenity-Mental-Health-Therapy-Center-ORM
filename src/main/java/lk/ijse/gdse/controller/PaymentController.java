@@ -180,7 +180,7 @@ public class PaymentController implements Initializable {
         ColRemaining.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
         ColStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtRemainingAmount.setStyle(defaultStyle);
 
@@ -196,7 +196,7 @@ public class PaymentController implements Initializable {
 
     }
     private void initializeStyles() {
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
         TxtRemainingAmount.setStyle(defaultStyle);
     }
 
@@ -214,7 +214,7 @@ public class PaymentController implements Initializable {
 
         TxtRemainingAmount.setText("");
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtRemainingAmount.setStyle(defaultStyle);
     }

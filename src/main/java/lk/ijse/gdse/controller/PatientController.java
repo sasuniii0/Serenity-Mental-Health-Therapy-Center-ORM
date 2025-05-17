@@ -131,7 +131,7 @@ public class PatientController implements Initializable {
         RadMale.setSelected(false);
         RadFemale.setSelected(false);
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtName.setStyle(defaultStyle);
         TxtAddress.setStyle(defaultStyle);
@@ -443,7 +443,7 @@ public class PatientController implements Initializable {
         ColContactNumber.setCellValueFactory(new PropertyValueFactory<>("mobile"));
         ColGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtName.setStyle(defaultStyle);
         TxtAddress.setStyle(defaultStyle);

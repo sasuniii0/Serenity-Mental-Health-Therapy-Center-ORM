@@ -185,7 +185,7 @@ public class SignupFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtFirstName.setStyle(defaultStyle);
         TxtLastName.setStyle(defaultStyle);
@@ -214,7 +214,7 @@ public class SignupFormController implements Initializable {
         txtConfirmPassword.setText("");
         cmbRole.setValue(User.Role.ADMIN);
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtFirstName.setStyle(defaultStyle);
         TxtLastName.setStyle(defaultStyle);

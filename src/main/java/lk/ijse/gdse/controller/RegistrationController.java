@@ -302,7 +302,7 @@ public class RegistrationController implements Initializable {
 
         TextDate.setText(LocalDate.now().toString());
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         CmbPatient.setStyle(defaultStyle);
         CmbTherapyPrograms.setStyle(defaultStyle);
@@ -333,7 +333,7 @@ public class RegistrationController implements Initializable {
         CmbTherapyPrograms.setValue(null);
         CmbPatient.setValue(null);
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtBalance.setStyle(defaultStyle);
         CmbTherapyPrograms.setStyle(defaultStyle);

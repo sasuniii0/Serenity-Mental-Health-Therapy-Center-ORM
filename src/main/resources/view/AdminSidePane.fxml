@@ -15,19 +15,19 @@
 
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: #F4F6F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.AdminSidePaneController">
    <children>
-      <VBox prefHeight="650.0" prefWidth="712.0" spacing="15">
+      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="712.0" spacing="15" style="-fx-background-color: black;">
          <children>
             <!-- Header Section -->
-            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="712.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="668.0" style="-fx-background-color: black; -fx-background-radius: 10; -fx-padding: 10;">
                <children>
-                  <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Therapist Performance Dashboard" />
+                  <Label graphicTextGap="0.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" text="Therapist Performance Dashboard" textFill="#f4e5e5" />
                </children>
             </HBox>
 
             <!-- Performance Charts Section -->
             <HBox alignment="CENTER" prefHeight="283.0" prefWidth="713.0" spacing="15">
                <children>
-                  <AreaChart fx:id="GraphTherapyPerform" prefHeight="278.0" prefWidth="664.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                  <AreaChart fx:id="GraphTherapyPerform" prefHeight="283.0" prefWidth="582.0" style="-fx-background-color: black; -fx-background-radius: 10;">
                      <xAxis>
                         <CategoryAxis fx:id="XTherapistPerform" side="BOTTOM" />
                      </xAxis>
@@ -39,13 +39,13 @@
             </HBox>
 
             <!-- Detailed Analytics Section -->
-            <HBox prefHeight="284.0" prefWidth="713.0" spacing="20">
+            <HBox alignment="CENTER" prefHeight="221.0" prefWidth="712.0" spacing="20">
                <children>
                   <!-- Therapy Session Statistics -->
-                  <VBox alignment="CENTER" prefHeight="284.0" prefWidth="424.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                  <VBox alignment="CENTER" prefHeight="284.0" prefWidth="345.0" style="-fx-background-color: black; -fx-background-radius: 10; -fx-padding: 10;">
                      <children>
-                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Therapy Session Statistics" />
-                        <LineChart fx:id="GraphTherapySession" prefHeight="260.0" prefWidth="416.0">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;" text="Therapy Session Statistics" textFill="WHITE" />
+                        <LineChart fx:id="GraphTherapySession" prefHeight="237.0" prefWidth="357.0">
                            <xAxis>
                               <CategoryAxis fx:id="XTherapySession" side="BOTTOM" />
                            </xAxis>
@@ -109,11 +109,11 @@
                         </HBox>
 
                         <!-- Action Buttons -->
-                        <Button fx:id="BtnTrackPayments" onAction="#BtnTrackPaymentsOnAction" prefHeight="36.0" prefWidth="193.0" style="-fx-background-color: #FFFFFF;                                        -fx-text-fill: #3498DB;                                        -fx-border-color: #3498DB;                                        -fx-border-radius: 20;                                        -fx-background-radius: 20;                                        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Track Payments" />
+                        <Button fx:id="BtnTrackPayments" onAction="#BtnTrackPaymentsOnAction" prefHeight="36.0" prefWidth="193.0" style="-fx-background-color: black; -fx-text-fill: #3498DB; -fx-border-color: #3498DB; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Track Payments" />
 
-                        <Button fx:id="BtnFinacialReport" onAction="#BtnFinacialReportOnAction" prefHeight="36.0" prefWidth="193.0" style="-fx-background-color: #FFFFFF;                                        -fx-text-fill: #3498DB;                                        -fx-border-color: #3498DB;                                        -fx-border-radius: 20;                                        -fx-background-radius: 20;                                        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Financial Report" />
+                        <Button fx:id="BtnFinacialReport" onAction="#BtnFinacialReportOnAction" prefHeight="36.0" prefWidth="193.0" style="-fx-background-color: black; -fx-text-fill: #3498DB; -fx-border-color: #3498DB; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Financial Report" />
 
-                        <Button fx:id="BtnPatientTherapyHistory" onAction="#BtnPatientTherapyHistoryOnAction" prefHeight="36.0" prefWidth="193.0" style="-fx-background-color: #FFFFFF;                                        -fx-text-fill: #3498DB;                                        -fx-border-color: #3498DB;                                        -fx-border-radius: 20;                                        -fx-background-radius: 20;                                        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Patient Therapy History" />
+                        <Button fx:id="BtnPatientTherapyHistory" onAction="#BtnPatientTherapyHistoryOnAction" prefHeight="36.0" prefWidth="193.0" style="-fx-background-color: black; -fx-text-fill: #3498DB; -fx-border-color: #3498DB; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Patient Therapy History" />
                      </children>
                   </VBox>
                </children>

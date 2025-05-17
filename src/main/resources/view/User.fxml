@@ -13,15 +13,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.UserController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.UserController">
    <children>
       <VBox layoutX="40.0" layoutY="40.0" prefHeight="570.0" prefWidth="632.0" spacing="15.0">
          <!-- Header -->
-         <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="632.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="632.0" style="-fx-background-color: black; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
             <children>
-               <Label style="-fx-font-weight: bold;" text="User Management" textFill="#333333">
+               <Label style="-fx-font-weight: bold;" text="User Management" textFill="#f4f2f2">
                   <font>
-                     <Font name="System Bold" size="22.0" />
+                     <Font name="System Bold" size="32.0" />
                   </font>
                   <HBox.margin>
                      <Insets left="20.0" />
@@ -34,49 +34,49 @@
          <HBox prefHeight="40.0" prefWidth="632.0" spacing="20.0">
             <children>
                <HBox spacing="10.0">
-                  <Label style="-fx-text-fill: #666666;" text="User ID:" />
-                  <Label fx:id="txtId" style="-fx-text-fill: #0066cc;" text="U-1" />
+                  <Label style="-fx-text-fill: #666666;" text="User ID:" textFill="#f4f2f2" />
+                  <Label fx:id="txtId" style="-fx-background-color: black;" text="U-1" textFill="#f4f2f2" />
                </HBox>
                <HBox spacing="10.0">
-                  <Label style="-fx-text-fill: #666666;" text="Date:" />
-                  <Label fx:id="txtDate" style="-fx-text-fill: #0066cc;" text="2025/03/24" />
+                  <Label style="-fx-text-fill: #666666;" text="Date:" textFill="#f4f2f2" />
+                  <Label fx:id="txtDate" style="-fx-background-color: black;" text="2025/03/24" textFill="#f4f2f2" />
                </HBox>
             </children>
          </HBox>
 
          <!-- Form -->
-         <VBox spacing="15.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 5;">
+         <VBox spacing="15.0" style="-fx-background-color: black; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 5;">
             <padding>
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
                <!-- Email -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="100.0" style="-fx-text-fill: #333333;" text="Email" />
+                  <Label prefWidth="100.0" style="-fx-background-color: black;" text="Email" textFill="WHITE" />
                   <TextField fx:id="TxtEmail" prefHeight="34.0" prefWidth="169.0" promptText="Enter email" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
-                  <Label prefWidth="100.0" style="-fx-text-fill: #333333;" text="UserName" />
+                  <Label prefWidth="100.0" style="-fx-background-color: black;" text="UserName" textFill="WHITE" />
                   <TextField fx:id="TxtUserName" prefHeight="34.0" prefWidth="169.0" promptText="Enter username" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                </HBox>
 
                <!-- Name -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="First Name" />
+                  <Label prefWidth="120.0" style="-fx-background-color: black;" text="First Name" textFill="WHITE" />
                   <TextField fx:id="TxtFirstName" prefHeight="35.0" prefWidth="190.0" promptText="First name" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
-                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Last Name" />
+                  <Label prefWidth="120.0" style="-fx-background-color: black;" text="Last Name" textFill="WHITE" />
                   <TextField fx:id="TxtLastName" prefHeight="35.0" prefWidth="190.0" promptText="Last name" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                </HBox>
 
                <!-- Password -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Password" />
+                  <Label prefWidth="120.0" style="-fx-background-color: black;" text="Password" textFill="#f4f2f2" />
                   <PasswordField fx:id="TxtPassword" prefHeight="35.0" prefWidth="190.0" promptText="Enter password" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
-                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Confirm Password" />
+                  <Label prefWidth="120.0" style="-fx-background-color: black;" text="Confirm Password" textFill="WHITE" />
                   <PasswordField fx:id="TxtReEnterPassword" prefHeight="35.0" prefWidth="190.0" promptText="Confirm password" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                </HBox>
 
                <!-- Role and Buttons -->
                <HBox alignment="CENTER_LEFT" spacing="15.0">
-                  <Label prefWidth="120.0" style="-fx-text-fill: #333333;" text="Role" />
+                  <Label prefWidth="120.0" style="-fx-background-color: black;" text="Role" textFill="WHITE" />
                   <ComboBox fx:id="CmbRole" onAction="#CmbRoleOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Select role" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 4;" />
                   <HBox spacing="10.0">
                      <Button fx:id="BtnAdd" onAction="#BtnAddOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 4;" text="Add" />

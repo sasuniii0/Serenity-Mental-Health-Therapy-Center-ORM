@@ -326,7 +326,7 @@ public class TherapistManageController implements Initializable {
         ColTherapyProgarm.setCellValueFactory(new PropertyValueFactory<>("program"));
         ColProId.setCellValueFactory(new PropertyValueFactory<>("programId"));
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtName.setStyle(defaultStyle);
         TxtAddress.setStyle(defaultStyle);
@@ -361,7 +361,7 @@ public class TherapistManageController implements Initializable {
         CmbTherapyProgram.getSelectionModel().clearSelection();
         CmbTherapyProgram.setValue(null);
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtName.setStyle(defaultStyle);
         TxtAddress.setStyle(defaultStyle);

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,37 +14,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.image.Image?>
 <AnchorPane fx:id="root" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.SignupFormController">
    <children>
       <ImageView fitHeight="650.0" fitWidth="900.0">
          <image>
-            <Image url="@../assets/back.jpg"/>
+            <Image url="@../assets/back.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="108.0" layoutY="64.0" opacity="0.74" prefHeight="519.0" prefWidth="717.0" style="-fx-background-color: #2464D3; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
+      <AnchorPane layoutX="108.0" layoutY="64.0" opacity="0.99" prefHeight="519.0" prefWidth="717.0" style="-fx-background-color: #2464D3; -fx-background-radius: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
          <children>
-            <Pane prefHeight="541.0" prefWidth="415.0" style="-fx-background-color: white; -fx-background-radius: 0 25 25 0;">
+            <Pane prefHeight="541.0" prefWidth="415.0" style="-fx-background-color: black; -fx-background-radius: 0 25 25 0;">
                <children>
-                  <VBox alignment="CENTER" prefHeight="476.0" prefWidth="390.0" spacing="10.0">
+                  <VBox alignment="CENTER" prefHeight="476.0" prefWidth="390.0" spacing="10.0" style="-fx-background-color: black;">
                      <padding>
                         <Insets left="30.0" right="30.0" />
                      </padding>
                      <children>
-                        <Text text="Sign Up" textAlignment="CENTER" wrappingWidth="353.336669921875">
+                        <Text fill="WHITE" style="-fx-font-weight: bold;" text="Sign Up" textAlignment="CENTER" wrappingWidth="353.336669921875">
                            <font>
                               <Font size="33.0" />
                            </font>
                         </Text>
 
-                        <Text opacity="0.7" text="Create your new account" textAlignment="CENTER" wrappingWidth="131.595703125" />
-                        <Text fx:id="id" opacity="0.7" text="U001" textAlignment="CENTER" wrappingWidth="36.73095703125">
+                        <Text fill="WHITE" opacity="0.7" style="-fx-font-weight: bold;" text="Create your new account" textAlignment="CENTER" wrappingWidth="154.795654296875" />
+                        <Text fx:id="id" fill="WHITE" opacity="0.7" text="U001" textAlignment="CENTER" wrappingWidth="36.73095703125">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Text>
 
-                        <TextField fx:id="txtUsername" prefHeight="40.0" prefWidth="354.0" promptText="Username" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
+                        <TextField fx:id="txtUsername" prefHeight="40.0" prefWidth="354.0" promptText="Username" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10; -fx-background-color: white;" />
                         <TextField fx:id="TxtFirstName" prefHeight="40.0" prefWidth="354.0" promptText="FirstName" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
                         <TextField fx:id="TxtLastName" prefHeight="40.0" prefWidth="223.0" promptText="LastName" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #2464D3; -fx-border-width: 1.5; -fx-padding: 10;" />
 
@@ -61,7 +61,7 @@
 
                         <HBox alignment="CENTER" spacing="5.0">
                            <children>
-                              <Text opacity="0.7" text="Already have an account?" />
+                              <Text fill="WHITE" opacity="0.7" text="Already have an account?" />
                               <Text fx:id="lnkLogin" onMouseClicked="#lnkLoginOnAction" style="-fx-fill: #2464D3; -fx-cursor: hand;" text="Login" />
                            </children>
                         </HBox>
@@ -69,9 +69,9 @@
                   </VBox>
                </children>
             </Pane>
-            <Text fill="WHITE" layoutX="456.0" layoutY="256.0" text="Welcome Aboard!" wrappingWidth="192.5367431640625">
+            <Text fontSmoothingType="LCD" layoutX="456.0" layoutY="256.0" text="Welcome Aboard!" wrappingWidth="192.5367431640625">
                <font>
-                  <Font size="26.0" />
+                  <Font size="35.0" />
                </font>
             </Text>
          </children>

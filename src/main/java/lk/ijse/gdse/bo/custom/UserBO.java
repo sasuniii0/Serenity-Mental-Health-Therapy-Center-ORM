@@ -6,6 +6,7 @@ import lk.ijse.gdse.dto.tm.UserTM;
 import lk.ijse.gdse.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserBO extends SuperBO {
     void initializeDefaultUsers();
@@ -30,4 +31,5 @@ public interface UserBO extends SuperBO {
 
     UserTM getAllUsers();
 
+    Map<String, String> getRecentUserLogins();
 }

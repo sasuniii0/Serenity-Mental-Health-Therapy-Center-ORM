@@ -469,7 +469,7 @@ public class SessionController implements Initializable {
 
         TxtDate.setText(LocalDate.now().toString());
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         CmbPatient.setStyle(defaultStyle);
         CmbTherapyPrograms.setStyle(defaultStyle);
@@ -523,7 +523,7 @@ public class SessionController implements Initializable {
         CmbStatus.setValue(null);
         TxtAppoinmentDate.setValue(null);
 
-        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: #3498db; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         TxtDescription.setStyle(defaultStyle);
         TxtAmount.setStyle(defaultStyle);

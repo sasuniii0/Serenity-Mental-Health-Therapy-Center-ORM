@@ -12,33 +12,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.RegistrationController">
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="712.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.RegistrationController">
    <children>
       <VBox layoutX="12.0" layoutY="16.0" prefHeight="626.0" prefWidth="687.0" spacing="10.0">
          <children>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="712.0" spacing="100.0">
+            <HBox alignment="CENTER" prefHeight="73.0" prefWidth="687.0" spacing="100.0">
                <children>
-                  <Button fx:id="BtnViewAll" mnemonicParsing="false" onAction="#BtnViewAllOnAction" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #2196F3;" text="View All" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" textAlignment="CENTER" wrappingWidth="198.93671226501465">
+                  <Button fx:id="BtnViewAll" mnemonicParsing="false" onAction="#BtnViewAllOnAction" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #2196F3;" text="View All" textFill="WHITE" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Registration" textAlignment="CENTER" wrappingWidth="198.93671226501465">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Text>
-                  <Button fx:id="BtnPayment" mnemonicParsing="false" onAction="#BtnPaymentOnAction" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #2196F3;" text="Payment" />
+                  <Button fx:id="BtnPayment" mnemonicParsing="false" onAction="#BtnPaymentOnAction" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #2196F3;" text="Payment" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="BASELINE_CENTER" prefHeight="28.0" prefWidth="542.0">
                <children>
                   <HBox prefHeight="28.0" prefWidth="280.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Id" wrappingWidth="122.13674926757812" />
-                        <Text fx:id="TxtRegId" strokeType="OUTSIDE" strokeWidth="0.0" text="R-001" wrappingWidth="98.93673706054688" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Id" wrappingWidth="122.13674926757812" />
+                        <Text fx:id="TxtRegId" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="R-001" wrappingWidth="98.93673706054688" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="28.0" prefWidth="280.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" textAlignment="RIGHT" wrappingWidth="122.13674926757812" />
-                        <Text fx:id="TextDate" strokeType="OUTSIDE" strokeWidth="0.0" text="2025/03/23" textAlignment="RIGHT" wrappingWidth="98.93673706054688" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" textAlignment="RIGHT" wrappingWidth="122.13674926757812" />
+                        <Text fx:id="TextDate" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2025/03/23" textAlignment="RIGHT" wrappingWidth="98.93673706054688" />
                      </children>
                   </HBox>
                </children>
@@ -46,20 +46,20 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="687.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="102.13671875" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Details" wrappingWidth="102.13671875" />
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="687.0">
                <children>
                   <HBox prefHeight="30.0" prefWidth="296.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient" wrappingWidth="106.13671875" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient" wrappingWidth="106.13671875" />
                         <ComboBox fx:id="CmbPatient" onAction="#CmbPatientOnAction" prefWidth="150.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="296.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id-Name" wrappingWidth="106.13671875" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Id-Name" wrappingWidth="106.13671875" />
                         <TextField fx:id="TxtIdName" prefHeight="26.0" prefWidth="176.0" promptText="example" />
                      </children>
                   </HBox>
@@ -68,7 +68,7 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="687.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Therapy Programs" wrappingWidth="307.7366943359375" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Therapy Programs" wrappingWidth="307.7366943359375" />
                   <HBox prefHeight="26.0" prefWidth="373.0" />
                </children>
             </HBox>
@@ -87,11 +87,11 @@
                      <children>
                         <HBox prefHeight="26.0" prefWidth="315.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program id" wrappingWidth="102.13671875" />
-                              <Text fx:id="TxtProId" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="102.13671875" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Program id" wrappingWidth="102.13671875" />
+                              <Text fx:id="TxtProId" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="102.13671875" />
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Balance" wrappingWidth="170.85625457763672" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Balance" wrappingWidth="170.85625457763672" />
                         <TextField fx:id="TxtBalance" prefHeight="26.0" prefWidth="179.0" promptText="0.0" />
                      </children>
                   </HBox>
@@ -103,17 +103,17 @@
                      <children>
                         <HBox prefHeight="26.0" prefWidth="315.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Program fee" wrappingWidth="102.13671875" />
-                              <Text fx:id="TxtFee" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="102.13671875" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Program fee" wrappingWidth="102.13671875" />
+                              <Text fx:id="TxtFee" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="102.13671875" />
                            </children>
                         </HBox>
                      </children></HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="354.0" spacing="10.0">
                      <children>
-                        <Button fx:id="BtnRegister" mnemonicParsing="false" onAction="#BtnRegisterOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Register" textAlignment="CENTER" />
-                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Update" textAlignment="CENTER" />
-                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Delete" textAlignment="CENTER" />
-                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Reset" textAlignment="CENTER" />
+                        <Button fx:id="BtnRegister" mnemonicParsing="false" onAction="#BtnRegisterOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: orange;" text="Register" textAlignment="CENTER" textFill="WHITE" />
+                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: green;" text="Update" textAlignment="CENTER" textFill="WHITE" />
+                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: red;" text="Delete" textAlignment="CENTER" textFill="WHITE" />
+                        <Button fx:id="BtnReset" mnemonicParsing="false" onAction="#BtnResetOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: purple;" text="Reset" textAlignment="CENTER" textFill="WHITE" />
                      </children>
                   </HBox>
                </children>

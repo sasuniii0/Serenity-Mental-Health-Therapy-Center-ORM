@@ -110,18 +110,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void BtnHomeOnAction(ActionEvent event) {
-        Parent rootNode = null;
-        try {
-            rootNode = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/dashboard_form.fxml")));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-
-        stage.setScene(new Scene(rootNode));
-        stage.setTitle("Dashboard");
-        stage.centerOnScreen();
+        navigateTo("/view/AdminSidePane.fxml");
     }
 
     @FXML
